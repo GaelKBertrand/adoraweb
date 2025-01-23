@@ -659,59 +659,90 @@ window.$bnbFormsBookingWidget || (
 </script>
 
 <script type="text/javascript">
-window.$bnbFormsBookingWidget || (
-    function(d,s){
-        window.$bnbBookingWidgetConfig = {
-            uid: "custom", // You can keep this identifier unique
-            src: "https://creatorapp.zohopublic.in/contact_mimperio/hotel-management/form-embed/Public_Reservation/079k2p6gVPkZy5qXjrxQtV3U1XVAsx85hZF8nKVwbk65u13rZekzQvMrQV4AxZ7eX1A5CE79JGVaP3AeRtCH3RBQxKk0MbytXSUV", // Replace with your form URL
-            lang: "en_US",
-            button: {
-                bgColor: "#1F4ACE", // Button background color
-                text: "Book Now",   // Button text
-                position: "top-center", // Position of the button
-                tOffset: "100px",  // Offset from the top
-                className: "center-button"
-            }
-        };
-
-        // Create and append the iframe directly
-        var iframe = d.createElement('iframe');
-        iframe.height = '500px';
-        iframe.width = '100%';
-        iframe.frameBorder = '0';
-        iframe.allowTransparency = 'true';
-        iframe.scrolling = 'auto';
-        iframe.src = window.$bnbBookingWidgetConfig.src;
-
-        // Append iframe when the button is clicked
-        var button = d.createElement('button');
-        button.innerHTML = window.$bnbBookingWidgetConfig.button.text;
-        button.style.backgroundColor = window.$bnbBookingWidgetConfig.button.bgColor;
-        button.style.position = 'absolute';
-        button.style.top = '50%';
-        button.style.left = '50%';
-        button.style.transform = 'translate(-50%, -50%)';
-        button.className = window.$bnbBookingWidgetConfig.button.className;
-
-        button.onclick = function() {
-            d.body.appendChild(iframe);
-        };
-
-        d.body.appendChild(button);
-
-        // Optional CSS for additional styling
-        var css = ".center-button { cursor: pointer; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; color: white; }",
-        head = d.getElementsByTagName('head')[0],
-        style = d.createElement('style');
-        style.type = 'text/css';
-        if (style.styleSheet) {
-            style.styleSheet.cssText = css;
-        } else {
-            style.appendChild(d.createTextNode(css));
+(function(d) {
+    // Configuration for the booking button and form
+    var bookingConfig = {
+        button: {
+            text: "Book Now",               // Button text
+            bgColor: "#1F4ACE",            // Button background color
+            textColor: "#FFFFFF",          // Button text color
+            position: "top-center",        // Position of the button
+            offsetTop: "100px",            // Offset from the top
+            className: "booking-button"    // CSS class for the button
+        },
+        iframe: {
+            src: "https://creatorapp.zohopublic.in/contact_mimperio/hotel-management/form-embed/Public_Reservation/079k2p6gVPkZy5qXjrxQtV3U1XVAsx85hZF8nKVwbk65u13rZekzQvMrQV4AxZ7eX1A5CE79JGVaP3AeRtCH3RBQxKk0MbytXSUV", // Your Zoho form URL
+            height: "500px",              // Iframe height
+            width: "100%",                // Iframe width
+            allowTransparency: true,      // Allow transparency for iframe
+            scrolling: "auto"             // Enable scrolling in iframe
         }
-        head.appendChild(style);
-    }
-)(document,"script");
+    };
+
+    // Create and style the booking button
+    var button = d.createElement('button');
+    button.innerHTML = bookingConfig.button.text;
+    button.style.backgroundColor = bookingConfig.button.bgColor;
+    button.style.color = bookingConfig.button.textColor;
+    button.style.position = "fixed";         // Fixed positioning for the button
+    button.style.top = bookingConfig.button.offsetTop;
+    button.style.left = "50%";
+    button.style.transform = "translateX(-50%)";
+    button.style.padding = "10px 20px";
+    button.style.border = "none";
+    button.style.borderRadius = "5px";
+    button.style.cursor = "pointer";
+    button.style.zIndex = "1000";           // Ensure button appears above other elements
+    button.className = bookingConfig.button.className;
+
+    // Append the button to the document
+    d.body.appendChild(button);
+
+    // Event listener for the button click
+    button.addEventListener('click', function() {
+        // Check if the iframe is already added
+        if (!d.getElementById('booking-form-iframe')) {
+            // Create and style the iframe
+            var iframe = d.createElement('iframe');
+            iframe.src = bookingConfig.iframe.src;
+            iframe.style.position = "fixed";
+            iframe.style.top = "50%";
+            iframe.style.left = "50%";
+            iframe.style.transform = "translate(-50%, -50%)";
+            iframe.style.height = bookingConfig.iframe.height;
+            iframe.style.width = bookingConfig.iframe.width;
+            iframe.style.border = "none";
+            iframe.style.zIndex = "1000";
+            iframe.id = "booking-form-iframe";
+
+            // Add a close button
+            var closeButton = d.createElement('button');
+            closeButton.innerHTML = "Close";
+            closeButton.style.position = "fixed";
+            closeButton.style.top = "10px";
+            closeButton.style.right = "10px";
+            closeButton.style.backgroundColor = "#FF0000";
+            closeButton.style.color = "#FFFFFF";
+            closeButton.style.border = "none";
+            closeButton.style.borderRadius = "5px";
+            closeButton.style.padding = "5px 10px";
+            closeButton.style.cursor = "pointer";
+            closeButton.style.zIndex = "1001";
+
+            // Close iframe when close button is clicked
+            closeButton.addEventListener('click', function() {
+                d.body.removeChild(iframe);
+                d.body.removeChild(closeButton);
+            });
+
+            // Append the iframe and close button to the document
+            d.body.appendChild(iframe);
+            d.body.appendChild(closeButton);
+        }
+    });
+})(document);
 </script>
+
+
 
 </html>
