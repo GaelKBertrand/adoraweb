@@ -658,5 +658,60 @@ window.$bnbFormsBookingWidget || (
 )(document,"script");
 </script>
 
+<script type="text/javascript">
+window.$bnbFormsBookingWidget || (
+    function(d,s){
+        window.$bnbBookingWidgetConfig = {
+            uid: "custom", // You can keep this identifier unique
+            src: "https://creatorapp.zohopublic.in/contact_mimperio/hotel-management/form-embed/Public_Reservation/079k2p6gVPkZy5qXjrxQtV3U1XVAsx85hZF8nKVwbk65u13rZekzQvMrQV4AxZ7eX1A5CE79JGVaP3AeRtCH3RBQxKk0MbytXSUV", // Replace with your form URL
+            lang: "en_US",
+            button: {
+                bgColor: "#1F4ACE", // Button background color
+                text: "Book Now",   // Button text
+                position: "top-center", // Position of the button
+                tOffset: "100px",  // Offset from the top
+                className: "center-button"
+            }
+        };
+
+        // Create and append the iframe directly
+        var iframe = d.createElement('iframe');
+        iframe.height = '500px';
+        iframe.width = '100%';
+        iframe.frameBorder = '0';
+        iframe.allowTransparency = 'true';
+        iframe.scrolling = 'auto';
+        iframe.src = window.$bnbBookingWidgetConfig.src;
+
+        // Append iframe when the button is clicked
+        var button = d.createElement('button');
+        button.innerHTML = window.$bnbBookingWidgetConfig.button.text;
+        button.style.backgroundColor = window.$bnbBookingWidgetConfig.button.bgColor;
+        button.style.position = 'absolute';
+        button.style.top = '50%';
+        button.style.left = '50%';
+        button.style.transform = 'translate(-50%, -50%)';
+        button.className = window.$bnbBookingWidgetConfig.button.className;
+
+        button.onclick = function() {
+            d.body.appendChild(iframe);
+        };
+
+        d.body.appendChild(button);
+
+        // Optional CSS for additional styling
+        var css = ".center-button { cursor: pointer; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; color: white; }",
+        head = d.getElementsByTagName('head')[0],
+        style = d.createElement('style');
+        style.type = 'text/css';
+        if (style.styleSheet) {
+            style.styleSheet.cssText = css;
+        } else {
+            style.appendChild(d.createTextNode(css));
+        }
+        head.appendChild(style);
+    }
+)(document,"script");
+</script>
 
 </html>
