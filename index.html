@@ -619,44 +619,6 @@ window.$bnbFormsBookingWidget || (
 )(document,"script");
 </script>
 -->
-<script type="text/javascript">
-window.$bnbFormsBookingWidget || (
-    function(d,s){
-        window.$bnbBookingWidgetConfig = {
-            uid:"2640",
-            src:"https://bnbforms.com/102640",
-            lang:"en_US",
-            button:{
-                bgColor:"#1F4ACE",
-                text:"Book Now",
-                position:"top-center",
-                tOffset:"100px",
-                className: "center-button"
-            }
-        };
-        var src = "https://cdn.bnbforms.com/v1/main.js";
-        var $=d.createElement(s),
-        e=d.getElementsByTagName(s)[0];
-        $.async=true;
-        $.setAttribute("charset","utf-8");
-        $.src=src;
-        $.type="text/javascript";
-        e.parentNode.insertBefore($,e);
-
-        // Inject CSS to center the button
-        var css = ".center-button {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}",
-        head = d.getElementsByTagName('head')[0],
-        style = d.createElement('style');
-        style.type = 'text/css';
-        if (style.styleSheet){
-            style.styleSheet.cssText = css;
-        } else {
-            style.appendChild(d.createTextNode(css));
-        }
-        head.appendChild(style);
-    }
-)(document,"script");
-</script>
 
 <script type="text/javascript">
 (function(d) {
