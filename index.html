@@ -161,42 +161,70 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="#" class="room">
-              <figure class="img-wrap">
-                <img src="images/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2>Swiss Cottage</h2>
-                <span class="text-uppercase letter-spacing-1">3000 Rs / per night</span>
-              </div>
-            </a>
-          </div>
+          <!-- Swiss Cottage -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <div class="room">
+                    <figure class="img-wrap">
+                        <img src="images/img_1.jpg" alt="Swiss Cottage" class="img-fluid mb-3">
+                    </figure>
+                    <div class="p-3 text-center room-info">
+                        <h2>Swiss Cottage</h2>
+                        <span class="text-uppercase letter-spacing-1">3000 Rs / per night</span><br>
+                        <button class="btn btn-primary mt-2" onclick="openBookingForm()">Book Now</button>
+                    </div>
+                </div>
+            </div>
 
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="#" class="room">
-              <figure class="img-wrap">
-                <img src="images/img_2.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2>Juniper House</h2>
-                <span class="text-uppercase letter-spacing-1"> 8000rs/ per night</span>
-              </div>
-            </a>
-          </div>
+          <!-- Juniper House -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <div class="room">
+                    <figure class="img-wrap">
+                        <img src="images/img_2.jpg" alt="Juniper House" class="img-fluid mb-3">
+                    </figure>
+                    <div class="p-3 text-center room-info">
+                        <h2>Juniper House</h2>
+                        <span class="text-uppercase letter-spacing-1">8000 Rs / per night</span><br>
+                        <button class="btn btn-primary mt-2" onclick="openBookingForm()">Book Now</button>
+                    </div>
+                </div>
+            </div>
 
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="#" class="room">
-              <figure class="img-wrap">
-                <img src="images/img_3.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2>Orchard ArtHouse</h2>
-                <span class="text-uppercase letter-spacing-1">20000 rs / per night</span>
-              </div>
-            </a>
-          </div>
+          <!-- Orchard ArtHouse -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <div class="room">
+                    <figure class="img-wrap">
+                        <img src="images/img_3.jpg" alt="Orchard ArtHouse" class="img-fluid mb-3">
+                    </figure>
+                    <div class="p-3 text-center room-info">
+                        <h2>Orchard ArtHouse</h2>
+                        <span class="text-uppercase letter-spacing-1">20000 Rs / per night</span><br>
+                        <button class="btn btn-primary mt-2" onclick="openBookingForm()">Book Now</button>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <div class="room">
+                  <figure class="img-wrap">
+                    <img src="images/img_3.jpg" alt="Amaira Hotel" class="img-fluid mb-3">
+                  </figure>
+              <div class="p-3 text-center room-info">
+                <h2>Amaira Hotele</h2>
+                <span class="text-uppercase letter-spacing-1">20000 rs / per night</span><br>
+                <button class="btn btn-primary mt-2" onclick="openBookingForm()">Book Now</button>
+              </div>
+            </div>
+        </div>
+            
+<!-- Booking Form Modal -->
+<div id="booking-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 9999;">
+    <div style="background: #fff; width: 50%; margin: 5% auto; padding: 20px; border-radius: 8px; position: relative;">
+        <span onclick="closeBookingForm()" style="position: absolute; top: 10px; right: 20px; cursor: pointer; font-size: 20px;">&times;</span>
+        <div id="booking-form">
+            <!-- Booking form will be inserted here -->
+        </div>
+    </div>
+</div>
 
         </div>
       </div>
@@ -693,6 +721,23 @@ window.$bnbFormsBookingWidget || (
         }
     });
 })(document);
+</script>
+
+
+<!-- JavaScript to Handle Booking Form -->
+<script>
+    function openBookingForm() {
+        var formURL = "https://creatorapp.zohopublic.in/adorahospitalitysolutions/hotel-management/form-perma/Public_Reservation/qEM56H4ujdVedrrJWTMxBMF4fT878rXTqgaAdNQ3AJmwEhsPqPE7XBMZh1Cqr6tDahEN9qkHMjF96aKy9AfS5z2GS3ZxHDmf5Z3M";
+
+        document.getElementById('booking-form').innerHTML = `
+            <iframe src="${formURL}" width="100%" height="500px" frameborder="0"></iframe>
+        `;
+        document.getElementById('booking-modal').style.display = "block";
+    }
+
+    function closeBookingForm() {
+        document.getElementById('booking-modal').style.display = "none";
+    }
 </script>
 
 
