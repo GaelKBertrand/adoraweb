@@ -111,7 +111,7 @@ ul {
     top: 0;
     left: 0;
     z-index: -1;
-    background-color: rgba(14, 39, 55, 0.7); }
+    background-color: rgba(78, 50, 168, 0.7); }
 
 .bg-img {
   background-position: center center !important;
@@ -141,13 +141,13 @@ ul {
   position: fixed;
   top: 20px;
   width: 30px;
-  background: #1cc3b2;
+  background: #4e32a8;
   height: 30px;
   line-height: 30px; }
 
 button.mfp-close,
 button.mfp-arrow {
-  background: #1cc3b2; }
+  background: #4e32a8; }
 
 .mfp-bottom-bar {
   display: none !important; }
@@ -166,7 +166,7 @@ input:focus {
   outline: none; }
 
 .border {
-  border-color: #ebebeb; }
+  border-color: #4e32a8; }
 
 .mfp-arrow-left::after {
   border-right-color: transparent; }
