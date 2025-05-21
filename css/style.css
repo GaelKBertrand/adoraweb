@@ -2041,6 +2041,7 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   height: auto;
   object-fit: contain;
   display: block;
+  margin-right: auto; /* pushes other items away */
 }
 
 .loader {
