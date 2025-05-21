@@ -2042,3 +2042,14 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   object-fit: contain;
   display: block;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height */
+  background-color: white; /* Optional background */
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
