@@ -815,6 +815,10 @@ a, a:hover {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures separation */
+  min-height: 80px;
 }
 
 .sticky-wrapper .untree_co--site-nav .container {
@@ -822,8 +826,12 @@ a, a:hover {
 }
 
 .sticky-wrapper .untree_co--site-nav .logo-wrap {
-  position: absolute;
-  left: 0;
+  position: relative; /* Change from absolute */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 15px;
+  width: 200px; /* Adjust width based on menu layout */
 }
 
 @media (max-width: 767.98px) {
@@ -848,10 +856,9 @@ a, a:hover {
 }
 
 .sticky-wrapper .untree_co--site-nav .site-nav-ul-wrap {
-  width: 100%;
-  margin: 0 auto;
-  z-index: 1;
-  position: relative;
+
+  flex-grow: 1;
+  padding-left: 20px; /* Creates separation */
 }
 
 .sticky-wrapper .untree_co--site-nav .untree_co--site-logo {
@@ -2041,7 +2048,8 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   height: auto;
   object-fit: contain;
   display: block;
-  margin-right: auto; /* pushes other items away */
+  margin: 0 auto; /* pushes other items away */
+  padding: 5px; /* Adds spacing */
 }
 
 .loader {
