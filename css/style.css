@@ -2036,7 +2036,7 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 }
 
 .logo-img {
-  max-height: 85px;     /* Adjust this size as needed */
+  max-height: 200px;     /* Adjust this size as needed */
   width: auto;
   height: auto;
   object-fit: contain;
