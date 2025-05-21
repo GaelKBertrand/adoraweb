@@ -852,6 +852,7 @@ a, a:hover {
   margin: 0 auto;
   z-index: 1;
   position: relative;
+  padding-left: 40px; /* Space between logo and menus */
 }
 
 .sticky-wrapper .untree_co--site-nav .untree_co--site-logo {
@@ -2036,13 +2037,11 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 }
 
 .logo-img {
-    max-height: 150px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-    padding: 5px; /* Adds spacing */
+  max-height: 150px;     /* Adjust this size as needed */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .loader {
