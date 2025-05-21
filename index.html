@@ -26,9 +26,10 @@
   <body>
 
     <div id="untree_co--overlayer"></div>
-        <div class="loader">
-        <img src="images/loader.gif" alt="Loading Himalayan Luxury Properties..." />
+    <div class="loader" id="custom-loader">
+      <img src="images/loader.gif" alt="Loading Himalayan Luxury Properties..." />
     </div>
+
 
     <nav class="untree_co--site-mobile-menu">
       <div class="close-wrap d-flex">
@@ -550,5 +551,18 @@
 
 
     <script src="js/main.js"></script>
+    <!--Loader Image-->
+    <script>
+      // Hide loader after 3 seconds
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const loader = document.getElementById("custom-loader");
+          if (loader) {
+            loader.style.display = "none";
+          }
+        }, 3000); // 3000ms = 3 seconds
+      });
+    </script>
+
   </body>
 </html>
