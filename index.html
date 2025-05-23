@@ -44,10 +44,96 @@
       <div class="site-mobile-inner"></div>
     </nav>
 
+
     <div class="untree_co--site-wrap">
 
-    <!-- Include header.html -->
-    <div id="header-container"></div>
+      <nav class="untree_co--site-nav js-sticky-nav">
+        <div class="container d-flex align-items-center">
+            <div class="logo-wrap">
+              <a href="index.html" class="untree_co--site-logo">
+                <img src="images/logoi9.png" alt="Adora Hospitality Solutions" class="logo-img">
+              </a>
+            </div>
+
+          <div class="site-nav-ul-wrap text-center d-none d-lg-block">
+            <ul class="site-nav-ul js-clone-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li class="has-children">
+                <a href="#">View Properties & Rooms</a>
+                <ul class="dropdown">
+                  <li class="has-children">
+                    <a href="rooms.html">View Rooms Types</a>
+                  </li>
+                  <li class="has-children">
+                    <a href="#">Hotels in Old Manali</a>
+                    <ul class="dropdown">
+                      <li>
+                        <a href="#">Starway Homes</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="has-children">
+                    <a href="#">Hotels in Simsa</a>
+                    <ul class="dropdown">
+                      <li>
+                        <a href="#">Swiss Cottage</a>
+                      </li>
+                      <li>
+                        <a href="#">Amaira</a>
+                      </li>
+                      </ul>
+                  </li>
+                  <li class="has-children">
+                    <a href="#">Hotels in Prini</a>
+                    <ul class="dropdown">
+                      <li>
+                        <a href="#">Juniper House</a>
+                      </li>
+                      <li>
+                        <a href="#">Terra & Glen</a>
+                      </li>
+                      </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="amenities.html">Facilities & Amenities</a></li>
+              <li><a href="gallery.html">Look Inside</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <!--<li><a href="https://insider.adorahospitality.com">Updates</a></li>-->
+              <li><a href="contact.html">Contact Us</a></li>
+              <li>
+                  <a href="booking-app/index.html" class="booking-button">Book & Reserve</a>
+              </li>
+            </ul>
+          </div>
+          <div class="icons-wrap text-md-right">
+
+            <ul class="icons-top d-none d-lg-block">
+              <!--
+              <li class="mr-4">
+                <a href="#" class="js-search-toggle"><span class="icon-search2"></span></a>
+              </li>
+              -->
+              <li>
+                <a href="https://facebook.com/adorahospitality"><span class="icon-facebook"></span></a>
+              </li>
+              <!--
+              <li>
+                <a href="#"><span class="icon-twitter"></span></a>
+              </li>
+              -->
+              <li>
+                <a href="https://www.instagram.com/adorahospitality/"><span class="icon-instagram"></span></a>
+              </li>
+            </ul>
+
+            <!-- Mobile Toggle -->
+            <a href="#" class="d-block d-lg-none burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
+              <span></span>
+            </a>
+          </div>
+        </div>
+      </nav>
 
       <div class="untree_co--site-main">
         
@@ -320,10 +406,92 @@
 
 
       </div>
+      <footer class="untree_co--site-footer">
 
-      <!-- Include footer.html -->
-      <div id="footer-container"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 pr-md-5">
+              <h3>About Us</h3>
+              <p>Adora Hospitality offers tailored stays in the heart of the Himalayas, where comfort meets breathtaking natural surroundings. Our properties combine modern amenities with personalized service, ensuring every guest enjoys a seamless and memorable experience in the mountains.</p>
+              <p><a href="https://insider.adorahospitality.com/" class="readmore">Read more</a></p>
+            </div>
+            <div class="col-md-8 ml-auto">
+              <div class="row">
+                <div class="col-md-3">
+                  <h3>Navigation</h3>
+                  <ul class="list-unstyled">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">View Properties & Rooms</a></li>
+                    <li><a href="amenities.html">Facilities & Amenities</a></li>
+                    <li><a href="gallery.html">Look Inside</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li>
+                        <a href="booking-app/index.html" class="booking-button">Make Reservation Now</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-9 ml-auto">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <h3>Address</h3>
+                      <address>Manali, Old Manali, Manu Temple Road<br>Himachal Pradesh,175131</address>
+                    </div>
+                    <div class="col-md-6">
+                      <h3>Telephone</h3>
+                      <p>
+                        <a href="tel://+917807111209">+91 7807111209</a> <br>
+                        <a href="tel://+917017192404">+91 7017192404</a>
+                      </p>
+                    </div>
+                  </div>
 
+                  <h3 class="mb-0">Join our newsletter</h3>
+                  <p>Be the first to know our latest updates and news!</p>
+                  <form action="#" method="" class="form-subscribe">
+                    <div class="form-group d-flex">
+                      <input type="email" class="form-control mr-2" placeholder="Enter your email">
+                      <input type="submit" value="Subscribe" class="btn btn-black px-4 text-white">
+                    </div>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5 pt-5 align-items-center">
+            <div class="col-md-6 text-md-left">
+              <!-- Link back to Untree.co can't be removed. Template is licensed under CC BY 3.0. If you purchased a license you can remove this. -->
+              <p>
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> <a href="index.html">Adora Hospitality Solutions</a>.
+              </p>
+            <!-- Link back to Untree.co can't be removed. Template is licensed under CC BY 3.0. If you purchased a license you can remove this. -->
+            </div>
+            <div class="col-md-6 text-md-right">
+              <ul class="icons-top icons-dark">
+              <li>
+                <a href="https://facebook.com/adorahospitality"><span class="icon-facebook"></span></a>
+              </li>
+                <!--
+              <li>
+                <a href="#"><span class="icon-twitter"></span></a>
+              </li>
+              <li>
+              -->
+                <a href="https://www.instagram.com/adorahospitality/"><span class="icon-instagram"></span></a>
+              </li>
+                <!--
+              <li>
+                <a href="#"><span class="icon-tripadvisor"></span></a>
+              </li>
+              -->
+            </ul>
+
+            </div>
+          </div>
+        </div>
+
+      </footer>
     </div>
 
     <!-- Search -->
@@ -381,6 +549,9 @@
     <script src="js/vendor/ScrollMagic.min.js"></script>
     <script src="js/vendor/scrollmagic.animation.gsap.min.js"></script>
     <script src="js/vendor/debug.addIndicators.min.js"></script>
+
+
+    <script src="js/main.js"></script>
     <!--Loader Image-->
     <script>
       // Hide loader after 3 seconds
@@ -393,16 +564,6 @@
         }, 6000); // 3000ms = 3 seconds
       });
     </script>
-    <script>
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('header-container').innerHTML = data);
-    </script>
-    <script>
-          fetch('footer.html')
-              .then(response => response.text())
-              .then(data => document.getElementById('footer-container').innerHTML = data);
-      </script>
-    <script src="js/main.js"></script>
+
   </body>
 </html>
