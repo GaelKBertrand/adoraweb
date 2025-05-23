@@ -422,36 +422,33 @@
 
     <div id="ww_1d92e8f9c64bd" v='1.3' loc='id' a='{"t":"responsive","lang":"en","sl_lpl":1,"ids":["wl389"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'><a href="https://weatherwidget.org/" id="ww_1d92e8f9c64bd_u" target="_blank">Weather widget for website</a></div><script async src="https://app3.weatherwidget.org/js/?id=ww_1d92e8f9c64bd"></script>
 
-    <script src="js/vendor/jquery-3.3.1.min.js"></script>
-    <script src="js/vendor/popper.min.js"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
+      <!-- — your weather widget, other page content… — -->
 
-    <script src="js/vendor/owl.carousel.min.js"></script>
+  <!-- 1) only one jQuery, first! -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script src="js/vendor/jarallax.min.js"></script>
-    <script src="js/vendor/jarallax-element.min.js"></script>
-    <script sr c="js/vendor/ofi.min.js"></script>
+  <!-- 2) pull in header & footer now that $ is available -->
+  <script>
+    $(function(){
+      $("#site-header").load("header.html");
+      $("#site-footer").load("footer.html");
+    });
+  </script>
 
-    <script src="js/vendor/aos.js"></script>
+  <!-- 3) then your vendor scripts and main.js -->
+  <script src="js/vendor/popper.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/owl.carousel.min.js"></script>
+  <script src="js/vendor/jarallax.min.js"></script>
+  <script src="js/vendor/jarallax-element.min.js"></script>
+  <script src="js/vendor/ofi.min.js"></script>               <!-- fixed -->
+  <script src="js/vendor/aos.js"></script>
+  <script src="js/vendor/jquery.lettering.js"></script>
+  <script src="js/vendor/jquery.sticky.js"></script>
+  <script src="js/vendor/TweenMax.min.js"></script>
+  <script src="js/vendor/ScrollMagic.min.js"></script>
+  <script src="js/vendor/scrollmagic.animation.gsap.min.js"></script>
+  <script src="js/vendor/debug.addIndicators.min.js"></script>
 
-    <script src="js/vendor/jquery.lettering.js"></script>
-    <script src="js/vendor/jquery.sticky.js"></script>
-
-    <script src="js/vendor/TweenMax.min.js"></script>
-    <script src="js/vendor/ScrollMagic.min.js"></script>
-    <script src="js/vendor/scrollmagic.animation.gsap.min.js"></script>
-    <script src="js/vendor/debug.addIndicators.min.js"></script>
-
-    <script src="js/main.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      // once the DOM is ready, pull in header.html → #site-header
-      // and footer.html → #site-footer, without touching their inner markup
-      $(function(){
-        $("#site-header").load("header.html");
-       // $("#site-footer").load("footer.html");
-      });
-    </script>
-
-  </body>
+  <script src="js/main.js"></script>
+</body>
