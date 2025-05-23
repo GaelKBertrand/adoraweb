@@ -48,11 +48,6 @@
 
     <!-- Include header.html -->
     <div id="header-container"></div>
-    <script>
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('header-container').innerHTML = data);
-    </script>
 
       <div class="untree_co--site-main">
         
@@ -328,11 +323,6 @@
 
       <!-- Include footer.html -->
       <div id="footer-container"></div>
-      <script>
-          fetch('footer.html')
-              .then(response => response.text())
-              .then(data => document.getElementById('footer-container').innerHTML = data);
-      </script>
 
     </div>
 
@@ -391,9 +381,6 @@
     <script src="js/vendor/ScrollMagic.min.js"></script>
     <script src="js/vendor/scrollmagic.animation.gsap.min.js"></script>
     <script src="js/vendor/debug.addIndicators.min.js"></script>
-
-
-    <script src="js/main.js"></script>
     <!--Loader Image-->
     <script>
       // Hide loader after 3 seconds
@@ -406,6 +393,16 @@
         }, 6000); // 3000ms = 3 seconds
       });
     </script>
-
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-container').innerHTML = data);
+    </script>
+    <script>
+          fetch('footer.html')
+              .then(response => response.text())
+              .then(data => document.getElementById('footer-container').innerHTML = data);
+      </script>
+    <script src="js/main.js"></script>
   </body>
 </html>
