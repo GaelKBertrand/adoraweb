@@ -2036,6 +2036,7 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   display: inline-block;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0; /* Prevent the button from shrinking */
 }
 
 .booking-button {
@@ -2067,11 +2068,13 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 }
 
 
-.site-nav-ul-button-wrap {
+.site-nav-ul {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 15px; /* space between menu and button */
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .site-nav-button-wrap {
