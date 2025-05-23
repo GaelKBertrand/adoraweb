@@ -850,10 +850,11 @@ a, a:hover {
 .sticky-wrapper .untree_co--site-nav .site-nav-ul-wrap {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 15px;
-  margin: 0 120px;
-  width: auto;
+  flex-wrap: wrap; /* Allow it to adapt */
+  width: 100%;
+  margin: 0 auto;
   padding-left: 0;
 }
 
@@ -2072,5 +2073,10 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   justify-content: center;
   gap: 15px; /* space between menu and button */
 }
+
+.site-nav-button-wrap {
+  margin-left: auto;
+}
+
 
 
