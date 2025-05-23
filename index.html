@@ -288,21 +288,27 @@
     <script src="js/main.js"></script>
 
     <script>
+      function loadExternalHTML(id, file) {
+        return fetch(file)
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById(id).innerHTML = html;
+          });
+      }
+
       window.addEventListener('DOMContentLoaded', function () {
         Promise.all([
-          fetch('header.html').then(res => res.text()).then(html => {
-            document.getElementById('header-container').innerHTML = html;
-          }),
-          fetch('footer.html').then(res => res.text()).then(html => {
-            document.getElementById('footer-container').innerHTML = html;
-          })
+          loadExternalHTML('header-container', 'header.html'),
+          loadExternalHTML('footer-container', 'footer.html')
         ]).then(() => {
-          // Re-run necessary initializations
+          // Re-initialize after header/footer are in place
           if (typeof AOS !== 'undefined') AOS.init();
+
           if (typeof jQuery !== 'undefined') {
             jQuery('.js-clone-nav').each(function () {
               jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
             });
+
             jQuery('.js-menu-toggle').click(function (e) {
               e.preventDefault();
               if (jQuery('body').hasClass('offcanvas-menu')) {
@@ -313,10 +319,14 @@
             });
           }
 
-          // If main.js or any sticky/init scripts need re-triggering, do it here
+          // If your main.js depends on header/footer, reload it
+          const mainScript = document.createElement('script');
+          mainScript.src = 'js/main.js';
+          document.body.appendChild(mainScript);
         });
       });
     </script>
+
 
   </body>
 </html>
