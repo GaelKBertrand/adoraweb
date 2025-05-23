@@ -848,11 +848,11 @@ a, a:hover {
 }
 
 .sticky-wrapper .untree_co--site-nav .site-nav-ul-wrap {
-  width: 100%;
-  margin: 0 auto;
-  z-index: 1;
   position: relative;
-  padding-left: 40px; /* Space between logo and menus */
+  margin: 0 120px; /* leave space for logo and icons */
+  padding-left: 0; /* remove padding */
+  width: auto; /* remove 100% */
+  text-align: center; /* keep centered text */
 }
 
 .sticky-wrapper .untree_co--site-nav .untree_co--site-logo {
