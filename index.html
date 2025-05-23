@@ -289,14 +289,34 @@
 
     <script>
       window.addEventListener('DOMContentLoaded', function () {
-        fetch('header.html')
-          .then(response => response.text())
-          .then(data => document.getElementById('header-container').innerHTML = data);
+        Promise.all([
+          fetch('header.html').then(res => res.text()).then(html => {
+            document.getElementById('header-container').innerHTML = html;
+          }),
+          fetch('footer.html').then(res => res.text()).then(html => {
+            document.getElementById('footer-container').innerHTML = html;
+          })
+        ]).then(() => {
+          // Re-run necessary initializations
+          if (typeof AOS !== 'undefined') AOS.init();
+          if (typeof jQuery !== 'undefined') {
+            jQuery('.js-clone-nav').each(function () {
+              jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
+            });
+            jQuery('.js-menu-toggle').click(function (e) {
+              e.preventDefault();
+              if (jQuery('body').hasClass('offcanvas-menu')) {
+                jQuery('body').removeClass('offcanvas-menu');
+              } else {
+                jQuery('body').addClass('offcanvas-menu');
+              }
+            });
+          }
 
-        fetch('footer.html')
-          .then(response => response.text())
-          .then(data => document.getElementById('footer-container').innerHTML = data);
+          // If main.js or any sticky/init scripts need re-triggering, do it here
+        });
       });
     </script>
+
   </body>
 </html>
