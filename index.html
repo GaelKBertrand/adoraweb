@@ -344,10 +344,13 @@
  <!-- 1) only one jQuery, first! -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- 2) pull in header & footer together -->
+    <!-- 2) pull in header & footer, then remove the loader immediately -->
   <script>
     $(function(){
-      $("#site-header").load("header.html");
+      $("#site-header").load("header.html", function(){
+        // header is now in the DOM → hide the overlayer & spinner
+        $("#untree_co--overlayer, .loader").remove();
+      });
       $("#site-footer").load("footer.html");
     });
   </script>
