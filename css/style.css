@@ -2054,3 +2054,17 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   width: 59%;
   z-index: 9999;
 }
+
+@media (max-width: 992px) {
+  .untree_co--site-nav .container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .site-nav-ul-wrap,
+  .icons-wrap {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
