@@ -848,11 +848,13 @@ a, a:hover {
 }
 
 .sticky-wrapper .untree_co--site-nav .site-nav-ul-wrap {
-  position: relative;
-  margin: 0 120px; /* leave space for logo and icons */
-  padding-left: 0; /* remove padding */
-  width: auto; /* remove 100% */
-  text-align: center; /* keep centered text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 0 120px;
+  width: auto;
+  padding-left: 0;
 }
 
 .sticky-wrapper .untree_co--site-nav .untree_co--site-logo {
@@ -863,6 +865,8 @@ a, a:hover {
 
 .sticky-wrapper .untree_co--site-nav .site-nav-ul {
   text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .sticky-wrapper .untree_co--site-nav .site-nav-ul, .sticky-wrapper .untree_co--site-nav .site-nav-ul > li {
@@ -2029,8 +2033,14 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   padding: 10px 22px;
   transition: all 0.3s ease;
   display: inline-block;
-  cursor: pointer
+  cursor: pointer;
+  white-space: nowrap;
 }
+
+.booking-button {
+  display: inline-block;
+}
+
 .booking-button:hover {
   color: #2d63c8;
   background-color: #ffffff;
@@ -2061,12 +2071,6 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   align-items: center;
   justify-content: center;
   gap: 15px; /* space between menu and button */
-}
-
-.booking-button {
-  white-space: nowrap;
-  padding: 10px 18px;
-  display: inline-block;
 }
 
 
