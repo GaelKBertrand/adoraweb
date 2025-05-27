@@ -2051,3 +2051,46 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 .icons-wrap {
   margin-left: 20px;              /* space after the menu */
 }
+
+/* ───────────────────────────────────────────────────────
+   LOGO ON LEFT + BOOKING BUTTON
+──────────────────────────────────────────────────────────*/
+
+/* 1) Tuck the logo into the left, and cap its size */
+.logo-wrap {
+  padding-left: 20px;        /* pad from the window/container edge */
+  margin-right: 40px;        /* space between logo and menu */
+}
+.logo-wrap .site-logo {
+  max-height: 40px;          /* shrink a bit so it never intrudes */
+}
+
+/* 2) Ensure menu still flexes between logo and icons */
+.site-nav-ul-wrap {
+  flex: 1;                   /* unchanged */
+}
+
+/* 3) Add your Book Now button in the icons area */
+.icons-wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;                 /* space between icons and button */
+  margin-right: 20px;        /* pad before the window edge */
+}
+
+/* 4) Style for the booking button */
+.icons-wrap .booking-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: #dca52e; /* choose your accent color */
+  color: #fff;
+  white-space: nowrap;
+  transition: background-color .2s;
+}
+.icons-wrap .booking-btn:hover {
+  background-color: #b38920;
+}
