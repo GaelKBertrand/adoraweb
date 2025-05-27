@@ -2061,5 +2061,10 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   display: none !important;     /* we’re not using icons-wrap for Book Now */
 }
 
+/* at the very bottom of style.css */
+.sticky-wrapper .untree_co--site-nav .logo-wrap {
+  margin-right: 40px !important;
+}
+
 
 
