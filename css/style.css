@@ -828,7 +828,7 @@ a, a:hover {
 
 @media (max-width: 767.98px) {
   .sticky-wrapper .untree_co--site-nav .logo-wrap {
-    left: 2px;
+    left: 0px;
   }
 }
 
@@ -2081,5 +2081,36 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   margin-left: auto;
 }
 
+/* ───────────────────────────────────────────────────────
+   CUSTOM MENU OVERRIDES (place these after everything else)
+──────────────────────────────────────────────────────────*/
+
+/* 1) Make the menu container flexible so it truly spans the available space */
+.site-nav-ul-wrap {
+  flex: 1;                   /* grow to fill space between logo & icons */
+  text-align: center;        /* keep the links centered */
+}
+
+/* 2) Enlarge and pad out each menu link so longer labels fit */
+.sticky-wrapper .untree_co--site-nav .site-nav-ul > li > a {
+  font-size: 14px !important;    /* up from 12px :contentReference[oaicite:1]{index=1} */
+  padding: 10px 30px !important;  /* more horizontal breathing room */
+  white-space: nowrap;            /* prevent wrapping */
+}
+
+/* 3) Style your new logo so it never collides */
+.logo-wrap {
+  margin-right: 20px;             /* space before the menu */
+}
+.logo-wrap .site-logo {
+  max-height: 50px;               /* adjust to taste */
+  width: auto;
+  display: block;
+}
+
+/* 4) Ensure the icons on the right stay put */
+.icons-wrap {
+  margin-left: 20px;              /* space after the menu */
+}
 
 
