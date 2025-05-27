@@ -2066,5 +2066,19 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   margin-right: 40px !important;
 }
 
+/* 1) Make logo-wrap a fixed-width flex item */
+.sticky-wrapper .untree_co--site-nav .logo-wrap {
+  flex: 0 0 auto !important;          /* never grow or shrink */
+  width: auto !important;             /* let content (your PNG) set width */
+  padding-right: 40px !important;     /* clear space *after* the logo */
+}
+
+/* 2) Ensure the menu truly starts to the right of logo-wrap */
+.sticky-wrapper .untree_co--site-nav .site-nav-ul-wrap {
+  flex: 1 1 auto !important;          /* fill remaining space */
+  margin-left: 0 !important;          /* remove any negative/auto margin */
+}
+
+
 
 
