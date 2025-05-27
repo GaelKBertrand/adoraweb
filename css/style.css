@@ -2026,7 +2026,7 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 .sticky-wrapper .untree_co--site-nav .site-logo {
   max-height: 80px !important;
   width: auto;
-  display: block; /* bump back up from 30px */
+  /*display: block; /* bump back up from 30px */
 }
 
 /* ───────────────────────────────────────────────
