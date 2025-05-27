@@ -2114,7 +2114,7 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 ────────────────────────────────────────────────*/
 .sticky-wrapper .untree_co--site-nav .site-nav-ul-wrap {
   position: relative !important;
-  left: 50px !important;    /* adjust this: logo width (150px) + desired gap (30px) */
+  left: 70px !important;    /* adjust this: logo width (150px) + desired gap (30px) */
 }
 
 
