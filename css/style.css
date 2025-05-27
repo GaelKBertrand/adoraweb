@@ -2024,8 +2024,7 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
    A) Increase logo to normal header size
 ────────────────────────────────────────────────*/
 .sticky-wrapper .untree_co--site-nav .site-logo {
-  max-height: 80px !important;
-  width: auto;
+  max-height: 50px !important;
   /*display: block; /* bump back up from 30px */
 }
 
