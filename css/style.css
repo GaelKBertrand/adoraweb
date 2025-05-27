@@ -2020,67 +2020,45 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   transform: translate(-50%, -50%);
 }
 
-/* ──────────────────────────────────────────────────
-   OVERRIDE: TURN HEADER INTO ONE FLEX ROW
-──────────────────────────────────────────────────*/
-
-/* 1) Neutralize absolute/fixed positioning on all three parts */
-.sticky-wrapper .untree_co--site-nav .logo-wrap,
-.sticky-wrapper .untree_co--site-nav .site-nav-ul-wrap,
-.sticky-wrapper .untree_co--site-nav .icons-wrap {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  right: auto !important;
-  width: auto !important;
-}
-
-/* 2) Ensure the .container truly uses flexbox */
-.sticky-wrapper .untree_co--site-nav .container.d-flex {
-  display: flex !important;
-  align-items: center !important;
-}
-
-/* 3) Shrink & pad the logo */
+/* ───────────────────────────────────────────────
+   A) Increase logo to normal header size
+────────────────────────────────────────────────*/
 .sticky-wrapper .untree_co--site-nav .site-logo {
-  max-height: 100px !important;    /* true header size */
-  width: auto !important;
-  display: block;
-}
-.sticky-wrapper .untree_co--site-nav .logo-wrap {
-  margin-left: 20px !important;
-  margin-right: 20px !important;
+  max-height: 60px !important;  /* bump back up from 30px */
 }
 
-/* 4) Grow the menu to fill the middle */
-.sticky-wrapper .untree_co--site-nav .site-nav-ul-wrap {
-  flex: 1 !important;
-  margin: 0 !important;
-  text-align: center !important;
+/* ───────────────────────────────────────────────
+   B) Style the new menu item as a button
+────────────────────────────────────────────────*/
+.sticky-wrapper .untree_co--site-nav .site-nav-ul > li.booking-item {
+  margin-left: 30px;            /* space before the button */
 }
 
-/* 5) Line up icons + booking button at the right */
-.sticky-wrapper .untree_co--site-nav .icons-wrap {
-  display: flex !important;
-  align-items: center !important;
-  margin-right: 20px !important;
-  gap: 15px !important;
-  margin-left: auto !important;
-}
-
-/* 6) Style your Book Now CTA */
 .sticky-wrapper .untree_co--site-nav .booking-btn {
-  padding: 8px 16px !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  border-radius: 4px !important;
-  background-color: #dca52e !important;
+  display: inline-block;
+  padding: 8px 20px;            /* match your menu link height */
+  font-size: 14px;
+  font-weight: 600;
   color: #fff !important;
-  white-space: nowrap !important;
-  transition: background-color .2s !important;
+  background-color: #3e19af;
+  border-radius: 4px;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;               /* align vertically with the other links */
+  transition: background-color .2s;
 }
+
 .sticky-wrapper .untree_co--site-nav .booking-btn:hover {
-  background-color: #b38920 !important;
+  background-color: #3815a2;
 }
+
+/* ───────────────────────────────────────────────
+   C) Remove any leftover absolute‐positioning
+────────────────────────────────────────────────*/
+.sticky-wrapper .untree_co--site-nav .icons-wrap .booking-btn,
+.sticky-wrapper .untree_co--site-nav .icons-wrap {
+  display: none !important;     /* we’re not using icons-wrap for Book Now */
+}
+
 
 
