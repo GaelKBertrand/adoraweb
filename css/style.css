@@ -2094,3 +2094,68 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 .icons-wrap .booking-btn:hover {
   background-color: #b38920;
 }
+
+
+/* ─────────────────────────────────────────────────────────────
+   1) SWITCH LOGO & ICONS INTO FLEX LAYOUT
+─────────────────────────────────────────────────────────────*/
+.sticky-wrapper .untree_co--site-nav .logo-wrap,
+.sticky-wrapper .untree_co--site-nav .icons-wrap {
+  position: static !important;    /* cancel their absolute positioning */
+}
+
+/* ─────────────────────────────────────────────────────────────
+   2) SIZE & PAD THE LOGO
+─────────────────────────────────────────────────────────────*/
+/* Hide the old text if any, and size your image */
+.sticky-wrapper .untree_co--site-nav .untree_co--site-logo {
+  font-size: 0 !important;        /* hide the “LuxuryHotel” text */
+  padding: 0 !important;
+}
+.sticky-wrapper .untree_co--site-nav .site-logo {
+  display: block;
+  max-height: 40px !important;    /* tweak this for your design */
+  width: auto !important;
+}
+
+/* push it in from the left, and separate from the menu */
+.sticky-wrapper .untree_co--site-nav .logo-wrap {
+  margin-left: 20px;              /* space from the container’s left edge */
+  margin-right: 40px;             /* space before the menu */
+}
+
+/* ─────────────────────────────────────────────────────────────
+   3) MAKE THE MENU FLEX-GROW
+─────────────────────────────────────────────────────────────*/
+.sticky-wrapper .untree_co--site-nav .site-nav-ul-wrap {
+  flex: 1;                         /* take up all room between logo & icons */
+}
+
+/* ─────────────────────────────────────────────────────────────
+   4) RESTYLE ICONS-WRAP AND YOUR BOOKING BUTTON
+─────────────────────────────────────────────────────────────*/
+/* Participate in the flex layout and push to the right */
+.sticky-wrapper .untree_co--site-nav .icons-wrap {
+  display: flex !important;
+  align-items: center;
+  margin-left: auto;               /* shove it to the far right */
+  margin-right: 20px;              /* padding from the container’s right edge */
+  gap: 15px;                       /* space between each icon/button */
+}
+
+/* Your Book Now button */
+.sticky-wrapper .untree_co--site-nav .booking-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: #dca52e;
+  color: #fff;
+  white-space: nowrap;
+  transition: background-color .2s;
+}
+.sticky-wrapper .untree_co--site-nav .booking-btn:hover {
+  background-color: #b38920;
+}
