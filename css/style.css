@@ -806,7 +806,7 @@ a, a:hover {
 .sticky-wrapper .untree_co--site-nav {
   padding-top: 30px;
   padding-bottom: 30px;
-  position: fixed;
+  position: absolute;
   left: 0;
   font-weight: 400;
   z-index: 1002;
@@ -828,7 +828,7 @@ a, a:hover {
 
 @media (max-width: 767.98px) {
   .sticky-wrapper .untree_co--site-nav .logo-wrap {
-    left: 15px;
+    left: 5px;
   }
 }
 
