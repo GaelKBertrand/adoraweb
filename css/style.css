@@ -2080,5 +2080,36 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 }
 
 
+/* ─────────────────────────────────────────
+   FORCED LOGO LANE + MENU OFFSET
+──────────────────────────────────────────*/
+
+/* 1) Ensure .logo-wrap is exactly 150px wide */
+.sticky-wrapper .untree_co--site-nav .container > .logo-wrap {
+  flex: 0 0 150px !important;   /* never grow or shrink beyond 150px */
+  width: 150px !important;      /* hard‐set the logo container width */
+  margin-right: 20px !important;/* breathing room before the menu */
+}
+
+/* 2) Make sure the <img> itself fits that box */
+.sticky-wrapper .untree_co--site-nav .logo-wrap .site-logo {
+  max-width: 100% !important;  /* scale down to fit 150px container */
+  height: auto !important;
+  display: block !important;
+}
+
+/* 3) Push the menu to the right of the 150px logo + 20px gap */
+.sticky-wrapper .untree_co--site-nav .site-nav-ul-wrap {
+  flex: 1 !important;          /* take the rest of the space */
+  margin-left: 0 !important;   /* clear any leftover offsets */
+}
+
+/* 4) If you still see overlap, hide overflow as a last resort */
+.sticky-wrapper .untree_co--site-nav .logo-wrap {
+  overflow: hidden !important; /* crop anything spilling out */
+}
+
+
+
 
 
