@@ -721,15 +721,15 @@ a, a:hover {
 }
 
 .readmore.primary {
-  color: #a7a4ff;
+  color: #ff896b;
 }
 
 .readmore.primary:before {
-  background: #a7a4ff;
+  background: #ff896b;
 }
 
 .readmore.primary:hover {
-  color: #a7a4ff;
+  color: #ff896b;
 }
 
 .readmore.reverse:before {
@@ -788,7 +788,7 @@ a, a:hover {
 }
 
 .icons-top.icons-dark li a:hover {
-  background: #a7a4ff;
+  background: #ff896b;
 }
 
 /* Site Nav */
@@ -806,7 +806,7 @@ a, a:hover {
 .sticky-wrapper .untree_co--site-nav {
   padding-top: 30px;
   padding-bottom: 30px;
-  position: absolute;
+  position: fixed;
   left: 0;
   font-weight: 400;
   z-index: 1002;
@@ -828,7 +828,7 @@ a, a:hover {
 
 @media (max-width: 767.98px) {
   .sticky-wrapper .untree_co--site-nav .logo-wrap {
-    left: 0px;
+    left: 15px;
   }
 }
 
@@ -848,14 +848,10 @@ a, a:hover {
 }
 
 .sticky-wrapper .untree_co--site-nav .site-nav-ul-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  flex-wrap: wrap; /* Allow it to adapt */
   width: 100%;
   margin: 0 auto;
-  padding-left: 0;
+  z-index: 1;
+  position: relative;
 }
 
 .sticky-wrapper .untree_co--site-nav .untree_co--site-logo {
@@ -866,8 +862,6 @@ a, a:hover {
 
 .sticky-wrapper .untree_co--site-nav .site-nav-ul {
   text-align: center;
-  display: flex;
-  flex-wrap: nowrap;
 }
 
 .sticky-wrapper .untree_co--site-nav .site-nav-ul, .sticky-wrapper .untree_co--site-nav .site-nav-ul > li {
@@ -1054,7 +1048,7 @@ a, a:hover {
 }
 
 .sticky-wrapper .untree_co--site-nav.dark .site-nav-ul > li > a:before {
-  background: #a7a4ff;
+  background: #ff896b;
 }
 
 .sticky-wrapper .untree_co--site-nav.dark .burger:before, .sticky-wrapper .untree_co--site-nav.dark .burger span, .sticky-wrapper .untree_co--site-nav.dark .burger:after {
@@ -1083,7 +1077,7 @@ a, a:hover {
 }
 
 .sticky-wrapper.is-sticky .untree_co--site-nav .site-nav-ul > li > a:before {
-  background: #a7a4ff;
+  background: #ff896b;
 }
 
 .sticky-wrapper.is-sticky .icons-top li a {
@@ -1093,7 +1087,7 @@ a, a:hover {
 }
 
 .sticky-wrapper.is-sticky .icons-top li a:hover {
-  background: #a7a4ff;
+  background: #ff896b;
   color: #fff;
 }
 
@@ -1189,7 +1183,7 @@ a, a:hover {
 }
 
 .untree_co--site-mobile-menu ul a:hover, .untree_co--site-mobile-menu ul li a:hover {
-  color: #a7a4ff;
+  color: #ff896b;
 }
 
 .untree_co--site-mobile-menu ul > li > ul > li > a {
@@ -1459,7 +1453,7 @@ span[data-jarallax-element] {
 
 .cta h3 a:before {
   content: "";
-  background: #a7a4ff;
+  background: #ff896b;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1484,7 +1478,7 @@ span[data-jarallax-element] {
 .testimony-29101 .text {
   width: 60%;
   padding: 7rem 4rem;
-  background: #a7a4ff;
+  background: #ff896b;
 }
 
 .testimony-29101 .text blockquote {
@@ -1577,13 +1571,13 @@ span[data-jarallax-element] {
   display: inline-block;
   width: 15px;
   height: 3px;
-  background: rgba(186, 186, 255, 0.4);
+  background: rgba(255, 137, 107, 0.4);
   margin: 3px;
 }
 
 .slide-one-item .owl-dots .owl-dot.active > span {
   width: 15px;
-  background: #a7a4ff;
+  background: #ff896b;
 }
 
 .thumbnail {
@@ -2026,61 +2020,6 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   transform: translate(-50%, -50%);
 }
 
-.booking-button {
-  color: #ffffff;
-  background-color: #5f22ec;
-  font-size: 19px;
-  border: 1px solid #2d63c8;
-  padding: 10px 22px;
-  transition: all 0.3s ease;
-  display: inline-block;
-  cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0; /* Prevent the button from shrinking */
-}
-
-.booking-button {
-  display: inline-block;
-}
-
-.booking-button:hover {
-  color: #2d63c8;
-  background-color: #ffffff;
-}
-
-.logo-img {
-  max-height: 150px;     /* Adjust this size as needed */
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 59%; /* Full height */
-  background-color: white; /* Optional background */
-  position: fixed;
-  width: 59%;
-  z-index: 9999;
-}
-
-
-.site-nav-ul {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.site-nav-button-wrap {
-  margin-left: auto;
-}
-
 /* ───────────────────────────────────────────────────────
    CUSTOM MENU OVERRIDES (place these after everything else)
 ──────────────────────────────────────────────────────────*/
@@ -2112,5 +2051,3 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 .icons-wrap {
   margin-left: 20px;              /* space after the menu */
 }
-
-
