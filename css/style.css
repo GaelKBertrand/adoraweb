@@ -2043,7 +2043,7 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 
 /* 3) Shrink & pad the logo */
 .sticky-wrapper .untree_co--site-nav .site-logo {
-  max-height: 30px !important;    /* true header size */
+  max-height: 100px !important;    /* true header size */
   width: auto !important;
   display: block;
 }
