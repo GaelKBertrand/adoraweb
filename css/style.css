@@ -2125,7 +2125,7 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 
 /* Show white logo by default */
 .logo-white {
-  display: inline-block;
+  display: flex;
 }
 .logo-dark {
   display: none;
@@ -2136,7 +2136,7 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   display: none;
 }
 .sticky-wrapper.sticky .logo-dark {
-  display: inline-block;
+  display: flex;
 }
 
 
