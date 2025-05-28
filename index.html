@@ -345,21 +345,22 @@
 
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const logo = document.querySelector('.site-logo');
-        const defSrc    = logo.getAttribute('data-default');
-        const stickySrc = logo.getAttribute('data-sticky');
+      (function(){
+        // Grab your logo <img>
+        var logo = document.querySelector('.untree_co--site-nav .site-logo');
+        if (!logo) return;  // bail if not found
 
-        window.addEventListener('scroll', function() {
-          // Switch as soon as you scroll down even 1px
-          if (window.scrollY > 0) {
-            logo.src = stickySrc;
-          } else {
-            logo.src = defSrc;
-          }
-        });
-      });
+        // Read the two paths straight from data-attrs
+        var defSrc    = logo.getAttribute('data-default');
+        var stickySrc = logo.getAttribute('data-sticky');
+
+        // On *every* scroll event, swap src
+        window.onscroll = function() {
+          logo.src = (window.scrollY > 0) ? stickySrc : defSrc;
+        };
+      })();
     </script>
+
 
   </body>
 </html>
