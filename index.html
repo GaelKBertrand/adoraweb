@@ -342,22 +342,6 @@
         });
       });
     </script>
-      <script>
-        (function(){
-          const nav    = document.querySelector('.js-sticky-nav');
-          const logo   = nav && nav.querySelector('.site-logo');
-          if (!nav || !logo) return;
-          const defSrc    = logo.dataset.default;
-          const stickySrc = logo.dataset.sticky;
-
-          // Every 100ms, check nav's computed position
-          setInterval(() => {
-            const pos = window.getComputedStyle(nav).position;
-            // When templated nav becomes fixed, swap to stickySrc
-            logo.src = (pos === 'fixed') ? stickySrc : defSrc;
-          }, 100);
-        })();
-      </script>
 
   </body>
 </html>

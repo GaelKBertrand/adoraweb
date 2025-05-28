@@ -2117,6 +2117,27 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   left: 70px !important;    /* adjust this: logo width (150px) + desired gap (30px) */
 }
 
+/* CLEAN LOGO SWAP BASED ON STICKY WRAPPER CLASS */
+
+.site-logo {
+  max-height: 50px;
+}
+
+/* Show white logo by default */
+.logo-white {
+  display: inline-block;
+}
+.logo-dark {
+  display: none;
+}
+
+/* When header sticks, show dark logo */
+.sticky-wrapper.sticky .logo-white {
+  display: none;
+}
+.sticky-wrapper.sticky .logo-dark {
+  display: inline-block;
+}
 
 
 
