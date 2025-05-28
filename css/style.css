@@ -2125,3 +2125,20 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 .logo-white {
   display: inline; /* Initial state */
 }
+
+
+.logo-white {
+  display: inline;
+}
+
+.logo-dark {
+  display: none;
+}
+
+#site-nav.scrolled .logo-white {
+  display: none !important;
+}
+
+#site-nav.scrolled .logo-dark {
+  display: inline !important;
+}
