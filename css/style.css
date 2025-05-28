@@ -2131,5 +2131,53 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   display: inline-block;
 }
 
+/* ───────────────────────────────────────────────
+   Logo Swap (stacked + toggle via opacity)
+   Works with .sticky-wrapper.sticky OR .sticky-wrapper.is-sticky
+────────────────────────────────────────────────*/
+
+/* 1) Make .logo-wrap the positioning context */
+.sticky-wrapper .untree_co--site-nav .logo-wrap {
+  position: relative;
+  width: auto;
+  height: auto;
+}
+
+/* 2) Stack both logos exactly on top of each other */
+.sticky-wrapper .untree_co--site-nav .logo-wrap img.logo-white,
+.sticky-wrapper .untree_co--site-nav .logo-wrap img.logo-dark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease;
+}
+
+/* 3) Default state: show white, hide dark */
+.sticky-wrapper .untree_co--site-nav .logo-wrap img.logo-white {
+  opacity: 1;
+  z-index: 2;
+}
+.sticky-wrapper .untree_co--site-nav .logo-wrap img.logo-dark {
+  opacity: 0;
+  z-index: 1;
+}
+
+/* 4a) When the wrapper gains “sticky” */
+.sticky-wrapper.sticky .untree_co--site-nav .logo-wrap img.logo-white {
+  opacity: 0;
+}
+.sticky-wrapper.sticky .untree_co--site-nav .logo-wrap img.logo-dark {
+  opacity: 1;
+}
+
+/* 4b) Or if your script uses “is-sticky” */
+.sticky-wrapper.is-sticky .untree_co--site-nav .logo-wrap img.logo-white {
+  opacity: 0;
+}
+.sticky-wrapper.is-sticky .untree_co--site-nav .logo-wrap img.logo-dark {
+  opacity: 1;
+}
+
 
 
