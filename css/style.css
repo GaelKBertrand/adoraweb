@@ -2117,24 +2117,6 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   left: 70px !important; /* adjust this: logo width (150px) + desired gap (30px) */
 }
 
-.logo-white,
-.logo-dark {
-  display: none;
-}
-
-.logo-white {
-  display: inline; /* Initial state */
-}
-
-
-.logo-white {
-  display: inline;
-}
-
-.logo-dark {
-  display: none;
-}
-
 #site-nav.scrolled .logo-white {
   display: none !important;
 }
