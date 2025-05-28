@@ -344,23 +344,22 @@
     </script>
 
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const logo = document.querySelector('.untree_co--site-nav .site-logo');
-      const def  = logo.dataset.default;
-      const stickySrc = logo.dataset.sticky;
-      const nav = document.querySelector('.js-sticky-nav');
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const logo = document.querySelector('.site-logo');
+        const defSrc    = logo.getAttribute('data-default');
+        const stickySrc = logo.getAttribute('data-sticky');
 
-      // On scroll, swap src
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > nav.offsetTop) {
-          logo.src = stickySrc;
-        } else {
-          logo.src = def;
-        }
+        window.addEventListener('scroll', function() {
+          // Switch as soon as you scroll down even 1px
+          if (window.scrollY > 0) {
+            logo.src = stickySrc;
+          } else {
+            logo.src = defSrc;
+          }
+        });
       });
-    });
-  </script>
+    </script>
 
   </body>
 </html>
