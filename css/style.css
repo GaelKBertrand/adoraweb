@@ -2118,3 +2118,18 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 }
 
 
+/* hide the dark logo by default */
+.sticky-wrapper .logo-dark {
+  display: none;
+}
+
+/* when the nav has the sticky class, swap which image shows */
+.sticky-wrapper .js-sticky-nav.sticky .logo-white {
+  display: none;
+}
+.sticky-wrapper .js-sticky-nav.sticky .logo-dark {
+  display: inline-block;
+}
+
+
+

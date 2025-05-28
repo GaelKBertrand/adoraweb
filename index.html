@@ -332,18 +332,13 @@
 
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const logo = document.querySelector('.site-logo');
-        const defaultSrc = logo.getAttribute('src');
-        const stickySrc = logo.getAttribute('data-sticky-logo');
-
-        window.addEventListener('scroll', function () {
-          if (window.scrollY > 10) {
-            logo.setAttribute('src', stickySrc);
-          } else {
-            logo.setAttribute('src', defaultSrc);
-          }
-        });
+      window.addEventListener('scroll', function() {
+        const nav = document.querySelector('.js-sticky-nav');
+        if (window.scrollY > nav.offsetHeight) {
+          nav.classList.add('sticky');
+        } else {
+          nav.classList.remove('sticky');
+        }
       });
     </script>
 
