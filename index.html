@@ -345,22 +345,29 @@
 
 
     <script>
-      (function(){
-        // Grab your logo <img>
-        var logo = document.querySelector('.untree_co--site-nav .site-logo');
-        if (!logo) return;  // bail if not found
+    document.addEventListener('DOMContentLoaded', function() {
+      const logo = document.querySelector('.site-logo');
+      const nav  = document.querySelector('.js-sticky-nav');
+      if (!logo || !nav) return;
 
-        // Read the two paths straight from data-attrs
-        var defSrc    = logo.getAttribute('data-default');
-        var stickySrc = logo.getAttribute('data-sticky');
+      const defSrc    = logo.getAttribute('data-default');
+      const stickySrc = logo.getAttribute('data-sticky');
 
-        // On *every* scroll event, swap src
-        window.onscroll = function() {
-          logo.src = (window.scrollY > 0) ? stickySrc : defSrc;
-        };
-      })();
+      function swapLogo() {
+        // if nav has scrolled past the top of viewport → use sticky logo
+        if (nav.getBoundingClientRect().top <= 0) {
+          logo.src = stickySrc;
+        } else {
+          logo.src = defSrc;
+        }
+      }
+
+      // run on page load (in case you land scrolled)
+      swapLogo();
+      // and on every scroll
+      window.addEventListener('scroll', swapLogo);
+    });
     </script>
-
 
   </body>
 </html>
