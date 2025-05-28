@@ -2117,35 +2117,6 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   left: 70px !important;    /* adjust this: logo width (150px) + desired gap (30px) */
 }
 
-/* ───────────────────────────────────────────────
-   SIMPLE LOGO TOGGLE: pure display:none/block
-   when .js-sticky-nav gains .sticky
-────────────────────────────────────────────────*/
-
-/* 1) Ensure both images are in the normal document flow */
-.untree_co--site-nav .logo-wrap img.logo-white,
-.untree_co--site-nav .logo-wrap img.logo-dark {
-  position: static !important;
-  opacity: 1 !important;
-  display: inline-block !important;
-  transform: none !important;
-}
-
-/* 2) By default: show only the white logo */
-.untree_co--site-nav .logo-wrap img.logo-white {
-  display: inline-block !important;
-}
-.untree_co--site-nav .logo-wrap img.logo-dark {
-  display: none !important;
-}
-
-/* 3) When the <nav> itself becomes sticky (gets .sticky), swap them */
-.untree_co--site-nav.sticky .logo-wrap img.logo-white {
-  display: none !important;
-}
-.untree_co--site-nav.sticky .logo-wrap img.logo-dark {
-  display: inline-block !important;
-}
 
 
 
