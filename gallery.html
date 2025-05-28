@@ -218,6 +218,14 @@
     <script src="js/main.js"></script>
 
     <script>
+    let path = window.location.pathname;
+    if (path.endsWith(".html")) {
+      let newPath = path.replace(".html", "");
+      window.history.replaceState(null, null, newPath + window.location.search + window.location.hash);
+    }
+    </script>
+
+    <script>
       function loadExternalHTML(id, file) {
         return fetch(file)
           .then(response => response.text())
