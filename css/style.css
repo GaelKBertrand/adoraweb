@@ -2140,4 +2140,20 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 }
 
 
+/* Logo swap for sticky state */
+.logo-white {
+  display: block;
+}
+.logo-dark {
+  display: none;
+}
+
+.js-sticky-nav.is-sticky .logo-white {
+  display: none !important;
+}
+.js-sticky-nav.is-sticky .logo-dark {
+  display: block !important;
+}
+
+
 

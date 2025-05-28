@@ -331,6 +331,20 @@
   </script>
 
     <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        // If multiple .logo-wrap elements exist (from cloning), remove duplicates
+        var logos = document.querySelectorAll('.logo-wrap');
+        if (logos.length > 1) {
+          // Keep the first one and remove the others
+          for (let i = 1; i < logos.length; i++) {
+            logos[i].parentNode.removeChild(logos[i]);
+          }
+        }
+      });
+    </script>
+
+
+    <script>
       function loadExternalHTML(id, file) {
         return fetch(file)
           .then(response => response.text())
@@ -369,6 +383,22 @@
         });
       });
     </script>
+
+
+      <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var nav = document.querySelector('.js-sticky-nav');
+        if (!nav) return;
+        window.addEventListener('scroll', function () {
+          if (window.pageYOffset > 50) {  // adjust threshold as needed
+            nav.classList.add('is-sticky');
+          } else {
+            nav.classList.remove('is-sticky');
+          }
+        });
+      });
+    </script>
+
 
 
 
