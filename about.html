@@ -237,6 +237,45 @@
       });
     </script>
 
+            <script>
+              function loadExternalHTML(id, file) {
+                return fetch(file)
+                  .then(response => response.text())
+                  .then(html => {
+                    document.getElementById(id).innerHTML = html;
+                  });
+              }
+
+              document.addEventListener('DOMContentLoaded', function () {
+                Promise.all([
+                  loadExternalHTML('header-container', 'header.html'),
+                  loadExternalHTML('footer-container', 'footer.html')
+                ]).then(() => {
+                  const nav = document.getElementById("site-nav");
+
+                  function handleScroll() {
+                    const whiteLogo = document.querySelector('.logo-white');
+                    const darkLogo = document.querySelector('.logo-dark');
+
+                    if (!whiteLogo || !darkLogo || !nav) return;
+
+                    if (window.scrollY > 50) {
+                      nav.classList.add("scrolled");
+                      whiteLogo.style.display = "none";
+                      darkLogo.style.display = "inline-block";
+                    } else {
+                      nav.classList.remove("scrolled");
+                      whiteLogo.style.display = "inline-block";
+                      darkLogo.style.display = "none";
+                    }
+                  }
+
+                  handleScroll();
+                  window.addEventListener("scroll", handleScroll);
+                });
+              });
+          </script>
+
 
   </body>
 </html>
