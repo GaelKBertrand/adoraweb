@@ -721,15 +721,15 @@ a, a:hover {
 }
 
 .readmore.primary {
-  color: #ff896b;
+  color: #6ba6ff;
 }
 
 .readmore.primary:before {
-  background: #ff896b;
+  background: #6ba6ff;
 }
 
 .readmore.primary:hover {
-  color: #ff896b;
+  color: #6ba6ff;
 }
 
 .readmore.reverse:before {
@@ -788,7 +788,7 @@ a, a:hover {
 }
 
 .icons-top.icons-dark li a:hover {
-  background: #ff896b;
+  background: #4931e1;
 }
 
 /* Site Nav */
@@ -1048,7 +1048,7 @@ a, a:hover {
 }
 
 .sticky-wrapper .untree_co--site-nav.dark .site-nav-ul > li > a:before {
-  background: #ff896b;
+  background: #24269a;
 }
 
 .sticky-wrapper .untree_co--site-nav.dark .burger:before, .sticky-wrapper .untree_co--site-nav.dark .burger span, .sticky-wrapper .untree_co--site-nav.dark .burger:after {
@@ -1077,7 +1077,7 @@ a, a:hover {
 }
 
 .sticky-wrapper.is-sticky .untree_co--site-nav .site-nav-ul > li > a:before {
-  background: #ff896b;
+  background: #2a2cbb;
 }
 
 .sticky-wrapper.is-sticky .icons-top li a {
@@ -1087,7 +1087,7 @@ a, a:hover {
 }
 
 .sticky-wrapper.is-sticky .icons-top li a:hover {
-  background: #ff896b;
+  background: #2740bb;
   color: #fff;
 }
 
@@ -1183,7 +1183,7 @@ a, a:hover {
 }
 
 .untree_co--site-mobile-menu ul a:hover, .untree_co--site-mobile-menu ul li a:hover {
-  color: #ff896b;
+  color: #3857f5;
 }
 
 .untree_co--site-mobile-menu ul > li > ul > li > a {
@@ -1453,7 +1453,7 @@ span[data-jarallax-element] {
 
 .cta h3 a:before {
   content: "";
-  background: #ff896b;
+  background: #6ba6ff;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1478,7 +1478,7 @@ span[data-jarallax-element] {
 .testimony-29101 .text {
   width: 60%;
   padding: 7rem 4rem;
-  background: #ff896b;
+  background: #092a70;
 }
 
 .testimony-29101 .text blockquote {
@@ -1571,13 +1571,13 @@ span[data-jarallax-element] {
   display: inline-block;
   width: 15px;
   height: 3px;
-  background: rgba(255, 137, 107, 0.4);
+  background: rgba(13, 20, 169, 0.4);
   margin: 3px;
 }
 
 .slide-one-item .owl-dots .owl-dot.active > span {
   width: 15px;
-  background: #ff896b;
+  background: #4b45e3;
 }
 
 .thumbnail {
