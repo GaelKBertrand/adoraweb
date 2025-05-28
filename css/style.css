@@ -2179,5 +2179,25 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   opacity: 1;
 }
 
+/* ────────────────────────────────────────────────
+   Logo Swap Override: show .logo-white by default,
+   switch to .logo-dark when the wrapper gets .sticky
+─────────────────────────────────────────────────*/
+
+/* 1) Defaults */
+.sticky-wrapper .untree_co--site-nav .logo-white {
+  display: block !important;
+}
+.sticky-wrapper .untree_co--site-nav .logo-dark {
+  display: none !important;
+}
+
+/* 2) On scroll, when the wrapper gains .sticky */
+.sticky-wrapper.sticky .untree_co--site-nav .logo-white {
+  display: none !important;
+}
+.sticky-wrapper.sticky .untree_co--site-nav .logo-dark {
+  display: block !important;
+}
 
 
