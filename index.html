@@ -343,33 +343,5 @@
       });
     </script>
 
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const logo = document.querySelector('.site-logo');
-      const nav   = document.querySelector('.js-sticky-nav');
-      if (!logo || !nav) return;
-
-      const defSrc    = logo.dataset.default;
-      const stickySrc = logo.dataset.sticky;
-
-      // Create a tiny “sentinel” element just above the nav
-      const sentinel = document.createElement('div');
-      nav.parentNode.insertBefore(sentinel, nav);
-
-      // Set up the observer to watch when sentinel leaves/enters viewport
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          // entry.isIntersecting == true → sentinel is visible, nav not sticky yet
-          // entry.isIntersecting == false → sentinel scrolled out, nav is sticky
-          logo.src = entry.isIntersecting ? defSrc : stickySrc;
-        });
-      }, { rootMargin: '-1px 0px 0px 0px', threshold: 0 });
-
-      io.observe(sentinel);
-    });
-    </script>
-
-
   </body>
 </html>
