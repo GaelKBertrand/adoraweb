@@ -2117,26 +2117,26 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   left: 70px !important;    /* adjust this: logo width (150px) + desired gap (30px) */
 }
 
-/* CLEAN LOGO SWAP BASED ON STICKY WRAPPER CLASS */
-
-.site-logo {
+/* Ensure your logo images are sized appropriately */
+.site-logo img {
   max-height: 50px;
+  vertical-align: middle;
 }
 
-/* Show white logo by default */
+/* Before scrolling: */
 .logo-white {
-  display: flex;
+  display: block;
 }
 .logo-dark {
   display: none;
 }
 
-/* When header sticks, show dark logo */
-.sticky-wrapper.sticky .logo-white {
+/* When scrolling – the nav gets the "scrolled" class: */
+.site-nav.scrolled .logo-white {
   display: none;
 }
-.sticky-wrapper.sticky .logo-dark {
-  display: flex;
+.site-nav.scrolled .logo-dark {
+  display: block;
 }
 
 

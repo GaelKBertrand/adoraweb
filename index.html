@@ -303,6 +303,33 @@
     <script src="js/vendor/debug.addIndicators.min.js"></script>
     <script src="js/main.js"></script>
 
+      <!-- Load the header via JavaScript -->
+  <script>
+    function loadExternalHTML(id, file) {
+      return fetch(file)
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      Promise.all([
+        loadExternalHTML('header-container', 'header.html')
+      ]).then(function() {
+        // now that the header content is loaded, add sticky behavior
+        var nav = document.getElementById("site-nav");
+        window.addEventListener("scroll", function() {
+          if (window.pageYOffset > 50) { // adjust the threshold as needed
+            nav.classList.add("scrolled");
+          } else {
+            nav.classList.remove("scrolled");
+          }
+        });
+      });
+    });
+  </script>
+
     <script>
       function loadExternalHTML(id, file) {
         return fetch(file)
@@ -342,6 +369,8 @@
         });
       });
     </script>
+
+
 
   </body>
 </html>
