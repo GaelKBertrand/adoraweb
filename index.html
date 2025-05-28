@@ -330,77 +330,67 @@
     });
   </script>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function(){
-        // If multiple .logo-wrap elements exist (from cloning), remove duplicates
-        var logos = document.querySelectorAll('.logo-wrap');
-        if (logos.length > 1) {
-          // Keep the first one and remove the others
-          for (let i = 1; i < logos.length; i++) {
-            logos[i].parentNode.removeChild(logos[i]);
+          <script>
+            function loadExternalHTML(id, file) {
+              return fetch(file)
+                .then(response => response.text())
+                .then(html => {
+                  document.getElementById(id).innerHTML = html;
+                });
+            }
+
+            window.addEventListener('DOMContentLoaded', function () {
+              Promise.all([
+                loadExternalHTML('header-container', 'header.html'),
+                loadExternalHTML('footer-container', 'footer.html')
+              ]).then(() => {
+                // Re-initialize after header/footer are in place
+                if (typeof AOS !== 'undefined') AOS.init();
+
+                if (typeof jQuery !== 'undefined') {
+                  jQuery('.js-clone-nav').each(function () {
+                    jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
+                  });
+
+                  jQuery('.js-menu-toggle').click(function (e) {
+                    e.preventDefault();
+                    if (jQuery('body').hasClass('offcanvas-menu')) {
+                      jQuery('body').removeClass('offcanvas-menu');
+                    } else {
+                      jQuery('body').addClass('offcanvas-menu');
+                    }
+                  });
+                }
+
+                // If your main.js depends on header/footer, reload it
+                const mainScript = document.createElement('script');
+                mainScript.src = 'js/main.js';
+                document.body.appendChild(mainScript);
+              });
+            });
+          </script>
+
+          <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const whiteLogo = document.querySelector('.logo-white');
+        const darkLogo = document.querySelector('.logo-dark');
+        const stickyWrapper = document.querySelector('.sticky-wrapper');
+
+        function toggleLogos() {
+          if (stickyWrapper && stickyWrapper.classList.contains('is-sticky')) {
+            whiteLogo.style.display = 'none';
+            darkLogo.style.display = 'inline';
+          } else {
+            whiteLogo.style.display = 'inline';
+            darkLogo.style.display = 'none';
           }
         }
+
+        toggleLogos(); // Initial check
+        window.addEventListener('scroll', toggleLogos);
       });
-    </script>
 
-
-    <script>
-      function loadExternalHTML(id, file) {
-        return fetch(file)
-          .then(response => response.text())
-          .then(html => {
-            document.getElementById(id).innerHTML = html;
-          });
-      }
-
-      window.addEventListener('DOMContentLoaded', function () {
-        Promise.all([
-          loadExternalHTML('header-container', 'header.html'),
-          loadExternalHTML('footer-container', 'footer.html')
-        ]).then(() => {
-          // Re-initialize after header/footer are in place
-          if (typeof AOS !== 'undefined') AOS.init();
-
-          if (typeof jQuery !== 'undefined') {
-            jQuery('.js-clone-nav').each(function () {
-              jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
-            });
-
-            jQuery('.js-menu-toggle').click(function (e) {
-              e.preventDefault();
-              if (jQuery('body').hasClass('offcanvas-menu')) {
-                jQuery('body').removeClass('offcanvas-menu');
-              } else {
-                jQuery('body').addClass('offcanvas-menu');
-              }
-            });
-          }
-
-          // If your main.js depends on header/footer, reload it
-          const mainScript = document.createElement('script');
-          mainScript.src = 'js/main.js';
-          document.body.appendChild(mainScript);
-        });
-      });
-    </script>
-
-
-      <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var nav = document.querySelector('.js-sticky-nav');
-        if (!nav) return;
-        window.addEventListener('scroll', function () {
-          if (window.pageYOffset > 50) {  // adjust threshold as needed
-            nav.classList.add('is-sticky');
-          } else {
-            nav.classList.remove('is-sticky');
-          }
-        });
-      });
-    </script>
-
-
-
+        </script>
 
   </body>
 </html>

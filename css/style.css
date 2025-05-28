@@ -2114,46 +2114,14 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 ────────────────────────────────────────────────*/
 .sticky-wrapper .untree_co--site-nav .site-nav-ul-wrap {
   position: relative !important;
-  left: 70px !important;    /* adjust this: logo width (150px) + desired gap (30px) */
+  left: 70px !important; /* adjust this: logo width (150px) + desired gap (30px) */
 }
 
-/* Ensure your logo images are sized appropriately */
-.site-logo img {
-  max-height: 50px;
-  vertical-align: middle;
-}
-
-/* Before scrolling: */
-.logo-white {
-  display: block;
-}
+.logo-white,
 .logo-dark {
   display: none;
 }
 
-/* When scrolling – the nav gets the "scrolled" class: */
-.site-nav.scrolled .logo-white {
-  display: none;
-}
-.site-nav.scrolled .logo-dark {
-  display: block;
-}
-
-
-/* Logo swap for sticky state */
 .logo-white {
-  display: block;
+  display: inline; /* Initial state */
 }
-.logo-dark {
-  display: none;
-}
-
-.js-sticky-nav.is-sticky .logo-white {
-  display: none !important;
-}
-.js-sticky-nav.is-sticky .logo-dark {
-  display: block !important;
-}
-
-
-
