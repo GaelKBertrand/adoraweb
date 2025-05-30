@@ -354,7 +354,7 @@
               ]).then(() => {
                 // Re-initialize after header/footer are in place
                 if (typeof AOS !== 'undefined') AOS.init();
-
+             /*
                 if (typeof jQuery !== 'undefined') {
                   jQuery('.js-clone-nav').each(function () {
                     jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
@@ -369,6 +369,26 @@
                     }
                   });
                 }
+              */
+
+                if (typeof jQuery !== 'undefined') {
+                  jQuery('.js-clone-nav').each(function () {
+                    jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
+                  });
+                  jQuery('.js-menu-toggle').click(function (e) {
+                    e.preventDefault();
+                    if (jQuery('body').hasClass('offcanvas')) {
+                      jQuery('body').removeClass('offcanvas');
+                    } else {
+                      jQuery('body').addClass('offcanvas');
+                    }
+                  });
+                  // If your main.js depends on header/footer, reload it
+                  const mainScript = document.createElement('script');
+                  mainScript.src = 'js/main.js';
+                  document.body.appendChild(mainScript);
+                }
+
 
                 // If your main.js depends on header/footer, reload it
                 const mainScript = document.createElement('script');
