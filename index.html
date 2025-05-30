@@ -287,71 +287,143 @@
       <a href="https://weatherwidget.org/" id="ww_1d92e8f9c64bd_u" target="_blank">Weather widget for website</a>
     </div>
 
-<script>
-  // Consolidated loadExternalHTML function
-  function loadExternalHTML(id, file) {
-    return fetch(file)
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById(id).innerHTML = html;
-      });
-  }
+    <script async src="https://app3.weatherwidget.org/js/?id=ww_1d92e8f9c64bd"></script>
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/vendor/popper.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/owl.carousel.min.js"></script>
+    <script src="js/vendor/jarallax.min.js"></script>
+    <script src="js/vendor/jarallax-element.min.js"></script>
+    <script src="js/vendor/aos.js"></script>
+    <script src="js/vendor/jquery.lettering.js"></script>
+    <script src="js/vendor/jquery.sticky.js"></script>
+    <script src="js/vendor/TweenMax.min.js"></script>
+    <script src="js/vendor/ScrollMagic.min.js"></script>
+    <script src="js/vendor/scrollmagic.animation.gsap.min.js"></script>
+    <script src="js/vendor/debug.addIndicators.min.js"></script>
+    <script src="js/main.js"></script>
 
-  // Wait for DOMContentLoaded
-  document.addEventListener('DOMContentLoaded', function () {
-    // Load header and footer once
-    Promise.all([
-      loadExternalHTML('header-container', 'header.html'),
-      loadExternalHTML('footer-container', 'footer.html')
-    ]).then(function () {
-      // Mobile menu toggle: ensure jQuery is loaded
-      if (typeof jQuery !== 'undefined') {
-        // Clone navigation for mobile if needed
-        jQuery('.js-clone-nav').each(function () {
-          jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
+    <script>
+    let path = window.location.pathname;
+    if (path.endsWith(".html")) {
+      let newPath = path.replace(".html", "");
+      window.history.replaceState(null, null, newPath + window.location.search + window.location.hash);
+    }
+    </script>
+
+      <!-- Load the header via JavaScript -->
+  <script>
+    function loadExternalHTML(id, file) {
+      return fetch(file)
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
         });
-        // Toggle offcanvas menu
-        jQuery('.js-menu-toggle').click(function (e) {
-          e.preventDefault();
-          if (jQuery('body').hasClass('offcanvas')) {
-            jQuery('body').removeClass('offcanvas');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      Promise.all([
+        loadExternalHTML('header-container', 'header.html')
+      ]).then(function() {
+        // now that the header content is loaded, add sticky behavior
+        var nav = document.getElementById("site-nav");
+        window.addEventListener("scroll", function() {
+          if (window.pageYOffset > 50) { // adjust the threshold as needed
+            nav.classList.add("scrolled");
           } else {
-            jQuery('body').addClass('offcanvas');
+            nav.classList.remove("scrolled");
           }
         });
-      }
-
-      // (Optional) Append main.js only once if other functions depend on header/footer.
-      if (!document.querySelector('script[src="js/main.js"]')) {
-        const mainScript = document.createElement('script');
-        mainScript.src = 'js/main.js';
-        document.body.appendChild(mainScript);
-      }
-
-      // Add other initializations (e.g. AOS) here if needed:
-      if (typeof AOS !== 'undefined') AOS.init();
-
-      // Also, attach the scroll handler for header logo toggle:
-      const nav = document.getElementById("site-nav");
-      function handleScroll() {
-        const whiteLogo = document.querySelector('.logo-white');
-        const darkLogo = document.querySelector('.logo-dark');
-        if (!whiteLogo || !darkLogo || !nav) return;
-        if (window.scrollY > 50) {
-          nav.classList.add("scrolled");
-          whiteLogo.style.display = "none";
-          darkLogo.style.display = "inline-block";
-        } else {
-          nav.classList.remove("scrolled");
-          whiteLogo.style.display = "inline-block";
-          darkLogo.style.display = "none";
-        }
-      }
-      handleScroll();
-      window.addEventListener("scroll", handleScroll);
+      });
     });
-  });
-</script>
+  </script>
+
+          <script>
+            function loadExternalHTML(id, file) {
+              return fetch(file)
+                .then(response => response.text())
+                .then(html => {
+                  document.getElementById(id).innerHTML = html;
+                });
+            }
+
+            window.addEventListener('DOMContentLoaded', function () {
+              Promise.all([
+                loadExternalHTML('header-container', 'header.html'),
+                loadExternalHTML('footer-container', 'footer.html')
+              ]).then(() => {
+                // Re-initialize after header/footer are in place
+                if (typeof AOS !== 'undefined') AOS.init();
+
+                if (typeof jQuery !== 'undefined') {
+                  jQuery('.js-clone-nav').each(function () {
+                    jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
+                  });
+
+                  jQuery('.js-menu-toggle').click(function (e) {
+                    e.preventDefault();
+                    if (jQuery('body').hasClass('offcanvas')) {
+                      jQuery('body').removeClass('offcanvas');
+                    } else {
+                      jQuery('body').addClass('offcanvas');
+                    }
+                  });
+                }
+
+                  // If your main.js depends on header/footer, reload it
+                  const mainScript = document.createElement('script');
+                  mainScript.src = 'js/main.js';
+                  document.body.appendChild(mainScript);
+                }
+
+
+                // If your main.js depends on header/footer, reload it
+                const mainScript = document.createElement('script');
+                mainScript.src = 'js/main.js';
+                document.body.appendChild(mainScript);
+              });
+            });
+          </script>
+
+          <script>
+              function loadExternalHTML(id, file) {
+                return fetch(file)
+                  .then(response => response.text())
+                  .then(html => {
+                    document.getElementById(id).innerHTML = html;
+                  });
+              }
+
+              document.addEventListener('DOMContentLoaded', function () {
+                Promise.all([
+                  loadExternalHTML('header-container', 'header.html'),
+                  loadExternalHTML('footer-container', 'footer.html')
+                ]).then(() => {
+                  const nav = document.getElementById("site-nav");
+
+                  function handleScroll() {
+                    const whiteLogo = document.querySelector('.logo-white');
+                    const darkLogo = document.querySelector('.logo-dark');
+
+                    if (!whiteLogo || !darkLogo || !nav) return;
+
+                    if (window.scrollY > 50) {
+                      nav.classList.add("scrolled");
+                      whiteLogo.style.display = "none";
+                      darkLogo.style.display = "inline-block";
+                    } else {
+                      nav.classList.remove("scrolled");
+                      whiteLogo.style.display = "inline-block";
+                      darkLogo.style.display = "none";
+                    }
+                  }
+
+                  handleScroll();
+                  window.addEventListener("scroll", handleScroll);
+                });
+              });
+          </script>
+
 
   </body>
 </html>
