@@ -299,84 +299,70 @@
     </script>
 
     <script>
-            function loadExternalHTML(id, file) {
-              return fetch(file)
-                .then(response => response.text())
-                .then(html => {
-                  document.getElementById(id).innerHTML = html;
-                });
+        function loadExternalHTML(id, file) {
+          return fetch(file)
+            .then(response => response.text())
+            .then(html => {
+              document.getElementById(id).innerHTML = html;
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', function () {
+          Promise.all([
+            loadExternalHTML('header-container', 'header.html'),
+            loadExternalHTML('footer-container', 'footer.html')
+          ]).then(() => {
+            // Re-initialize after header/footer are in place
+            if (typeof AOS !== 'undefined') AOS.init();
+
+            if (typeof jQuery !== 'undefined') {
+              // 1) Clone desktop nav into mobile container
+              jQuery('.js-clone-nav').each(function () {
+                jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
+              });
+
+              // 2) Toggle “offcanvas” on <body> when burger (or close) is clicked
+              jQuery('.js-menu-toggle').click(function (e) {
+                e.preventDefault();
+                if (jQuery('body').hasClass('offcanvas')) {
+                  jQuery('body').removeClass('offcanvas');
+                } else {
+                  jQuery('body').addClass('offcanvas');
+                }
+              });
             }
 
-            window.addEventListener('DOMContentLoaded', function () {
-              Promise.all([
-                loadExternalHTML('header-container', 'header.html'),
-                loadExternalHTML('footer-container', 'footer.html')
-              ]).then(() => {
-                // Re-initialize after header/footer are in place
-                if (typeof AOS !== 'undefined') AOS.init();
+            // 3) Add scroll/“logo swap” logic (runs once header is in DOM)
+            const nav = document.getElementById("site-nav");
+            function handleScroll() {
+              const whiteLogo = document.querySelector('.logo-white');
+              const darkLogo  = document.querySelector('.logo-dark');
 
+              if (!whiteLogo || !darkLogo || !nav) return;
 
-                if (typeof jQuery !== 'undefined') {
-                  jQuery('.js-clone-nav').each(function () {
-                    jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
-                  });
-
-                  jQuery('.js-menu-toggle').click(function (e) {
-                    e.preventDefault();
-                    if (jQuery('body').hasClass('offcanvas-menu')) {
-                      jQuery('body').removeClass('offcanvas-menu');
-                    } else {
-                      jQuery('body').addClass('offcanvas-menu');
-                    }
-                  });
-                }
-
-                // If your main.js depends on header/footer, reload it
-                const mainScript = document.createElement('script');
-                mainScript.src = 'js/main.js';
-                document.body.appendChild(mainScript);
-              });
-            });
-          </script>
-
-          <script>
-              function loadExternalHTML(id, file) {
-                return fetch(file)
-                  .then(response => response.text())
-                  .then(html => {
-                    document.getElementById(id).innerHTML = html;
-                  });
+              if (window.scrollY > 50) {
+                nav.classList.add("scrolled");
+                whiteLogo.style.display = "none";
+                darkLogo.style.display = "inline-block";
+              } else {
+                nav.classList.remove("scrolled");
+                whiteLogo.style.display = "inline-block";
+                darkLogo.style.display = "none";
               }
+            }
+            handleScroll();
+            window.addEventListener("scroll", handleScroll);
 
-              document.addEventListener('DOMContentLoaded', function () {
-                Promise.all([
+            // 4) If your main.js depends on header/footer, reload it:
+            const mainScript = document.createElement('script');
+            mainScript.src = 'js/main.js';
+            document.body.appendChild(mainScript);
+          });
+        });
+      </script>
 
-                  loadExternalHTML('footer-container', 'footer.html')
-                ]).then(() => {
-                  const nav = document.getElementById("site-nav");
 
-                  function handleScroll() {
-                    const whiteLogo = document.querySelector('.logo-white');
-                    const darkLogo = document.querySelector('.logo-dark');
 
-                    if (!whiteLogo || !darkLogo || !nav) return;
-
-                    if (window.scrollY > 50) {
-                      nav.classList.add("scrolled");
-                      whiteLogo.style.display = "none";
-                      darkLogo.style.display = "inline-block";
-                    } else {
-                      nav.classList.remove("scrolled");
-                      whiteLogo.style.display = "inline-block";
-                      darkLogo.style.display = "none";
-                    }
-                  }
-
-                  handleScroll();
-                  window.addEventListener("scroll", handleScroll);
-                });
-              });
-          </script>
 
 
   </body>
