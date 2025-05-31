@@ -29,7 +29,7 @@
 
     <div id="header-container"></div>
 
-    <nav class="untree_co--site-mobile-menu">
+    <!--<nav class="untree_co--site-mobile-menu">
       <div class="close-wrap d-flex">
         <a href="#" class="d-flex ml-auto js-menu-toggle">
           <span class="close-label">Close</span>
@@ -40,7 +40,7 @@
         </a>
       </div>
       <div class="site-mobile-inner"></div>
-    </nav>
+    </nav> -->
 
     <div class="untree_co--site-wrap">
       <div class="untree_co--site-main">
@@ -311,72 +311,7 @@
     }
     </script>
 
-      <!-- Load the header via JavaScript -->
-  <script>
-    function loadExternalHTML(id, file) {
-      return fetch(file)
-        .then(response => response.text())
-        .then(html => {
-          document.getElementById(id).innerHTML = html;
-        });
-    }
 
-    document.addEventListener('DOMContentLoaded', function() {
-      Promise.all([
-        loadExternalHTML('header-container', 'header.html')
-      ]).then(function() {
-        // now that the header content is loaded, add sticky behavior
-        var nav = document.getElementById("site-nav");
-        window.addEventListener("scroll", function() {
-          if (window.pageYOffset > 50) { // adjust the threshold as needed
-            nav.classList.add("scrolled");
-          } else {
-            nav.classList.remove("scrolled");
-          }
-        });
-      });
-    });
-  </script>
-
-          <script>
-            function loadExternalHTML(id, file) {
-              return fetch(file)
-                .then(response => response.text())
-                .then(html => {
-                  document.getElementById(id).innerHTML = html;
-                });
-            }
-
-            window.addEventListener('DOMContentLoaded', function () {
-              Promise.all([
-                loadExternalHTML('header-container', 'header.html'),
-                loadExternalHTML('footer-container', 'footer.html')
-              ]).then(() => {
-                // Re-initialize after header/footer are in place
-                if (typeof AOS !== 'undefined') AOS.init();
-
-                if (typeof jQuery !== 'undefined') {
-                  jQuery('.js-clone-nav').each(function () {
-                    jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
-                  });
-
-                  jQuery('.js-menu-toggle').click(function (e) {
-                    e.preventDefault();
-                    if (jQuery('body').hasClass('offcanvas-menu')) {
-                      jQuery('body').removeClass('offcanvas-menu');
-                    } else {
-                      jQuery('body').addClass('offcanvas-menu');
-                    }
-                  });
-                }
-
-                // If your main.js depends on header/footer, reload it
-                const mainScript = document.createElement('script');
-                mainScript.src = 'js/main.js';
-                document.body.appendChild(mainScript);
-              });
-            });
-          </script>
 
           <script>
               function loadExternalHTML(id, file) {

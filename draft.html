@@ -1,0 +1,103 @@
+* ───────────────────────────────────────────────────────────────────────── */
+/* OVERRIDE: Force the “offcanvas‐menu” state to show/hide the mobile nav */
+
+body.offcanvas-menu {
+  /* No scrolling when menu is open */
+  overflow: hidden !important;
+}
+
+body.offcanvas-menu:before {
+  /* Make sure the semi‐transparent overlay appears */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Slide in the mobile menu panel whenever offcanvas-menu is on <body> */
+body.offcanvas-menu .untree_co--site-mobile-menu {
+  transform: translateX(0%) !important;
+}
+
+/* Push the main content to the right when offcanvas-menu is on <body> */
+body.offcanvas-menu .untree_co--site-wrap {
+  transform: translateX(80px) !important;
+}
+
+/* (Optional) If your original CSS has a transition on .untree_co--site-mobile-menu,
+   you may want to reinforce it here: */
+body .untree_co--site-mobile-menu {
+  transition: transform 0.3s ease-in-out !important;
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+
+
+
+
+
+
+      <!-- Load the header via JavaScript -->
+  <script>
+    function loadExternalHTML(id, file) {
+      return fetch(file)
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      Promise.all([
+        loadExternalHTML('header-container', 'header.html')
+      ]).then(function() {
+        // now that the header content is loaded, add sticky behavior
+        var nav = document.getElementById("site-nav");
+        window.addEventListener("scroll", function() {
+          if (window.pageYOffset > 50) { // adjust the threshold as needed
+            nav.classList.add("scrolled");
+          } else {
+            nav.classList.remove("scrolled");
+          }
+        });
+      });
+    });
+  </script>
+
+          <script>
+            function loadExternalHTML(id, file) {
+              return fetch(file)
+                .then(response => response.text())
+                .then(html => {
+                  document.getElementById(id).innerHTML = html;
+                });
+            }
+
+            window.addEventListener('DOMContentLoaded', function () {
+              Promise.all([
+                loadExternalHTML('header-container', 'header.html'),
+                loadExternalHTML('footer-container', 'footer.html')
+              ]).then(() => {
+                // Re-initialize after header/footer are in place
+                if (typeof AOS !== 'undefined') AOS.init();
+
+                if (typeof jQuery !== 'undefined') {
+                  jQuery('.js-clone-nav').each(function () {
+                    jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
+                  });
+
+                  jQuery('.js-menu-toggle').click(function (e) {
+                    e.preventDefault();
+                    if (jQuery('body').hasClass('offcanvas-menu')) {
+                      jQuery('body').removeClass('offcanvas-menu');
+                    } else {
+                      jQuery('body').addClass('offcanvas-menu');
+                    }
+                  });
+                }
+
+                // If your main.js depends on header/footer, reload it
+                const mainScript = document.createElement('script');
+                mainScript.src = 'js/main.js';
+                document.body.appendChild(mainScript);
+              });
+            });
+          </script>
