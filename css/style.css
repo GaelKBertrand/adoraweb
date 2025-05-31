@@ -2133,3 +2133,7 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 #site-nav.scrolled .logo-dark {
   display: inline-block !important;
 }
+
+html body.offcanvas-menu .untree_co--site-mobile-menu {
+  transform: translateX(0%) !important;
+}
