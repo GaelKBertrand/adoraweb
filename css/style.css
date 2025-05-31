@@ -1117,7 +1117,7 @@ a, a:hover {
   transition: 1s transform cubic-bezier(0.23, 1, 0.32, 1), 1s -webkit-transform cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.offcanvas .untree_co--site-mobile-menu {
+body.offcanvas-menu .untree_co--site-mobile-menu {
   -webkit-transform: translateX(0%);
   -ms-transform: translateX(0%);
   transform: translateX(0%);
@@ -2134,6 +2134,23 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   display: inline-block !important;
 }
 
-html body.offcanvas-menu .untree_co--site-mobile-menu {
-  transform: translateX(0%) !important;
+
+.site-mobile-inner {
+  padding: 20px;
 }
+
+.site-nav-wrap {
+  list-style: none;
+  padding-left: 0;
+}
+
+.site-nav-wrap li {
+  padding: 10px 0;
+}
+
+.site-nav-wrap li a {
+  color: #000;
+  text-decoration: none;
+  display: block;
+}
+
