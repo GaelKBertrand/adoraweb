@@ -315,7 +315,7 @@
                 // Re-initialize after header/footer are in place
                 if (typeof AOS !== 'undefined') AOS.init();
 
-                /*
+
                 if (typeof jQuery !== 'undefined') {
                   jQuery('.js-clone-nav').each(function () {
                     jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
@@ -328,24 +328,6 @@
                     } else {
                       jQuery('body').addClass('offcanvas-menu');
                     }
-                  });
-                }
-
-                 */
-
-                if (typeof jQuery !== 'undefined') {
-                  // 1) Clone desktop <ul class="js-clone-nav"> into <div class="site-mobile-inner">
-                  jQuery('.js-clone-nav').each(function () {
-                    jQuery(this)
-                      .clone()
-                      .attr('class', 'site-nav-wrap')         // keep “site-nav-wrap” on the cloned <ul>
-                      .appendTo('.site-mobile-inner');        // MUST match <div class="site-mobile-inner">
-                  });
-
-                  // 2) Toggle “offcanvas-menu” class on <body> when burger/close is clicked
-                  jQuery('.js-menu-toggle').click(function (e) {
-                    e.preventDefault();
-                    jQuery('body').toggleClass('offcanvas-menu');
                   });
                 }
 
