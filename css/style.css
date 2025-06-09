@@ -2136,74 +2136,51 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
 
 /* >>> START: Independent Mobile Overlay Menu */
 .adora-overlay {
+  width: 0;
+  height: 100%;
   position: fixed;
+  z-index: 99999;
   top: 0; left: 0;
-  width: 0;             /* hidden by default */
-  height: 100vh;        /* full viewport height */
-  background: rgb(62, 25, 175);
+  background-color: rgb(75, 69, 227);
   overflow-x: hidden;
   transition: width 0.4s ease;
-  z-index: 99999;
-  pointer-events: none; /* block clicks when closed */
+  pointer-events: none;
 }
 .adora-overlay.open {
-  width: 100vw;         /* show full viewport width */
-  pointer-events: auto; /* allow clicks when open */
+  width: 100%;
+  pointer-events: auto;
 }
-
-/* Container for the menu */
 .adora-overlay-content {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  top: 30%;
+  width: 100%;
+  text-align: center;
 }
-/* Base list reset */
-.adora-mobile-menu,
-.adora-mobile-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-/* Top-level items */
-.adora-mobile-menu > li {
-  margin: 12px 0;
-}
-/* Links */
-.adora-mobile-menu a {
-  color: #fff;
-  font-size: 1.8rem;
-  text-decoration: none;
+.adora-overlay-content a {
+  padding: 16px;
   display: block;
-  padding: 8px 16px;
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
 }
-/* Hover effect */
-.adora-mobile-menu a:hover {
-  background: rgba(255,255,255,0.1);
+.adora-overlay-content a:hover {
+  color: #ccc;
 }
-/* Nested submenus */
-.adora-mobile-menu li.has-children > ul {
-  margin-left: 20px;
-  margin-top: 8px;
-}
-/* Close button */
 .adora-closebtn {
   position: absolute;
   top: 20px;
   right: 30px;
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: #fff;
   text-decoration: none;
-  z-index: 100000;
 }
-/* Hamburger icon */
 .adora-burger {
   position: fixed;
   top: 15px;
   right: 15px;
   font-size: 2rem;
   color: #fff;
-  z-index: 100000;
+  z-index: 999999;
 }
 /* <<< END: Independent Mobile Overlay Menu */
 
