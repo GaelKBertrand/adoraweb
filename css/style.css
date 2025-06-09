@@ -2134,30 +2134,28 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   display: inline-block !important;
 }
 
-/* Independent Mobile Overlay */
+/* >>> START: Independent Mobile Overlay Menu */
 .adora-overlay {
-  height: 100%;
   width: 0;
+  height: 100%;
   position: fixed;
   z-index: 99999;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   background-color: rgba(0,0,0,0.95);
   overflow-x: hidden;
-  transition: 0.4s;
+  transition: width 0.4s ease;
+  pointer-events: none;
 }
-
 .adora-overlay.open {
   width: 100%;
+  pointer-events: auto;
 }
-
 .adora-overlay-content {
   position: relative;
   top: 30%;
   width: 100%;
   text-align: center;
 }
-
 .adora-overlay-content a {
   padding: 16px;
   display: block;
@@ -2165,11 +2163,9 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   color: #fff;
   text-decoration: none;
 }
-
 .adora-overlay-content a:hover {
-  color: #c8c8c8;
+  color: #ccc;
 }
-
 .adora-closebtn {
   position: absolute;
   top: 20px;
@@ -2178,7 +2174,6 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   color: #fff;
   text-decoration: none;
 }
-
 .adora-burger {
   position: fixed;
   top: 15px;
@@ -2187,5 +2182,6 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   color: #fff;
   z-index: 999999;
 }
+/* <<< END: Independent Mobile Overlay Menu */
 
 

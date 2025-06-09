@@ -335,6 +335,23 @@
                 const mainScript = document.createElement('script');
                 mainScript.src = 'js/main.js';
                 document.body.appendChild(mainScript);
+
+                    // >>> START: Bind Independent Mobile Overlay
+                const openBtn = document.getElementById("adoraOpenNav");
+                const closeBtn = document.getElementById("adoraCloseNav");
+                const overlay = document.getElementById("adoraMobileNav");
+                if (openBtn && closeBtn && overlay) {
+                  openBtn.addEventListener("click", () => {
+                    overlay.classList.add("open");
+                    document.body.style.overflow = "hidden";
+                  });
+                  closeBtn.addEventListener("click", () => {
+                    overlay.classList.remove("open");
+                    document.body.style.overflow = "auto";
+                  });
+                }
+                // <<< END: Bind Independent Mobile Overlay
+
               });
             });
           </script>
@@ -378,23 +395,6 @@
               });
           </script>
 
-      <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const openBtn = document.getElementById("adoraOpenNav");
-            const closeBtn = document.getElementById("adoraCloseNav");
-            const overlay = document.getElementById("adoraMobileNav");
-
-            openBtn.addEventListener("click", function () {
-              overlay.classList.add("open");
-              document.body.style.overflow = "hidden";
-            });
-
-            closeBtn.addEventListener("click", function () {
-              overlay.classList.remove("open");
-              document.body.style.overflow = "auto";
-            });
-          });
-        </script>
 
 
   </body>
