@@ -2134,4 +2134,58 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   display: inline-block !important;
 }
 
+/* Independent Mobile Overlay */
+.adora-overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.95);
+  overflow-x: hidden;
+  transition: 0.4s;
+}
+
+.adora-overlay.open {
+  width: 100%;
+}
+
+.adora-overlay-content {
+  position: relative;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+}
+
+.adora-overlay-content a {
+  padding: 16px;
+  display: block;
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.adora-overlay-content a:hover {
+  color: #c8c8c8;
+}
+
+.adora-closebtn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.adora-burger {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font-size: 2rem;
+  color: #fff;
+  z-index: 999999;
+}
+
 

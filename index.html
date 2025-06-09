@@ -338,7 +338,7 @@
               });
             });
           </script>
-         <!---
+
           <script>
               function loadExternalHTML(id, file) {
                 return fetch(file)
@@ -377,7 +377,24 @@
                 });
               });
           </script>
-          -->
+
+      <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const openBtn = document.getElementById("adoraOpenNav");
+            const closeBtn = document.getElementById("adoraCloseNav");
+            const overlay = document.getElementById("adoraMobileNav");
+
+            openBtn.addEventListener("click", function () {
+              overlay.classList.add("open");
+              document.body.style.overflow = "hidden";
+            });
+
+            closeBtn.addEventListener("click", function () {
+              overlay.classList.remove("open");
+              document.body.style.overflow = "auto";
+            });
+          });
+        </script>
 
 
   </body>
