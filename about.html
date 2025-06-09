@@ -206,46 +206,64 @@
     </script>
 
     <script>
-      function loadExternalHTML(id, file) {
-        return fetch(file)
-          .then(response => response.text())
-          .then(html => {
-            document.getElementById(id).innerHTML = html;
-          });
-      }
+            function loadExternalHTML(id, file) {
+              return fetch(file)
+                .then(response => response.text())
+                .then(html => {
+                  document.getElementById(id).innerHTML = html;
+                });
+            }
 
-      window.addEventListener('DOMContentLoaded', function () {
-        Promise.all([
-          loadExternalHTML('header-container', 'header.html'),
-          loadExternalHTML('footer-container', 'footer.html')
-        ]).then(() => {
-          // Re-initialize after header/footer are in place
-          if (typeof AOS !== 'undefined') AOS.init();
+            window.addEventListener('DOMContentLoaded', function () {
+              Promise.all([
+                loadExternalHTML('header-container', 'header.html'),
+                loadExternalHTML('footer-container', 'footer.html')
+              ]).then(() => {
+                // Re-initialize after header/footer are in place
+                if (typeof AOS !== 'undefined') AOS.init();
 
-          if (typeof jQuery !== 'undefined') {
-            jQuery('.js-clone-nav').each(function () {
-              jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
+
+                if (typeof jQuery !== 'undefined') {
+                  jQuery('.js-clone-nav').each(function () {
+                    jQuery(this).clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-inner');
+                  });
+
+                  jQuery('.js-menu-toggle').click(function (e) {
+                    e.preventDefault();
+                    if (jQuery('body').hasClass('offcanvas-menu')) {
+                      jQuery('body').removeClass('offcanvas-menu');
+                    } else {
+                      jQuery('body').addClass('offcanvas-menu');
+                    }
+                  });
+                }
+
+                // If your main.js depends on header/footer, reload it
+                const mainScript = document.createElement('script');
+                mainScript.src = 'js/main.js';
+                document.body.appendChild(mainScript);
+
+                    // >>> START: Bind Independent Mobile Overlay
+                const openBtn = document.getElementById("adoraOpenNav");
+                const closeBtn = document.getElementById("adoraCloseNav");
+                const overlay = document.getElementById("adoraMobileNav");
+                if (openBtn && closeBtn && overlay) {
+                  openBtn.addEventListener("click", () => {
+                    overlay.classList.add("open");
+                    document.body.style.overflow = "hidden";
+                  });
+                  closeBtn.addEventListener("click", () => {
+                    overlay.classList.remove("open");
+                    document.body.style.overflow = "auto";
+                  });
+                }
+                // <<< END: Bind Independent Mobile Overlay
+
+              });
             });
+          </script>
 
-            jQuery('.js-menu-toggle').click(function (e) {
-              e.preventDefault();
-              if (jQuery('body').hasClass('offcanvas-menu')) {
-                jQuery('body').removeClass('offcanvas-menu');
-              } else {
-                jQuery('body').addClass('offcanvas-menu');
-              }
-            });
-          }
-
-          // If your main.js depends on header/footer, reload it
-          const mainScript = document.createElement('script');
-          mainScript.src = 'js/main.js';
-          document.body.appendChild(mainScript);
-        });
-      });
-    </script>
-
-            <script>
+          <script>
               function loadExternalHTML(id, file) {
                 return fetch(file)
                   .then(response => response.text())
@@ -283,6 +301,7 @@
                 });
               });
           </script>
+
 
 
   </body>
