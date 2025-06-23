@@ -601,3 +601,12 @@ h3 {
 	font-size: 10px;
 }
 }
+
+/* This rule attempts to force all elements to immediately show their final state */
+* {
+    animation: none !important; /* Disables all CSS animations */
+    transition: none !important; /* Disables all CSS transitions */
+    transform: none !important;  /* Resets any 2D/3D transformations (like sliding) */
+    opacity: 1 !important;      /* Ensures full visibility for elements that might fade in */
+    visibility: visible !important; /* Ensures elements are visible if initially hidden for animation */
+}
