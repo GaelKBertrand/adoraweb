@@ -1,0 +1,62 @@
+[
+  {
+    "id": "swiss-cottage-main",
+    "name": "Swiss Cottage",
+    "category": "Swiss Cottage",
+    "price": 10000,
+    "maxOccupancy": 36,
+    "maxAdults": 27,
+    "maxChildren": 9,
+    "bhk": null,
+    "description": "Experience luxury and comfort in our spacious 5-bedroom Swiss Cottage, perfect for large families or groups looking for a retreat in the heart of nature.",
+    "image": "assets/img/hotel/swisscover.jpg",
+    "badge": "Luxury Experience",
+    "view": "mountain",
+    "features": ["wifi", "balcony", "kitchen", "barbecue", "parking"]
+  },
+  {
+    "id": "juniper-house-main",
+    "name": "Juniper House",
+    "category": "Juniper House",
+    "price": 4000,
+    "maxOccupancy": 24,
+    "maxAdults": 18,
+    "maxChildren": 6,
+    "bhk": null,
+    "description": "Juniper House offers a range of cozy to spacious units, ideal for a tranquil getaway amidst valley and mountain landscapes.",
+    "image": "assets/img/hotel/junipercover.jpg",
+    "badge": "Tranquil Retreat",
+    "view": "valley",
+    "features": ["wifi", "balcony", "kitchen", "barbecue", "parking"]
+  },
+  {
+    "id": "starway-homes-main",
+    "name": "Starway Homes",
+    "category": "Starway Homes (Orchard Art House)",
+    "price": 1200,
+    "maxOccupancy": 4,
+    "maxAdults": 3,
+    "maxChildren": 1,
+    "bhk": null,
+    "description": "A collection of art-inspired homes, offering comfortable and budget-friendly units, perfect for solo travelers or couples exploring the city.",
+    "image": "assets/img/hotel/starwaycover.jpg",
+    "badge": "Artistic Stay",
+    "view": "mountain",
+    "features": ["wifi", "balcony", "kitchen", "barbecue", "parking"]
+  },
+  {
+    "id": "amaira-hotel-main",
+    "name": "Amaira Hotel",
+    "category": "Amaira Hotel",
+    "price": 9000,
+    "maxOccupancy": 15,
+    "maxAdults": 15,
+    "maxChildren": 2,
+    "bhk": null,
+    "description": "Amaira Hotel provides a variety of spacious accommodations with stunning farm and mountain views, catering to families and larger groups.",
+    "image": "assets/img/hotel/amairacover.jpg",
+    "badge": "Farmhouse Experience",
+    "view": "mountain",
+    "features": ["wifi", "balcony", "kitchen", "barbecue", "parking"]
+  }
+]
