@@ -62,11 +62,21 @@
 
   /**
    * Preloader
-   */
+
   const preloader = document.querySelector('#preloader');
   if (preloader) {
     window.addEventListener('load', () => {
       preloader.remove();
+    });
+  } */
+
+  const preloader = document.querySelector('#preloader');
+  if (preloader) {
+    // Fires as soon as the HTML is parsed, without waiting for images/CSS
+    document.addEventListener('DOMContentLoaded', () => {
+      preloader.style.transition = 'opacity 0.5s ease';
+      preloader.style.opacity = '0';
+      setTimeout(() => preloader.remove(), 500);
     });
   }
 
