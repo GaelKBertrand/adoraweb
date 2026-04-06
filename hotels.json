@@ -6,183 +6,83 @@
     "Phone": "7017192404",
     "Email": "swissmanalicottage@gmail.com",
     "Address Line (Street, Landmark, Village, )": "Kanyal Rd, opposite Kartikey Swami Temple, Simsa Village, Manali, Nasogi, Himachal Pradesh 175131",
-    "images": [
-      "assets/img/hotel/swisscover.jpg"
-    ],
+    "images": ["assets/img/hotel/swisscover.jpg"],
     "rooms": [
       {
         "Hotel rooms options": "Swiss Cottage 5 BHK",
-        "Hotel rooms IDS": "swiss-cottage-5bhk",
         "Availability": "Available",
-        "Short Description": "Luxurious 5-bedroom chalet for large groups seeking nature's embrace.",
-        "Group Price (per night)": 10000,
-        "Max people paying group price": 10,
-        "Extra charges for extra people": 900
+        "Group Price (per night)": 10000
       },
       {
         "Hotel rooms options": "Swiss Cottage 4 BHK",
-        "Hotel rooms IDS": "swiss-cottage-4bhk",
         "Availability": "Available",
-        "Short Description": "Elegant 4-bedroom retreat amidst scenic beauty and tranquility.",
-        "Group Price (per night)": 8000,
-        "Max people paying group price": 8,
-        "Extra charges for extra people": 900
+        "Group Price (per night)": 8000
       },
       {
         "Hotel rooms options": "Swiss Cottage 9 BHK",
-        "Hotel rooms IDS": "swiss-cottage-9bhk",
         "Availability": "Available",
-        "Short Description": "Opulent 9-bedroom haven with breathtaking views and top-tier amenities.",
-        "Group Price (per night)": 18000,
-        "Max people paying group price": 18,
-        "Extra charges for extra people": 900
+        "Group Price (per night)": 18000
       }
     ]
   },
   {
     "Main Hotel": "Juniper House",
     "Main hotel ID": "juniper-house-main",
-    "Main Hotel description": "Discover a world of luxury and sophistication at Juniper New House. Situated in a prime location, this elegant hotel offers a range of meticulously designed accommodations to suit every traveler's needs.",
+    "Main Hotel description": "Situated in a prime location, this elegant hotel offers a range of meticulously designed accommodations to suit every traveler's needs.",
     "Phone": "8219225834",
     "Email": "terrahomes0@gmail.com",
     "Address Line (Street, Landmark, Village, )": "Terra- A Mountain Home, Naggar Rd, Prini, Manali, Himachal Pradesh 175131",
-    "images": [
-      "assets/img/hotel/junipercover.jpg"
-    ],
+    "images": ["assets/img/hotel/junipercover.jpg"],
     "rooms": [
       {
         "Hotel rooms options": "Glen Haus 2 BHK",
-        "Hotel rooms IDS": "juniper-house-glen-2bhk",
         "Availability": "Available",
-        "Short Description": "Serene 2-bedroom retreat blending modern convenience with peace.",
-        "Group Price (per night)": 4000,
-        "Max people paying group price": 4,
-        "Extra charges for extra people": 900
+        "Group Price (per night)": 4000
       },
       {
         "Hotel rooms options": "Terra 4 BHK",
-        "Hotel rooms IDS": "juniper-house-terra-4bhk",
         "Availability": "Available",
-        "Short Description": "Luxurious 4-bedroom accommodation with stunning vistas and exquisite interiors.",
-        "Group Price (per night)": 8000,
-        "Max people paying group price": 8,
-        "Extra charges for extra people": 900
+        "Group Price (per night)": 8000
       },
       {
         "Hotel rooms options": "Terra n Glen 6BHK",
-        "Hotel rooms IDS": "juniper-house-terraglen-6bhk",
         "Availability": "Available",
-        "Short Description": "Spacious 6-bedroom retreat offering comfort and natural beauty.",
-        "Group Price (per night)": 12000,
-        "Max people paying group price": 12,
-        "Extra charges for extra people": 900
+        "Group Price (per night)": 12000
       }
     ]
   },
   {
     "Main Hotel": "Starway Homes (Orchard Art House)",
     "Main hotel ID": "starway-homes-main",
-    "Main Hotel description": "Immerse yourself in artistic elegance at Orchard Arthouse, where creativity and comfort harmonize in every detail.",
+    "Main Hotel description": "Immerse yourself in artistic elegance at Orchard Arthouse, where creativity and comfort harmonize.",
     "Phone": "7017192404",
     "Email": "homesstarway@gmail.com",
     "Address Line (Street, Landmark, Village, )": "Manu temple road, old manali , Manali , Himachal Pradesh,175131",
-    "images": [
-      "assets/img/hotel/starwaycover.jpg"
-    ],
+    "images": ["assets/img/hotel/starwaycover.jpg"],
     "rooms": [
-      {
-        "Hotel rooms options": "Mercury 1 BHK",
-        "Hotel rooms IDS": "starway-homes-mercury",
-        "Availability": "Available",
-        "Short Description": "Cozy 1-bedroom suite surrounded by artistic elements for a relaxing stay.",
-        "Group Price (per night)": 1400,
-        "Max people paying group price": 2,
-        "Extra charges for extra people": 600
-      },
-      {
-        "Hotel rooms options": "Venus 1 BHK",
-        "Hotel rooms IDS": "starway-homes-venus",
-        "Availability": "Available",
-        "Short Description": "Artistic 1-bedroom suite combining creativity and comfort for a delightful experience.",
-        "Group Price (per night)": 1200,
-        "Max people paying group price": 2,
-        "Extra charges for extra people": 600
-      },
-      {
-        "Hotel rooms options": "Mars 1 BHK",
-        "Hotel rooms IDS": "starway-homes-mars",
-        "Availability": "Available",
-        "Short Description": "Unique 1-bedroom suite with artistic touches and modern amenities.",
-        "Group Price (per night)": 1200,
-        "Max people paying group price": 2,
-        "Extra charges for extra people": 600
-      },
-      {
-        "Hotel rooms options": "Jupiter 1 BHK",
-        "Hotel rooms IDS": "starway-homes-jupiter",
-        "Availability": "Available",
-        "Short Description": "Comfortable 1-bedroom suite designed for a relaxing stay with artistic flair.",
-        "Group Price (per night)": 1200,
-        "Max people paying group price": 2,
-        "Extra charges for extra people": 600
-      },
-      {
-        "Hotel rooms options": "Saturn 1 BHK",
-        "Hotel rooms IDS": "starway-homes-saturn",
-        "Availability": "Available",
-        "Short Description": "Luxurious 1-bedroom suite where modern amenities meet artistic touches.",
-        "Group Price (per night)": 1200,
-        "Max people paying group price": 2,
-        "Extra charges for extra people": 600
-      },
-      {
-        "Hotel rooms options": "Uranus 1 BHK",
-        "Hotel rooms IDS": "starway-homes-uranus",
-        "Availability": "Available",
-        "Short Description": "Creative 1-bedroom suite featuring artistic décor and a cozy ambiance.",
-        "Group Price (per night)": 1200,
-        "Max people paying group price": 2,
-        "Extra charges for extra people": 600
-      },
-      {
-        "Hotel rooms options": "Neptune 1 BHK",
-        "Hotel rooms IDS": "starway-homes-neptune",
-        "Availability": "Available",
-        "Short Description": "Peaceful 1-bedroom suite designed for relaxation and artistic inspiration.",
-        "Group Price (per night)": 1200,
-        "Max people paying group price": 2,
-        "Extra charges for extra people": 600
-      },
-      {
-        "Hotel rooms options": "Moon 1 BHK",
-        "Hotel rooms IDS": "starway-homes-moon",
-        "Availability": "Available",
-        "Short Description": "Tranquil 1-bedroom suite offering a cozy and welcoming ambiance.",
-        "Group Price (per night)": 1200,
-        "Max people paying group price": 2,
-        "Extra charges for extra people": 600
-      }
+      { "Hotel rooms options": "Mercury 1 BHK", "Availability": "Available", "Group Price (per night)": 1400 },
+      { "Hotel rooms options": "Venus 1 BHK", "Availability": "Available", "Group Price (per night)": 1200 },
+      { "Hotel rooms options": "Mars 1 BHK", "Availability": "Available", "Group Price (per night)": 1200 },
+      { "Hotel rooms options": "Jupiter 1 BHK", "Availability": "Available", "Group Price (per night)": 1200 },
+      { "Hotel rooms options": "Saturn 1 BHK", "Availability": "Available", "Group Price (per night)": 1200 },
+      { "Hotel rooms options": "Uranus 1 BHK", "Availability": "Available", "Group Price (per night)": 1200 },
+      { "Hotel rooms options": "Neptune 1 BHK", "Availability": "Available", "Group Price (per night)": 1200 },
+      { "Hotel rooms options": "Moon 1 BHK", "Availability": "Available", "Group Price (per night)": 1200 }
     ]
   },
   {
     "Main Hotel": "Amaira Hotel",
     "Main hotel ID": "amaira-hotel-main",
-    "Main Hotel description": "Experience the serenity of the Himalayas with your loved ones at Amaira Hotel — a private 5 BHK retreat designed for comfort, togetherness, and scenic beauty.",
+    "Main Hotel description": "Experience the serenity of the Himalayas with your loved ones at Amaira Hotel — a private 5 BHK retreat.",
     "Phone": "7807111209",
     "Email": "info@adorahospitality.com",
-    "Address Line (Street, Landmark, Village, )": "Kanyal Rd, opposite Kartikey Swami Temple, Simsa Village, Manali, Nasogi, Himachal Pradesh 175131",
-    "images": [
-      "assets/img/hotel/amairacover.jpg"
-    ],
+    "Address Line (Street, Landmark, Village, )": "Simsa Village, Manali, Himachal Pradesh 175131",
+    "images": ["assets/img/hotel/amairacover.jpg"],
     "rooms": [
       {
         "Hotel rooms options": "Amaira 5 BHK",
-        "Hotel rooms IDS": "amaira-hotel-5bhk",
         "Availability": "Available",
-        "Short Description": "A spacious private 5 BHK villa with balconies offering stunning panoramic mountain views.",
-        "Group Price (per night)": 11000,
-        "Max people paying group price": 10,
-        "Extra charges for extra people": 900
+        "Group Price (per night)": 11000
       }
     ]
   }
