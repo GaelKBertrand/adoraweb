@@ -377,57 +377,66 @@
      * @returns {string} The HTML string for the room card.
      */
     function createRoomCardHTML(room) {
-  let badgeHTML = '';
-  if (room.badge) {
-    const badgeClass = room.badge.toLowerCase().replace(' ', '-');
-    badgeHTML = `<div class="room-badge ${badgeClass}">${room.badge}</div>`;
-  }
+      let badgeHTML = '';
+      if (room.badge) {
+        // Use specific classes for badge styling if they exist
+        const badgeClass = room.badge.toLowerCase().replace(' ', '-');
+        badgeHTML = `<div class="room-badge ${badgeClass}">${room.badge}</div>`;
+      }
 
-  const roomFeaturesHTML = (room.features || []).map(feature => {
-    let iconClass = '';
-    let displayText = '';
+      // Map internal feature names to display names and icons
+      const roomFeaturesHTML = room.features.map(feature => {
+        let iconClass = '';
+        let displayText = '';
+        switch(feature) {
+          case 'wifi': iconClass = 'bi bi-wifi'; displayText = 'Free Wi-Fi'; break;
+          case 'balcony': iconClass = 'bi bi-card-image'; displayText = 'Private Balcony'; break;
+          case 'kitchen': iconClass = 'bi bi-house'; displayText = 'Kitchen'; break; // Changed to Kitchen
+          case 'spa': iconClass = 'bi bi-thermometer-half'; displayText = 'Barbecue'; break; // Changed to Barbecue Access
+          // Add more cases for other features if needed
+          default: iconClass = 'bi bi-question-circle'; displayText = feature; // Fallback
+        }
+        return `<span><i class="${iconClass}"></i> ${displayText}</span>`;
+      }).join('');
 
-    switch(feature) {
-      case 'wifi': iconClass = 'bi bi-wifi'; displayText = 'Free Wi-Fi'; break;
-      case 'balcony': iconClass = 'bi bi-card-image'; displayText = 'Private Balcony'; break;
-      case 'kitchen': iconClass = 'bi bi-house'; displayText = 'Kitchen'; break;
-      case 'mountain': iconClass = 'bi bi-image'; displayText = 'Mountain View'; break;
-      default: iconClass = 'bi bi-check'; displayText = feature;
+      // Determine capacity display
+      let capacityIcon = 'bi bi-people'; // Default icon for multiple guests
+      let capacityText = `Max: ${room.maxOccupancy} Guests`;
+      if (room.maxOccupancy === 1) {
+          capacityIcon = 'bi bi-person';
+          capacityText = '1 Guest';
+      } else if (room.maxOccupancy > 1) {
+          capacityText = `Max: ${room.maxOccupancy} Guests`;
+      }
+      const capacityHTML = `<span><i class="${capacityIcon}"></i> ${capacityText}</span>`;
+
+      return `
+        <div class="col-lg-6" data-aos="fade-up">
+          <div class="room-card">
+            <div class="room-image">
+              <img src="${room.image}" alt="${room.name}" class="img-fluid" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0E0E0/000000?text=Image+Not+Found';">
+              ${badgeHTML}
+              <div class="room-price">
+                <span class="price"> Starting from ₹${room.price.toLocaleString('en-IN')}</span>
+                <span class="period">/ night</span>
+              </div>
+            </div>
+            <div class="room-content">
+              <h4>${room.name}</h4>
+              <p>${room.description}</p>
+              <div class="room-features">
+                ${capacityHTML}
+                ${roomFeaturesHTML}
+              </div>
+              <div class="room-actions">
+                <a href="room-details.html?id=${room.id}" class="btn btn-primary">View Details</a>
+                <a href="booking.html?id=${room.id}" class="btn btn-outline-primary">Check Availability</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
     }
-
-    return `<span><i class="${iconClass}"></i> ${displayText}</span>`;
-  }).join('');
-
-  let capacityIcon = 'bi bi-people';
-  let capacityText = `Max: ${room.maxOccupancy || 2} Guests`;
-
-  return `
-    <div class="col-lg-6" data-aos="fade-up">
-      <div class="room-card">
-        <div class="room-image">
-          <img src="${room.image}" alt="${room.name}" class="img-fluid">
-          ${badgeHTML}
-          <div class="room-price">
-            <span class="price"> Starting from ₹${room.price}</span>
-            <span class="period">/ night</span>
-          </div>
-        </div>
-        <div class="room-content">
-          <h4>${room.name}</h4>
-          <p>${room.description}</p>
-          <div class="room-features">
-            <span><i class="${capacityIcon}"></i> ${capacityText}</span>
-            ${roomFeaturesHTML}
-          </div>
-          <div class="room-actions">
-            <a href="room-details.html?id=${room.id}" class="btn btn-primary">View Details</a>
-            <a href="booking.html?id=${room.id}" class="btn btn-outline-primary">Check Availability</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-}
 
     /**
      * Renders the rooms for the current page.
@@ -621,12 +630,12 @@
       })
       .then(data => {
         allRoomsData = data; // Store the fetched data
-        if (loadingIndicator) loadingIndicator.style.display = 'block';
+        loadingIndicator.style.display = 'none'; // Hide loading indicator
         applyFiltersAndSort(); // Apply initial filters and render all rooms
       })
       .catch(error => {
         console.error('There was a problem fetching the room data:', error);
-        if (loadingIndicator) loadingIndicator.style.display = 'none';
+        loadingIndicator.style.display = 'none'; // Hide loading indicator
         roomContainer.innerHTML = '<p class="text-center w-100 mt-5 text-danger">Failed to load room data. Please ensure rooms.json is in the same directory and a local server is running.</p>';
         roomCountSpan.textContent = '0';
       });
