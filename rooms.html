@@ -621,57 +621,25 @@
     loadingIndicator.style.display = 'block';
     roomContainer.innerHTML = ''; // Clear any static content
 
-    // --- Initial Data Fetch and Render ---
-    loadingIndicator.style.display = 'block';
-    roomContainer.innerHTML = '';
-
-    // Changed source to hotels.json to match your new data structure
-    fetch('hotels.json')
+    fetch('rooms.json')
       .then(response => {
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        return response.json();
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json(); // Parse the JSON data
       })
       .then(data => {
-        // We must FLATTEN the data because one hotel has many rooms
-        allRoomsData = [];
-
-        data.forEach(hotel => {
-          if (hotel.rooms && Array.isArray(hotel.rooms)) {
-            hotel.rooms.forEach(room => {
-              allRoomsData.push({
-                id: hotel["Main hotel ID"], // Used for linking to details
-                name: room["Hotel rooms options"],
-                category: hotel["Main Hotel"],
-                // Map your new JSON keys to the keys the HTML template uses:
-                price: room["Group Price (per night)"],
-                description: room["Short Description"],
-                image: hotel.images && hotel.images.length > 0 ? hotel.images[0] : 'assets/img/placeholder.jpg',
-                // Default features since they aren't in the new JSON yet
-                features: ["wifi", "balcony", "mountain view", "parking"],
-                badge: "Available",
-                view: "mountain"
-              });
-            });
-          }
-        });
-
-        loadingIndicator.style.display = 'none';
-
-        if (allRoomsData.length === 0) {
-            roomContainer.innerHTML = '<p class="text-center w-100 mt-5">No rooms found in the data source.</p>';
-        } else {
-            applyFiltersAndSort();
-        }
+        allRoomsData = data; // Store the fetched data
+        loadingIndicator.style.display = 'none'; // Hide loading indicator
+        applyFiltersAndSort(); // Apply initial filters and render all rooms
       })
       .catch(error => {
-        console.error('Data Fetch Error:', error);
-        loadingIndicator.style.display = 'none';
-        roomContainer.innerHTML = `
-          <div class="text-center w-100 mt-5 text-danger">
-            <p>Failed to load room data.</p>
-            <small>${error.message}</small>
-          </div>`;
+        console.error('There was a problem fetching the room data:', error);
+        loadingIndicator.style.display = 'none'; // Hide loading indicator
+        roomContainer.innerHTML = '<p class="text-center w-100 mt-5 text-danger">Failed to load room data. Please ensure rooms.json is in the same directory and a local server is running.</p>';
+        roomCountSpan.textContent = '0';
       });
+  });
 </script>
 
   <!-- Main JS File -->
