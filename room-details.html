@@ -391,156 +391,125 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get the hotel ID from the URL
-      const urlParams = new URLSearchParams(window.location.search);
-      const hotelId = urlParams.get('id');
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Get the hotel ID from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const hotelId = urlParams.get('id');
 
-      if (hotelId) {
-        // Fetch the JSON data
-        fetch('hotels.json')
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json();
-          })
-          .then(hotels => {
-            // Find the hotel with the matching ID
-            const hotel = hotels.find(h => h['Main hotel ID'] === hotelId);
+    if (hotelId) {
+      // 2. Fetch the JSON data
+      fetch('hotels.json')
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.json();
+        })
+        .then(hotels => {
+          // 3. Find the hotel with the matching ID
+          const hotel = hotels.find(h => h['Main hotel ID'] === hotelId);
 
-            if (hotel) {
-              // Update all the dynamic content
-              document.querySelector('title').textContent = hotel['Main Hotel'] + " - Room Details";
-              document.getElementById('hotel-name-page-title').textContent = hotel['Main Hotel'];
-              document.getElementById('hotel-description-short').textContent = hotel['Main Hotel description'];
-              document.getElementById('hotel-name-sidebar').textContent = hotel['Main Hotel'];
-              document.getElementById('hotel-phone').textContent = hotel['Phone'];
-              document.getElementById('hotel-email').textContent = hotel['Email'];
-              document.getElementById('hotel-address-full').textContent = hotel['Address Line (Street, Landmark, Village, )'];
+          if (hotel) {
+            // Update Page Content
+            document.querySelector('title').textContent = hotel['Main Hotel'] + " - Room Details";
+            document.getElementById('hotel-name-page-title').textContent = hotel['Main Hotel'];
+            document.getElementById('hotel-description-short').textContent = hotel['Main Hotel description'];
+            document.getElementById('hotel-name-sidebar').textContent = hotel['Main Hotel'];
+            document.getElementById('hotel-phone').textContent = hotel['Phone'];
+            document.getElementById('hotel-email').textContent = hotel['Email'];
+            document.getElementById('hotel-address-full').textContent = hotel['Address Line (Street, Landmark, Village, )'];
 
-              // Update the Page Title background image
+            // Update Background Image
+            if (hotel.images && hotel.images.length > 0) {
               document.querySelector('.page-title').style.backgroundImage = `url(${hotel.images[0]})`;
+            }
 
-              // Update overview description
-              document.getElementById('hotel-description-heading').textContent = hotel['Main Hotel description'];
-              document.getElementById('hotel-description-long').textContent = hotel['Main Hotel description'];
+            // Update Descriptions
+            document.getElementById('hotel-description-heading').textContent = hotel['Main Hotel'];
+            document.getElementById('hotel-description-long').textContent = hotel['Main Hotel description'];
 
-              // Update amenities
-              const amenitiesList = document.getElementById('amenities-list');
-              amenitiesList.innerHTML = '';
+            // Update Amenities
+            const amenitiesList = document.getElementById('amenities-list');
+            amenitiesList.innerHTML = '';
+            if (hotel['Amenities (same for all hotels)']) {
               const amenities = hotel['Amenities (same for all hotels)'].split('\n').filter(item => item.trim() !== '');
               amenities.forEach(item => {
                 const p = document.createElement('p');
                 p.textContent = item;
                 amenitiesList.appendChild(p);
               });
-
-              // Update refund policies
-              const refundPolicies = document.getElementById('refund-policies');
-              refundPolicies.textContent = hotel['Refund Policies'] || "No specific refund policy available.";
-
-              // Update image gallery and thumbnails
-              const mainImage = document.getElementById('main-product-image');
-              const thumbnailGallery = document.querySelector('.thumbnail-gallery');
-              const hotelImages = hotel['images'];
-
-              if (hotelImages && hotelImages.length > 0) {
-                mainImage.src = hotelImages[0];
-                mainImage.setAttribute('data-zoom', hotelImages[0]);
-
-                // Clear existing thumbnails and add new ones
-                thumbnailGallery.innerHTML = '';
-
-                hotelImages.forEach((image, index) => {
-                  const thumbnail = document.createElement('div');
-                  thumbnail.className = 'thumbnail-item';
-                  if (index === 0) thumbnail.classList.add('active');
-                  thumbnail.setAttribute('data-image', image);
-                  thumbnail.innerHTML = `<img src="${image}" alt="Thumbnail ${index + 1}" class="img-fluid">`;
-                  thumbnailGallery.appendChild(thumbnail);
-
-                  thumbnail.addEventListener('click', function() {
-                    document.querySelector('.thumbnail-item.active').classList.remove('active');
-                    this.classList.add('active');
-                    mainImage.src = image;
-                    mainImage.setAttribute('data-zoom', image);
-                  });
-                });
-
-                // Image navigation buttons
-                const prevBtn = document.querySelector('.prev-image');
-                const nextBtn = document.querySelector('.next-image');
-                let currentImageIndex = 0;
-
-                prevBtn.addEventListener('click', () => {
-                  currentImageIndex = (currentImageIndex - 1 + hotelImages.length) % hotelImages.length;
-                  updateImage(currentImageIndex);
-                });
-
-                nextBtn.addEventListener('click', () => {
-                  currentImageIndex = (currentImageIndex + 1) % hotelImages.length;
-                  updateImage(currentImageIndex);
-                });
-
-                function updateImage(index) {
-                  mainImage.src = hotelImages[index];
-                  mainImage.setAttribute('data-zoom', hotelImages[index]);
-                  document.querySelector('.thumbnail-item.active').classList.remove('active');
-                  document.querySelectorAll('.thumbnail-item')[index].classList.add('active');
-                }
-              }
-
-              // Update the list of available rooms
-    const roomsList = document.getElementById('rooms-list');
-    roomsList.innerHTML = '';
-
-    if (hotel.rooms && hotel.rooms.length > 0) {
-        hotel.rooms.forEach(room => {
-            const roomItem = document.createElement('div');
-            roomItem.className = 'col-lg-4 col-md-6 mb-4';
-
-            // Dynamic Status Color
-            const availability = room['Availability'] || 'Contact for Status';
-            const statusColor = availability.toLowerCase() === 'available' ? 'text-success' : 'text-danger';
-            const price = room['Group Price (per night)'] ? `₹${room['Group Price (per night)']}` : 'Request Price';
-
-            roomItem.innerHTML = `
-                <div class="room-item-link d-block p-4 border rounded shadow-sm bg-white h-100">
-                    <h5 class="mb-2 text-dark fw-bold">${room['Hotel rooms options']}</h5>
-                    <p class="small text-muted mb-3">${room['Short Description'] || ''}</p>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="small ${statusColor} fw-bold">${availability}</span>
-                        <span class="h5 fw-bold text-primary mb-0">${price}</span>
-                    </div>
-                    <button onclick="window.open('https://pages.razorpay.com/adoratrek', '_blank')"
-                            class="btn btn-primary btn-sm w-100 fw-bold py-2 mt-2">
-                        Book Now
-                    </button>
-                </div>
-            `;
-            roomsList.appendChild(roomItem);
-        });
-} else {
-              console.error('Hotel not found with ID:', hotelId);
-              document.getElementById('page-title').textContent = 'Hotel Not Found';
-              document.getElementById('hotel-name-page-title').textContent = 'Hotel Not Found';
-              document.getElementById('hotel-description-short').textContent = 'Please check the URL.';
-              document.getElementById('hotel-name-sidebar').textContent = 'Hotel Not Found';
-              document.getElementById('hotel-address-full').textContent = 'Please check the URL.';
             }
-          })
-          .catch(error => {
-            console.error('Error fetching hotels.json:', error);
-            document.getElementById('page-title').textContent = 'Error Loading Data';
-            document.getElementById('hotel-name-page-title').textContent = 'Error Loading Data';
-            document.getElementById('hotel-description-short').textContent = 'Could not load hotel data. Please check the file path.';
-            document.getElementById('hotel-name-sidebar').textContent = 'Error Loading Data';
-            document.getElementById('hotel-address-full').textContent = 'Could not load hotel data. Please check the file path.';
-          });
-      }
-    });
-  </script>
+
+            // Update Gallery
+            const mainImage = document.getElementById('main-product-image');
+            const thumbnailGallery = document.querySelector('.thumbnail-gallery');
+            const hotelImages = hotel['images'];
+
+            if (hotelImages && hotelImages.length > 0) {
+              mainImage.src = hotelImages[0];
+              thumbnailGallery.innerHTML = '';
+              hotelImages.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail-item ${index === 0 ? 'active' : ''}`;
+                thumbnail.innerHTML = `<img src="${image}" alt="Thumbnail ${index + 1}" class="img-fluid">`;
+                thumbnailGallery.appendChild(thumbnail);
+                thumbnail.addEventListener('click', function() {
+                  document.querySelectorAll('.thumbnail-item').forEach(t => t.classList.remove('active'));
+                  this.classList.add('active');
+                  mainImage.src = image;
+                });
+              });
+            }
+
+            // 4. Update the List of Available Rooms (BHK Options)
+            const roomsList = document.getElementById('rooms-list');
+            roomsList.innerHTML = '';
+
+            if (hotel.rooms && hotel.rooms.length > 0) {
+              hotel.rooms.forEach(room => {
+                const roomItem = document.createElement('div');
+                roomItem.className = 'col-lg-4 col-md-6 mb-4';
+
+                // Pricing and Availability Logic
+                const availability = room['Availability'] || 'Contact for Status';
+                const statusColor = availability.toLowerCase() === 'available' ? 'text-success' : 'text-danger';
+                const priceValue = room['Group Price (per night)'];
+                const displayPrice = priceValue ? `₹${priceValue}` : 'Request Price';
+
+                roomItem.innerHTML = `
+                    <div class="p-4 border rounded shadow-sm bg-white h-100 d-flex flex-column">
+                        <h5 class="mb-1 text-dark fw-bold">${room['Hotel rooms options']}</h5>
+                        <div class="mb-3">
+                           <span class="small ${statusColor} fw-bold">${availability}</span>
+                        </div>
+                        <p class="small text-muted flex-grow-1">${room['Short Description'] || ''}</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="h5 fw-bold text-primary mb-0">${displayPrice}</span>
+                        </div>
+                        <button onclick="window.open('https://pages.razorpay.com/adoratrek', '_blank')"
+                                class="btn btn-primary w-100 fw-bold py-2 mt-3">
+                            Book Now
+                        </button>
+                    </div>
+                `;
+                roomsList.appendChild(roomItem);
+              });
+            }
+          } else {
+            // Handle Hotel Not Found
+            this.handleError('Hotel not found with ID: ' + hotelId);
+          }
+        })
+        .catch(error => {
+          console.error('Fetch error:', error);
+          this.handleError('Could not load data.');
+        });
+    }
+
+    function handleError(msg) {
+      document.getElementById('hotel-name-page-title').textContent = 'Error';
+      document.getElementById('hotel-description-short').textContent = msg;
+    }
+  });
+</script>
 </body>
 
 </html>
