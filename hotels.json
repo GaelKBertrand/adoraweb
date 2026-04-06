@@ -6,7 +6,13 @@
     "Phone": "7017192404",
     "Email": "swissmanalicottage@gmail.com",
     "Address Line (Street, Landmark, Village, )": "Kanyal Rd, opposite Kartikey Swami Temple, Simsa Village, Manali, Nasogi, Himachal Pradesh 175131",
-    "images": ["assets/img/hotel/swisscover.jpg"],
+    "images": [
+      "assets/img/hotel/swisscover.jpg",
+      "assets/img/hotel/swisscover.jpg",
+      "assets/img/hotel/swisscover.jpg",
+      "assets/img/hotel/swisscover.jpg",
+      "assets/img/hotel/swisscover.jpg"
+    ],
     "rooms": [
       {
         "Hotel rooms options": "Swiss Cottage 5 BHK",
