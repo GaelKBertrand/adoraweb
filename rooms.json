@@ -1,0 +1,46 @@
+[
+  {
+    "id": "swiss-cottage-main",
+    "name": "Swiss Cottage",
+    "price": 10000,
+    "description": "Luxurious stay surrounded by nature with premium comfort.",
+    "image": "assets/img/hotel/swiss1.jpg",
+    "features": ["wifi", "balcony", "mountain"],
+    "maxOccupancy": 10,
+    "view": "mountain",
+    "badge": "Popular"
+  },
+  {
+    "id": "juniper-house-main",
+    "name": "Juniper House",
+    "price": 4000,
+    "description": "Peaceful retreat with modern amenities and scenic views.",
+    "image": "assets/img/hotel/glen1.jpg",
+    "features": ["wifi", "balcony"],
+    "maxOccupancy": 4,
+    "view": "mountain",
+    "badge": ""
+  },
+  {
+    "id": "starway-homes-main",
+    "name": "Starway Homes",
+    "price": 1400,
+    "description": "Cozy artistic stay ideal for solo travelers and couples.",
+    "image": "assets/img/hotel/orchard1.jpg",
+    "features": ["wifi"],
+    "maxOccupancy": 2,
+    "view": "garden",
+    "badge": "Budget"
+  },
+  {
+    "id": "amaira-hotel-main",
+    "name": "Amaira Hotel",
+    "price": 11000,
+    "description": "Spacious luxury villa with breathtaking mountain views.",
+    "image": "assets/img/hotel/terra1.jpg",
+    "features": ["wifi", "balcony", "kitchen"],
+    "maxOccupancy": 12,
+    "view": "mountain",
+    "badge": "Luxury"
+  }
+]
