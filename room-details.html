@@ -439,71 +439,65 @@
 
 
   <script>
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const hotelId = params.get('id');
 
     if (!hotelId) {
-        console.error("No hotel ID found in URL.");
+        console.error("No hotel ID found in URL");
         return;
     }
 
+    // Fetch from hotels.json as the primary data source for details
     fetch('hotels.json')
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
-        const hotel = data.find(h => h["Main hotel ID"] === hotelId);
+        // MATCHING KEY: "Main hotel ID" from hotels.json
+        const hotel = data.find(h => h['Main hotel ID'] === hotelId);
 
-        if (!hotel) {
-            console.error("Hotel not found:", hotelId);
-            return;
-        }
+        if (hotel) {
+            // Update Header & Breadcrumbs
+            document.getElementById('hotel-name').innerText = hotel['Main Hotel']; //
+            document.querySelector('.breadcrumb .active').innerText = hotel['Main Hotel'];
 
-        // --- DYNAMIC DATA MAPPING ---
-        // We check for both "Address" and the long "Address Line..." key to prevent crashes
-        const hotelAddress = hotel["Address"] || hotel["Address Line (Street, Landmark, Village, )"] || "Address not available";
+            // Update Description & Contact
+            document.getElementById('hotel-description').innerText = hotel['Main Hotel description']; //
+            document.getElementById('hotel-address').innerText = hotel['Address Line (Street, Landmark, Village, )'];
+            document.getElementById('hotel-phone').innerText = hotel['Phone'];
+            document.getElementById('hotel-email').innerText = hotel['Email'];
 
-        // Update Text Content
-        document.getElementById('hotel-name').textContent = hotel["Main Hotel"] || "Hotel Name";
-        document.getElementById('hotel-description').textContent = hotel["Main Hotel description"] || "";
-        document.getElementById('hotel-address').textContent = hotelAddress;
-        document.getElementById('hotel-phone').textContent = hotel["Phone"] || "N/A";
-        document.getElementById('hotel-email').textContent = hotel["Email"] || "N/A";
+            // Update Amenities List
+            const amenitiesContainer = document.getElementById('amenities-list');
+            if (hotel['Amenities (same for all hotels)']) {
+                const amenities = hotel['Amenities (same for all hotels)'].split('\n').filter(line => line.trim() !== '');
+                amenitiesContainer.innerHTML = amenities.map(a => `<li><i class="bi bi-check-circle"></i> ${a}</li>`).join('');
+            }
 
-        // Update Amenities (Column V)
-        const amenitiesContainer = document.getElementById('amenities-list');
-        if (hotel["Amenities (same for all hotels)"]) {
-            amenitiesContainer.textContent = hotel["Amenities (same for all hotels)"];
-        }
+            // Update Main Image & Thumbnails
+            if (hotel.images && hotel.images.length > 0) {
+                document.getElementById('main-product-image').src = hotel.images[0];
+                const thumbContainer = document.getElementById('thumbnail-container');
+                thumbContainer.innerHTML = hotel.images.map((img, index) => `
+                    <img src="${img}" class="thumb-img ${index === 0 ? 'active' : ''}"
+                         onclick="changeImg(this, '${img}')" alt="Hotel image ${index + 1}">
+                `).join('');
+            }
 
-        // --- IMAGE GALLERY LOGIC ---
-        if (hotel.images && hotel.images.length > 0) {
-            // Set Main Image
-            document.getElementById('main-product-image').src = hotel.images[0];
+            // Update Room Options Grid
+            const roomsGrid = document.getElementById('rooms-grid');
+            roomsGrid.innerHTML = hotel.rooms.map(room => {
+                const price = typeof room['Group Price (per night)'] === 'number'
+                    ? '₹' + room['Group Price (per night)'].toLocaleString()
+                    : room['Group Price (per night)'];
 
-            // Build Thumbnails
-            const thumbContainer = document.getElementById('thumbnail-container');
-            thumbContainer.innerHTML = hotel.images.map((img, index) => `
-                <div class="col-3 col-md-2 mb-2">
-                    <img src="${img}" class="img-fluid rounded thumb-img ${index === 0 ? 'active' : ''}"
-                         onclick="changeImg(this, '${img}')"
-                         style="cursor:pointer; aspect-ratio:1/1; object-fit:cover; width:100%;">
-                </div>
-            `).join('');
-        }
-
-        // --- ROOM OPTIONS GRID ---
-        const roomsList = document.getElementById('rooms-list');
-        if (hotel.rooms && hotel.rooms.length > 0) {
-            roomsList.innerHTML = hotel.rooms.map(room => {
-                const price = room['Group Price (per night)'] ? `₹${room['Group Price (per night)']}` : 'Contact Us';
-                const status = (room['Availability'] || 'Available').toLowerCase() === 'available' ? 'text-success' : 'text-danger';
+                const statusClass = (room['Availability'] || '').toLowerCase() === 'available' ? 'text-success' : 'text-danger';
 
                 return `
                     <div class="p-3 border rounded bg-white shadow-sm d-flex flex-column justify-content-between">
                         <div class="text-center">
-                            <h6 class="fw-bold mb-1">${room['Hotel rooms options'] || 'Standard Room'}</h6>
-                            <span class="${status}" style="font-size:0.75rem;">● ${room['Availability'] || 'Available'}</span>
-                            <p class="small text-muted mb-0">${room['Short Description'] || ''}</p>
+                            <h6 class="fw-bold mb-1">${room['Hotel rooms options']}</h6>
+                            <span class="${statusClass}" style="font-size:0.75rem;">● ${room['Availability']}</span>
+                            <p class="small text-muted mb-0">${room['Short Description']}</p>
                         </div>
                         <div class="text-center mt-2">
                             <div class="h5 fw-bold text-primary mb-2">${price}</div>
