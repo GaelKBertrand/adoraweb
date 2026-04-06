@@ -439,110 +439,71 @@
 
 
   <script>
-(function () {
-
-  function getParam(name) {
-    const url = new URL(window.location.href);
-    return url.searchParams.get(name);
-  }
-
-  const hotelId = getParam('id');
+document.addEventListener('DOMContentLoaded', function() {
+  const hotelId = new URLSearchParams(window.location.search).get('id');
+  if (!hotelId) return;
 
   fetch('hotels.json')
     .then(res => res.json())
-    .then(data => {
+    .then(hotels => {
+      const hotel = hotels.find(h => h['Main hotel ID'] === hotelId);
+      if (!hotel) return;
 
-      // ✅ SAME LOGIC — JUST FIXED KEY
-      const hotel = data.find(h => h["Main hotel ID"] == hotelId);
+      // 1. Restore Contact Info (Fixes the +1 123 456 issue)
+      const phoneEl = document.getElementById('hotel-phone');
+      const emailEl = document.getElementById('hotel-email');
+      if (phoneEl) phoneEl.textContent = hotel['Phone'] || "+91 7807111209";
+      if (emailEl) emailEl.textContent = hotel['Email'] || "info@adorahospitality.com";
 
-      if (!hotel) {
-        console.error("Hotel not found for id:", hotelId);
-        return;
+      // 2. Set Page Titles
+      document.getElementById('hotel-name-page-title').textContent = hotel['Main Hotel'];
+      document.getElementById('hotel-name-sidebar').textContent = hotel['Main Hotel'];
+      document.getElementById('hotel-address-full').textContent = hotel['Address Line (Street, Landmark, Village, )'];
+
+      // 3. Carousel/Gallery Logic
+      const mainImg = document.getElementById('main-product-image');
+      const thumbBox = document.querySelector('.thumbnail-gallery');
+      const imgs = hotel.images || [];
+
+      if (imgs.length > 0) {
+        mainImg.src = imgs[0];
+        // Create thumbnails for EVERY image in the JSON array
+        thumbBox.innerHTML = imgs.map((src, i) => `
+          <div class="thumb-item ${i === 0 ? 'active' : ''}" onclick="changeImg(this, '${src}')">
+            <img src="${src}" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+        `).join('');
       }
 
-      // ✅ TITLE + DESCRIPTION
-      document.getElementById('hotel-name-page-title').innerText = hotel["Main Hotel"];
-      document.getElementById('hotel-description-short').innerText = hotel["Main Hotel description"];
+      // 4. Room Grid (2x2 on Desktop)
+      const roomsList = document.getElementById('rooms-list');
+      roomsList.innerHTML = (hotel.rooms || []).map(room => {
+        const price = room['Group Price (per night)'] ? `₹${room['Group Price (per night)']}` : 'Contact Us';
+        const status = (room['Availability'] || 'Available').toLowerCase() === 'available' ? 'text-success' : 'text-danger';
 
-      document.getElementById('hotel-name-sidebar').innerText = hotel["Main Hotel"];
-      document.getElementById('hotel-description-heading').innerText = hotel["Main Hotel"];
-      document.getElementById('hotel-description-long').innerText = hotel["Main Hotel description"];
-
-      // ✅ CONTACT
-      document.getElementById('hotel-phone').innerText = hotel["Phone"];
-      document.getElementById('hotel-email').innerText = hotel["Email"];
-      document.getElementById('hotel-address-full').innerText = hotel["Address Line (Street, Landmark, Village, )"];
-
-      // ✅ IMAGES (KEEPING YOUR EXISTING STRUCTURE)
-      const mainContainer = document.querySelector('.main-image-container');
-      const thumbs = document.querySelector('.thumbnail-list');
-
-      if (hotel.images && hotel.images.length > 0) {
-
-        mainContainer.innerHTML = `
-          <img id="main-product-image"
-               src="${hotel.images[0]}"
-               class="img-fluid main-room-image">
-          <div class="image-nav-buttons">
-            <button class="image-nav-btn prev-image"><i class="bi bi-chevron-left"></i></button>
-            <button class="image-nav-btn next-image"><i class="bi bi-chevron-right"></i></button>
+        return `
+          <div class="p-3 border rounded bg-white shadow-sm d-flex flex-column justify-content-between">
+            <div class="text-center">
+              <h6 class="fw-bold mb-1">${room['Hotel rooms options']}</h6>
+              <span class="${status}" style="font-size:0.75rem;">● ${room['Availability'] || 'Available'}</span>
+            </div>
+            <div class="text-center mt-2">
+              <div class="h5 fw-bold text-primary mb-2">${price}</div>
+              <button onclick="window.open('https://pages.razorpay.com/adoratrek', '_blank')"
+                      class="btn btn-primary btn-sm w-100 fw-bold">Book Now</button>
+            </div>
           </div>
         `;
+      }).join('');
+    });
+});
 
-        thumbs.innerHTML = '';
-
-        hotel.images.slice(0, 6).forEach((img, i) => {
-          thumbs.innerHTML += `
-            <div class="thumbnail-item ${i === 0 ? 'active' : ''}" data-image="${img}">
-              <img src="${img}" class="img-fluid">
-            </div>
-          `;
-        });
-
-        // same click logic
-        document.querySelectorAll('.thumbnail-item').forEach(el => {
-          el.addEventListener('click', function () {
-            document.getElementById('main-product-image').src = this.dataset.image;
-          });
-        });
-      }
-
-      // ✅ ROOMS LIST (USING YOUR KEYS)
-      const roomsList = document.getElementById('rooms-list');
-      roomsList.innerHTML = '';
-
-      if (hotel.rooms && hotel.rooms.length > 0) {
-        hotel.rooms.forEach((room, i) => {
-
-          roomsList.innerHTML += `
-            <li>
-              <a href="#"
-                 class="btn ${i === 0 ? 'btn-primary' : 'btn-outline-primary'}
-                 d-flex w-100 p-2 justify-content-between align-items-center">
-
-                <span class="stat-label">
-                  ${room["Hotel rooms options"]}
-                </span>
-
-                <span class="stat-value">
-                  ${room["Availability"]}
-                </span>
-              </a>
-            </li>
-          `;
-        });
-      }
-
-      // ✅ AMENITIES
-      const amenitiesEl = document.getElementById('amenities-list');
-      if (amenitiesEl) {
-        amenitiesEl.innerHTML = hotel["Amenities (same for all hotels)"] || '';
-      }
-
-    })
-    .catch(err => console.error(err));
-
-})();
+// Image switching function
+function changeImg(el, src) {
+  document.getElementById('main-product-image').src = src;
+  document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
 </script>
 </body>
 
