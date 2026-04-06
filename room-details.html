@@ -473,7 +473,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const amenitiesEl = document.getElementById('amenities-list');
       if (amenitiesEl) amenitiesEl.innerHTML = hotel['Amenities (same for all hotels)'];
 
-      // 🔥 3. CAROUSEL LOGIC (THIS IS THE FIX)
+      // 🔥 REMOVE THUMBNAIL BOX COMPLETELY
+      const thumbBox = document.querySelector('.thumbnail-gallery');
+      if (thumbBox) thumbBox.style.display = 'none';
+
+      // 🔥 CAROUSEL WITH FIXED SIZE
       const mainContainer = document.querySelector('.main-image-container');
       const imgs = hotel.images || [];
 
@@ -481,16 +485,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (imgs.length > 0 && mainContainer) {
         mainContainer.innerHTML = `
-          <div style="position:relative;">
-            <img id="main-product-image" src="${imgs[0]}" class="img-fluid main-room-image">
+          <div style="position:relative; width:100%; height:450px; overflow:hidden;">
 
-            <button id="prevBtn" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); background:black; color:white; border:none; padding:10px; cursor:pointer;">
+            <img id="main-product-image"
+                 src="${imgs[0]}"
+                 style="width:100%; height:100%; object-fit:cover;">
+
+            <button id="prevBtn"
+              style="position:absolute; left:10px; top:50%; transform:translateY(-50%);
+                     background:rgba(0,0,0,0.6); color:white; border:none; padding:10px; cursor:pointer;">
               ‹
             </button>
 
-            <button id="nextBtn" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); background:black; color:white; border:none; padding:10px; cursor:pointer;">
+            <button id="nextBtn"
+              style="position:absolute; right:10px; top:50%; transform:translateY(-50%);
+                     background:rgba(0,0,0,0.6); color:white; border:none; padding:10px; cursor:pointer;">
               ›
             </button>
+
           </div>
         `;
 
@@ -530,6 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
 </body>
 
 </html>
