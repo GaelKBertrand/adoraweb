@@ -28,13 +28,6 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: LuxuryHotel
-  * Template URL: https://bootstrapmade.com/luxury-hotel-bootstrap-template/
-  * Updated: Jun 30 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="room-details-page">
@@ -499,19 +492,36 @@
               }
 
               // Update the list of available rooms
-              const roomsList = document.getElementById('rooms-list');
-              roomsList.innerHTML = ''; // Clear existing rooms
-              hotel.rooms.forEach((room, index) => {
-                const roomItem = document.createElement('li');
-                roomItem.innerHTML = `
-                    <a href="#" class="btn ${index === 0 ? 'btn-primary' : 'btn-outline-primary'} d-flex w-100 p-2 rounded justify-content-between align-items-center">
-                        <span class="stat-label">${room['Hotel rooms options']}</span>
-                        <span class="stat-value">Available</span>
-                    </a>
-                `;
-                roomsList.appendChild(roomItem);
-              });
-            } else {
+    const roomsList = document.getElementById('rooms-list');
+    roomsList.innerHTML = '';
+
+    if (hotel.rooms && hotel.rooms.length > 0) {
+        hotel.rooms.forEach(room => {
+            const roomItem = document.createElement('div');
+            roomItem.className = 'col-lg-4 col-md-6 mb-4';
+
+            // Dynamic Status Color
+            const availability = room['Availability'] || 'Contact for Status';
+            const statusColor = availability.toLowerCase() === 'available' ? 'text-success' : 'text-danger';
+            const price = room['Group Price (per night)'] ? `₹${room['Group Price (per night)']}` : 'Request Price';
+
+            roomItem.innerHTML = `
+                <div class="room-item-link d-block p-4 border rounded shadow-sm bg-white h-100">
+                    <h5 class="mb-2 text-dark fw-bold">${room['Hotel rooms options']}</h5>
+                    <p class="small text-muted mb-3">${room['Short Description'] || ''}</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="small ${statusColor} fw-bold">${availability}</span>
+                        <span class="h5 fw-bold text-primary mb-0">${price}</span>
+                    </div>
+                    <button onclick="window.open('https://pages.razorpay.com/adoratrek', '_blank')"
+                            class="btn btn-primary btn-sm w-100 fw-bold py-2 mt-2">
+                        Book Now
+                    </button>
+                </div>
+            `;
+            roomsList.appendChild(roomItem);
+        });
+} else {
               console.error('Hotel not found with ID:', hotelId);
               document.getElementById('page-title').textContent = 'Hotel Not Found';
               document.getElementById('hotel-name-page-title').textContent = 'Hotel Not Found';

@@ -7,62 +7,35 @@
     "Email": "swissmanalicottage@gmail.com",
     "Address Line (Street, Landmark, Village, )": "Kanyal Rd, opposite Kartikey Swami Temple, Simsa Village, Manali, Nasogi, Himachal Pradesh 175131",
     "images": [
-      "assets/img/hotel/swisscover.jpg",
-      "assets/img/hotel/swisscover.jpg",
-      "assets/img/hotel/swisscover.jpg",
-      "assets/img/hotel/swisscover.jpg",
       "assets/img/hotel/swisscover.jpg"
     ],
-    "Amenities (same for all hotels)": "🛏️ Room Amenities\nKing/Queen size beds with premium linens\n\n\nPrivate balconies (with valley or mountain views)\n\n\nRoom heater or centralized heating\n\n\nEnsuite bathrooms with hot & cold running water\n\n\nComplimentary toiletries (soap, shampoo, towels)\n\n\n24/7 hot water via geyser or boiler system\n\n\nLED Smart TV with cable/DTH\n\n\nFree high-speed Wi-Fi\n\n\nWork desk and chair\n\n\nWardrobe and luggage rack\n\n\nTea/coffee maker or electric kettle\n\n\nIn-room dining service or kitchenette (in suites/apartments)\n\n\nIntercom or direct dial phone\n\n\nDaily housekeeping\nAttached Kitchen\n\n\n\n🏕️ Property Amenities\nBonfire setup (seasonal)\n\n\nGarden or outdoor seating area\n\n\nParking facility (onsite or nearby)\n\n\n24-hour front desk and concierge\n\n\nTravel desk for local sightseeing or trek bookings\n\n\nLaundry service \nPickup & drop services (on request)",
-    "Refund Policies": "",
     "rooms": [
       {
         "Hotel rooms options": "Swiss Cottage 5 BHK",
         "Hotel rooms IDS": "swiss-cottage-5bhk",
+        "Availability": "Available",
         "Short Description": "Luxurious 5-bedroom chalet for large groups seeking nature's embrace.",
-        "Long Description": "Experience luxury and comfort in our spacious 5-bedroom Swiss Cottage, perfect for large families or groups looking for a retreat in the heart of nature.",
         "Group Price (per night)": 10000,
         "Max people paying group price": 10,
-        "Extra charges for extra people": 900,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 20,
-        "Max Adults": 15,
-        "Max Children": 5,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 15
+        "Extra charges for extra people": 900
       },
       {
         "Hotel rooms options": "Swiss Cottage 4 BHK",
         "Hotel rooms IDS": "swiss-cottage-4bhk",
+        "Availability": "Available",
         "Short Description": "Elegant 4-bedroom retreat amidst scenic beauty and tranquility.",
-        "Long Description": "Unwind in style in our 4-bedroom Swiss Cottage, designed for those seeking a cozy yet elegant stay surrounded by scenic beauty.",
         "Group Price (per night)": 8000,
         "Max people paying group price": 8,
-        "Extra charges for extra people": 900,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 16,
-        "Max Adults": 12,
-        "Max Children": 4,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 15
+        "Extra charges for extra people": 900
       },
       {
         "Hotel rooms options": "Swiss Cottage 9 BHK",
         "Hotel rooms IDS": "swiss-cottage-9bhk",
+        "Availability": "Available",
         "Short Description": "Opulent 9-bedroom haven with breathtaking views and top-tier amenities.",
-        "Long Description": "Indulge in opulence and tranquility with our expansive 9-bedroom Swiss Cottage, offering unparalleled views and top-notch amenities.",
         "Group Price (per night)": 18000,
         "Max people paying group price": 18,
-        "Extra charges for extra people": 900,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 36,
-        "Max Adults": 27,
-        "Max Children": 9,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 15
+        "Extra charges for extra people": 900
       }
     ]
   },
@@ -74,60 +47,35 @@
     "Email": "terrahomes0@gmail.com",
     "Address Line (Street, Landmark, Village, )": "Terra- A Mountain Home, Naggar Rd, Prini, Manali, Himachal Pradesh 175131",
     "images": [
-      "assets/img/hotel/junipercover.jpg",
-      "assets/img/hotel/junipercover.jpg",
       "assets/img/hotel/junipercover.jpg"
     ],
-    "Amenities (same for all hotels)": "🛏️ Room Amenities\nKing/Queen size beds with premium linens\n\n\nPrivate balconies (with valley or mountain views)\n\n\nRoom heater or centralized heating\n\n\nEnsuite bathrooms with hot & cold running water\n\n\nComplimentary toiletries (soap, shampoo, towels)\n\n\n24/7 hot water via geyser or boiler system\n\n\nLED Smart TV with cable/DTH\n\n\nFree high-speed Wi-Fi\n\n\nWork desk and chair\n\n\nWardrobe and luggage rack\n\n\nTea/coffee maker or electric kettle\n\n\nIn-room dining service or kitchenette (in suites/apartments)\n\n\nIntercom or direct dial phone\n\n\nDaily housekeeping\nAttached Kitchen\n\n\n\n🏕️ Property Amenities\nBonfire setup (seasonal)\n\n\nGarden or outdoor seating area\n\n\nParking facility (onsite or nearby)\n\n\n24-hour front desk and concierge\n\n\nTravel desk for local sightseeing or trek bookings\n\n\nLaundry service \nPickup & drop services (on request)",
-    "Refund Policies": "",
     "rooms": [
       {
         "Hotel rooms options": "Glen Haus 2 BHK",
         "Hotel rooms IDS": "juniper-house-glen-2bhk",
+        "Availability": "Available",
         "Short Description": "Serene 2-bedroom retreat blending modern convenience with peace.",
-        "Long Description": "Discover serenity in our 2-bedroom Glen Haus, blending modern convenience with a peaceful ambiance for a rejuvenating stay.",
         "Group Price (per night)": 4000,
         "Max people paying group price": 4,
-        "Extra charges for extra people": 900,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 8,
-        "Max Adults": 6,
-        "Max Children": 2,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 15
+        "Extra charges for extra people": 900
       },
       {
         "Hotel rooms options": "Terra 4 BHK",
         "Hotel rooms IDS": "juniper-house-terra-4bhk",
+        "Availability": "Available",
         "Short Description": "Luxurious 4-bedroom accommodation with stunning vistas and exquisite interiors.",
-        "Long Description": "Embrace luxury living in our 4-bedroom Terra accommodation, with stunning vistas and exquisite interiors.",
         "Group Price (per night)": 8000,
         "Max people paying group price": 8,
-        "Extra charges for extra people": 900,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 16,
-        "Max Adults": 12,
-        "Max Children": 4,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 15
+        "Extra charges for extra people": 900
       },
       {
         "Hotel rooms options": "Terra n Glen 6BHK",
         "Hotel rooms IDS": "juniper-house-terraglen-6bhk",
+        "Availability": "Available",
         "Short Description": "Spacious 6-bedroom retreat offering comfort and natural beauty.",
-        "Long Description": "Experience the best of both worlds with our 6-bedroom Terra n Glen retreat, combining spacious comfort and natural beauty for an unforgettable experience.",
         "Group Price (per night)": 12000,
         "Max people paying group price": 12,
-        "Extra charges for extra people": 900,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 24,
-        "Max Adults": 18,
-        "Max Children": 6,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 15
+        "Extra charges for extra people": 900
       }
     ]
   },
@@ -139,140 +87,80 @@
     "Email": "homesstarway@gmail.com",
     "Address Line (Street, Landmark, Village, )": "Manu temple road, old manali , Manali , Himachal Pradesh,175131",
     "images": [
-      "assets/img/hotel/starwaycover.jpg",
-      "assets/img/hotel/starwaycover.jpg",
       "assets/img/hotel/starwaycover.jpg"
     ],
-    "Amenities (same for all hotels)": "🛏️ Room Amenities\nKing/Queen size beds with premium linens\n\n\nPrivate balconies (with valley or mountain views)\n\n\nRoom heater or centralized heating\n\n\nEnsuite bathrooms with hot & cold running water\n\n\nComplimentary toiletries (soap, shampoo, towels)\n\n\n24/7 hot water via geyser or boiler system\n\n\nLED Smart TV with cable/DTH\n\n\nFree high-speed Wi-Fi\n\n\nWork desk and chair\n\n\nWardrobe and luggage rack\n\n\nTea/coffee maker or electric kettle\n\n\nIn-room dining service or kitchenette (in suites/apartments)\n\n\nIntercom or direct dial phone\n\n\nDaily housekeeping\nAttached Kitchen\n\n\n\n🏕️ Property Amenities\nBonfire setup (seasonal)\n\n\nGarden or outdoor seating area\n\n\nParking facility (onsite or nearby)\n\n\n24-hour front desk and concierge\n\n\nTravel desk for local sightseeing or trek bookings\n\n\nLaundry service \nPickup & drop services (on request)",
-    "Refund Policies": "",
     "rooms": [
       {
         "Hotel rooms options": "Mercury 1 BHK",
         "Hotel rooms IDS": "starway-homes-mercury",
+        "Availability": "Available",
         "Short Description": "Cozy 1-bedroom suite surrounded by artistic elements for a relaxing stay.",
-        "Long Description": "Enjoy a cozy stay in our 1-bedroom Mercury suite, designed for comfort and relaxation amidst artistic surroundings.",
         "Group Price (per night)": 1400,
         "Max people paying group price": 2,
-        "Extra charges for extra people": 600,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 4,
-        "Max Adults": 3,
-        "Max Children": 1,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 30
+        "Extra charges for extra people": 600
       },
       {
         "Hotel rooms options": "Venus 1 BHK",
         "Hotel rooms IDS": "starway-homes-venus",
+        "Availability": "Available",
         "Short Description": "Artistic 1-bedroom suite combining creativity and comfort for a delightful experience.",
-        "Long Description": "Immerse yourself in artistic charm in our 1-bedroom Venus suite, offering a blend of creativity and comfort.",
         "Group Price (per night)": 1200,
         "Max people paying group price": 2,
-        "Extra charges for extra people": 600,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 4,
-        "Max Adults": 3,
-        "Max Children": 1,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 30
+        "Extra charges for extra people": 600
       },
       {
         "Hotel rooms options": "Mars 1 BHK",
         "Hotel rooms IDS": "starway-homes-mars",
+        "Availability": "Available",
         "Short Description": "Unique 1-bedroom suite with artistic touches and modern amenities.",
-        "Long Description": "Experience a unique stay in our 1-bedroom Mars suite, featuring artistic touches and modern amenities.",
         "Group Price (per night)": 1200,
         "Max people paying group price": 2,
-        "Extra charges for extra people": 600,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 4,
-        "Max Adults": 3,
-        "Max Children": 1,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 30
+        "Extra charges for extra people": 600
       },
       {
         "Hotel rooms options": "Jupiter 1 BHK",
         "Hotel rooms IDS": "starway-homes-jupiter",
+        "Availability": "Available",
         "Short Description": "Comfortable 1-bedroom suite designed for a relaxing stay with artistic flair.",
-        "Long Description": "Discover comfort and style in our 1-bedroom Jupiter suite, designed to offer a relaxing stay with artistic flair.",
         "Group Price (per night)": 1200,
         "Max people paying group price": 2,
-        "Extra charges for extra people": 600,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 4,
-        "Max Adults": 3,
-        "Max Children": 1,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 30
+        "Extra charges for extra people": 600
       },
       {
         "Hotel rooms options": "Saturn 1 BHK",
         "Hotel rooms IDS": "starway-homes-saturn",
+        "Availability": "Available",
         "Short Description": "Luxurious 1-bedroom suite where modern amenities meet artistic touches.",
-        "Long Description": "Step into luxury and elegance in our 1-bedroom Saturn suite, where modern amenities meet artistic touches.",
         "Group Price (per night)": 1200,
         "Max people paying group price": 2,
-        "Extra charges for extra people": 600,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 4,
-        "Max Adults": 3,
-        "Max Children": 1,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 30
+        "Extra charges for extra people": 600
       },
       {
         "Hotel rooms options": "Uranus 1 BHK",
         "Hotel rooms IDS": "starway-homes-uranus",
+        "Availability": "Available",
         "Short Description": "Creative 1-bedroom suite featuring artistic décor and a cozy ambiance.",
-        "Long Description": "Experience a blend of comfort and creativity in our 1-bedroom Uranus suite, featuring artistic décor and cozy vibes.",
         "Group Price (per night)": 1200,
         "Max people paying group price": 2,
-        "Extra charges for extra people": 600,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 4,
-        "Max Adults": 3,
-        "Max Children": 1,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 30
+        "Extra charges for extra people": 600
       },
       {
         "Hotel rooms options": "Neptune 1 BHK",
         "Hotel rooms IDS": "starway-homes-neptune",
+        "Availability": "Available",
         "Short Description": "Peaceful 1-bedroom suite designed for relaxation and artistic inspiration.",
-        "Long Description": "Indulge in a peaceful retreat in our 1-bedroom Neptune suite, designed for relaxation and artistic inspiration.",
         "Group Price (per night)": 1200,
         "Max people paying group price": 2,
-        "Extra charges for extra people": 600,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 4,
-        "Max Adults": 3,
-        "Max Children": 1,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 30
+        "Extra charges for extra people": 600
       },
       {
         "Hotel rooms options": "Moon 1 BHK",
         "Hotel rooms IDS": "starway-homes-moon",
+        "Availability": "Available",
         "Short Description": "Tranquil 1-bedroom suite offering a cozy and welcoming ambiance.",
-        "Long Description": "Embrace tranquility and artistic charm in our 1-bedroom Moon suite, offering a cozy and welcoming ambiance.",
         "Group Price (per night)": 1200,
         "Max people paying group price": 2,
-        "Extra charges for extra people": 600,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 4,
-        "Max Adults": 3,
-        "Max Children": 1,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 30
+        "Extra charges for extra people": 600
       }
     ]
   },
@@ -284,28 +172,17 @@
     "Email": "info@adorahospitality.com",
     "Address Line (Street, Landmark, Village, )": "Kanyal Rd, opposite Kartikey Swami Temple, Simsa Village, Manali, Nasogi, Himachal Pradesh 175131",
     "images": [
-      "assets/img/hotel/amairacover.jpg",
-      "assets/img/hotel/amairacover.jpg",
       "assets/img/hotel/amairacover.jpg"
     ],
-    "Amenities (same for all hotels)": "🛏️ Room Amenities\nKing/Queen size beds with premium linens\n\n\nPrivate balconies (with valley or mountain views)\n\n\nRoom heater or centralized heating\n\n\nEnsuite bathrooms with hot & cold running water\n\n\nComplimentary toiletries (soap, shampoo, towels)\n\n\n24/7 hot water via geyser or boiler system\n\n\nLED Smart TV with cable/DTH\n\n\nFree high-speed Wi-Fi\n\n\nWork desk and chair\n\n\nWardrobe and luggage rack\n\n\nTea/coffee maker or electric kettle\n\n\nIn-room dining service or kitchenette (in suites/apartments)\n\n\nIntercom or direct dial phone\n\n\nDaily housekeeping\nAttached Kitchen\n\n\n\n🏕️ Property Amenities\nBonfire setup (seasonal)\n\n\nGarden or outdoor seating area\n\n\nParking facility (onsite or nearby)\n\n\n24-hour front desk and concierge\n\n\nTravel desk for local sightseeing or trek bookings\n\n\nLaundry service \nPickup & drop services (on request)",
-    "Refund Policies": "",
     "rooms": [
       {
         "Hotel rooms options": "Amaira 5 BHK",
         "Hotel rooms IDS": "amaira-hotel-5bhk",
+        "Availability": "Available",
         "Short Description": "A spacious private 5 BHK villa with balconies offering stunning panoramic mountain views.",
-        "Long Description": "Delight in panoramic views of the Parvati Valley from our premium 5 BHK villa — complete with balconies, modern amenities, and cozy furnishings for an unforgettable Himalayan getaway.",
         "Group Price (per night)": 11000,
         "Max people paying group price": 10,
-        "Extra charges for extra people": 900,
-        "Check-in Time": "13:00:00",
-        "Check-out Time": "11:00:00",
-        "Max Occupancy": 15,
-        "Max Adults": 15,
-        "Max Children": 2,
-        "Base Occupancy": 1,
-        "Length of stay (max)": 30
+        "Extra charges for extra people": 900
       }
     ]
   }
