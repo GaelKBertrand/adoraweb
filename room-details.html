@@ -460,14 +460,27 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('hotel-name-sidebar').textContent = hotel['Main Hotel'];
       document.getElementById('hotel-address-full').textContent = hotel['Address Line (Street, Landmark, Village, )'];
 
+      // 🔥 2.1 ADD: Description (WAS MISSING)
+      const shortDesc = document.getElementById('hotel-description-short');
+      const headingDesc = document.getElementById('hotel-description-heading');
+      const longDesc = document.getElementById('hotel-description-long');
+
+      if (shortDesc) shortDesc.textContent = hotel['Main Hotel description'];
+      if (headingDesc) headingDesc.textContent = hotel['Main Hotel description'];
+      if (longDesc) longDesc.textContent = hotel['Main Hotel description'];
+
+      // 🔥 2.2 ADD: Amenities (WAS MISSING)
+      const amenitiesEl = document.getElementById('amenities-list');
+      if (amenitiesEl) amenitiesEl.innerHTML = hotel['Amenities (same for all hotels)'];
+
       // 3. Carousel/Gallery Logic
       const mainImg = document.getElementById('main-product-image');
       const thumbBox = document.querySelector('.thumbnail-gallery');
       const imgs = hotel.images || [];
 
       if (imgs.length > 0) {
-        mainImg.src = imgs[0];
-        // Create thumbnails for EVERY image in the JSON array
+        if (mainImg) mainImg.src = imgs[0];
+
         thumbBox.innerHTML = imgs.map((src, i) => `
           <div class="thumb-item ${i === 0 ? 'active' : ''}" onclick="changeImg(this, '${src}')">
             <img src="${src}" style="width:100%; height:100%; object-fit:cover;">
