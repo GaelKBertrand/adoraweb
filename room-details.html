@@ -439,70 +439,90 @@
 
 
   <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const hotelId = new URLSearchParams(window.location.search).get('id');
-  if (!hotelId) return;
+document.addEventListener('DOMContentLoaded', function () {
+    const params = new URLSearchParams(window.location.search);
+    const hotelId = params.get('id');
 
-  fetch('hotels.json')
-    .then(res => res.json())
-    .then(hotels => {
-      const hotel = hotels.find(h => h['Main hotel ID'] === hotelId);
-      if (!hotel) return;
+    if (!hotelId) {
+        console.error("No hotel ID found in URL.");
+        return;
+    }
 
-      // 1. Restore Contact Info (Fixes the +1 123 456 issue)
-      const phoneEl = document.getElementById('hotel-phone');
-      const emailEl = document.getElementById('hotel-email');
-      if (phoneEl) phoneEl.textContent = hotel['Phone'] || "+91 7807111209";
-      if (emailEl) emailEl.textContent = hotel['Email'] || "info@adorahospitality.com";
+    fetch('hotels.json')
+    .then(response => response.json())
+    .then(data => {
+        const hotel = data.find(h => h["Main hotel ID"] === hotelId);
 
-      // 2. Set Page Titles
-      document.getElementById('hotel-name-page-title').textContent = hotel['Main Hotel'];
-      document.getElementById('hotel-name-sidebar').textContent = hotel['Main Hotel'];
-      document.getElementById('hotel-address-full').textContent = hotel['Address Line (Street, Landmark, Village, )'];
+        if (!hotel) {
+            console.error("Hotel not found:", hotelId);
+            return;
+        }
 
-      // 3. Carousel/Gallery Logic
-      const mainImg = document.getElementById('main-product-image');
-      const thumbBox = document.querySelector('.thumbnail-gallery');
-      const imgs = hotel.images || [];
+        // --- DYNAMIC DATA MAPPING ---
+        // We check for both "Address" and the long "Address Line..." key to prevent crashes
+        const hotelAddress = hotel["Address"] || hotel["Address Line (Street, Landmark, Village, )"] || "Address not available";
 
-      if (imgs.length > 0) {
-        mainImg.src = imgs[0];
-        // Create thumbnails for EVERY image in the JSON array
-        thumbBox.innerHTML = imgs.map((src, i) => `
-          <div class="thumb-item ${i === 0 ? 'active' : ''}" onclick="changeImg(this, '${src}')">
-            <img src="${src}" style="width:100%; height:100%; object-fit:cover;">
-          </div>
-        `).join('');
-      }
+        // Update Text Content
+        document.getElementById('hotel-name').textContent = hotel["Main Hotel"] || "Hotel Name";
+        document.getElementById('hotel-description').textContent = hotel["Main Hotel description"] || "";
+        document.getElementById('hotel-address').textContent = hotelAddress;
+        document.getElementById('hotel-phone').textContent = hotel["Phone"] || "N/A";
+        document.getElementById('hotel-email').textContent = hotel["Email"] || "N/A";
 
-      // 4. Room Grid (2x2 on Desktop)
-      const roomsList = document.getElementById('rooms-list');
-      roomsList.innerHTML = (hotel.rooms || []).map(room => {
-        const price = room['Group Price (per night)'] ? `₹${room['Group Price (per night)']}` : 'Contact Us';
-        const status = (room['Availability'] || 'Available').toLowerCase() === 'available' ? 'text-success' : 'text-danger';
+        // Update Amenities (Column V)
+        const amenitiesContainer = document.getElementById('amenities-list');
+        if (hotel["Amenities (same for all hotels)"]) {
+            amenitiesContainer.textContent = hotel["Amenities (same for all hotels)"];
+        }
 
-        return `
-          <div class="p-3 border rounded bg-white shadow-sm d-flex flex-column justify-content-between">
-            <div class="text-center">
-              <h6 class="fw-bold mb-1">${room['Hotel rooms options']}</h6>
-              <span class="${status}" style="font-size:0.75rem;">● ${room['Availability'] || 'Available'}</span>
-            </div>
-            <div class="text-center mt-2">
-              <div class="h5 fw-bold text-primary mb-2">${price}</div>
-              <button onclick="window.open('https://pages.razorpay.com/adoratrek', '_blank')"
-                      class="btn btn-primary btn-sm w-100 fw-bold">Book Now</button>
-            </div>
-          </div>
-        `;
-      }).join('');
-    });
+        // --- IMAGE GALLERY LOGIC ---
+        if (hotel.images && hotel.images.length > 0) {
+            // Set Main Image
+            document.getElementById('main-product-image').src = hotel.images[0];
+
+            // Build Thumbnails
+            const thumbContainer = document.getElementById('thumbnail-container');
+            thumbContainer.innerHTML = hotel.images.map((img, index) => `
+                <div class="col-3 col-md-2 mb-2">
+                    <img src="${img}" class="img-fluid rounded thumb-img ${index === 0 ? 'active' : ''}"
+                         onclick="changeImg(this, '${img}')"
+                         style="cursor:pointer; aspect-ratio:1/1; object-fit:cover; width:100%;">
+                </div>
+            `).join('');
+        }
+
+        // --- ROOM OPTIONS GRID ---
+        const roomsList = document.getElementById('rooms-list');
+        if (hotel.rooms && hotel.rooms.length > 0) {
+            roomsList.innerHTML = hotel.rooms.map(room => {
+                const price = room['Group Price (per night)'] ? `₹${room['Group Price (per night)']}` : 'Contact Us';
+                const status = (room['Availability'] || 'Available').toLowerCase() === 'available' ? 'text-success' : 'text-danger';
+
+                return `
+                    <div class="p-3 border rounded bg-white shadow-sm d-flex flex-column justify-content-between">
+                        <div class="text-center">
+                            <h6 class="fw-bold mb-1">${room['Hotel rooms options'] || 'Standard Room'}</h6>
+                            <span class="${status}" style="font-size:0.75rem;">● ${room['Availability'] || 'Available'}</span>
+                            <p class="small text-muted mb-0">${room['Short Description'] || ''}</p>
+                        </div>
+                        <div class="text-center mt-2">
+                            <div class="h5 fw-bold text-primary mb-2">${price}</div>
+                            <button onclick="window.open('https://pages.razorpay.com/adoratrek', '_blank')"
+                                    class="btn btn-primary btn-sm w-100 fw-bold">Book Now</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+    })
+    .catch(err => console.error("Error loading hotel details:", err));
 });
 
 // Image switching function
 function changeImg(el, src) {
-  document.getElementById('main-product-image').src = src;
-  document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
+    document.getElementById('main-product-image').src = src;
+    document.querySelectorAll('.thumb-img').forEach(img => img.classList.remove('active'));
+    el.classList.add('active');
 }
 </script>
 </body>
