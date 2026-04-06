@@ -621,36 +621,56 @@
     loadingIndicator.style.display = 'block';
     roomContainer.innerHTML = ''; // Clear any static content
 
-    fetch('hotels.json') // Pointing to your updated json file
+    // --- Initial Data Fetch and Render ---
+    loadingIndicator.style.display = 'block';
+    roomContainer.innerHTML = '';
+
+    // Changed source to hotels.json to match your new data structure
+    fetch('hotels.json')
       .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         return response.json();
       })
       .then(data => {
-        // Flatten the data: Turn the list of hotels into a list of rooms
-        allRoomsData = data.flatMap(hotel => {
-          return hotel.rooms.map(room => ({
-            id: hotel["Main hotel ID"],
-            name: room["Hotel rooms options"],
-            category: hotel["Main Hotel"],
-            price: room["Group Price (per night)"],
-            description: room["Short Description"] || hotel["Main Hotel description"],
-            image: hotel.images[0], // Use the first image from the hotel array
-            features: hotel.features || ["wifi", "balcony", "parking"], // Fallback if features missing
-            badge: "Luxury Stay",
-            view: "mountain"
-          }));
+        // We must FLATTEN the data because one hotel has many rooms
+        allRoomsData = [];
+
+        data.forEach(hotel => {
+          if (hotel.rooms && Array.isArray(hotel.rooms)) {
+            hotel.rooms.forEach(room => {
+              allRoomsData.push({
+                id: hotel["Main hotel ID"], // Used for linking to details
+                name: room["Hotel rooms options"],
+                category: hotel["Main Hotel"],
+                // Map your new JSON keys to the keys the HTML template uses:
+                price: room["Group Price (per night)"],
+                description: room["Short Description"],
+                image: hotel.images && hotel.images.length > 0 ? hotel.images[0] : 'assets/img/placeholder.jpg',
+                // Default features since they aren't in the new JSON yet
+                features: ["wifi", "balcony", "mountain view", "parking"],
+                badge: "Available",
+                view: "mountain"
+              });
+            });
+          }
         });
 
         loadingIndicator.style.display = 'none';
-        applyFiltersAndSort();
+
+        if (allRoomsData.length === 0) {
+            roomContainer.innerHTML = '<p class="text-center w-100 mt-5">No rooms found in the data source.</p>';
+        } else {
+            applyFiltersAndSort();
+        }
       })
       .catch(error => {
-        console.error('Error loading data:', error);
+        console.error('Data Fetch Error:', error);
         loadingIndicator.style.display = 'none';
-        roomContainer.innerHTML = '<p class="text-danger">Failed to load room data.</p>';
+        roomContainer.innerHTML = `
+          <div class="text-center w-100 mt-5 text-danger">
+            <p>Failed to load room data.</p>
+            <small>${error.message}</small>
+          </div>`;
       });
 </script>
 
