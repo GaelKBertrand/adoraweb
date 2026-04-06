@@ -449,18 +449,18 @@ document.addEventListener('DOMContentLoaded', function() {
       const hotel = hotels.find(h => h['Main hotel ID'] === hotelId);
       if (!hotel) return;
 
-      // 1. Restore Contact Info (Fixes the +1 123 456 issue)
+      // 1. Restore Contact Info
       const phoneEl = document.getElementById('hotel-phone');
       const emailEl = document.getElementById('hotel-email');
       if (phoneEl) phoneEl.textContent = hotel['Phone'] || "+91 7807111209";
       if (emailEl) emailEl.textContent = hotel['Email'] || "info@adorahospitality.com";
 
-      // 2. Set Page Titles
+      // 2. Titles
       document.getElementById('hotel-name-page-title').textContent = hotel['Main Hotel'];
       document.getElementById('hotel-name-sidebar').textContent = hotel['Main Hotel'];
       document.getElementById('hotel-address-full').textContent = hotel['Address Line (Street, Landmark, Village, )'];
 
-      // 🔥 Description
+      // Description
       const shortDesc = document.getElementById('hotel-description-short');
       const headingDesc = document.getElementById('hotel-description-heading');
       const longDesc = document.getElementById('hotel-description-long');
@@ -469,19 +469,45 @@ document.addEventListener('DOMContentLoaded', function() {
       if (headingDesc) headingDesc.textContent = hotel['Main Hotel description'];
       if (longDesc) longDesc.textContent = hotel['Main Hotel description'];
 
-      // 🔥 Amenities
+      // Amenities
       const amenitiesEl = document.getElementById('amenities-list');
       if (amenitiesEl) amenitiesEl.innerHTML = hotel['Amenities (same for all hotels)'];
 
-      // 3. ONLY MAIN IMAGE (THUMBNAILS REMOVED)
-      const mainImg = document.getElementById('main-product-image');
+      // 🔥 3. CAROUSEL LOGIC (THIS IS THE FIX)
+      const mainContainer = document.querySelector('.main-image-container');
       const imgs = hotel.images || [];
 
-      if (imgs.length > 0) {
-        if (mainImg) mainImg.src = imgs[0];
+      let currentIndex = 0;
+
+      if (imgs.length > 0 && mainContainer) {
+        mainContainer.innerHTML = `
+          <div style="position:relative;">
+            <img id="main-product-image" src="${imgs[0]}" class="img-fluid main-room-image">
+
+            <button id="prevBtn" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); background:black; color:white; border:none; padding:10px; cursor:pointer;">
+              ‹
+            </button>
+
+            <button id="nextBtn" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); background:black; color:white; border:none; padding:10px; cursor:pointer;">
+              ›
+            </button>
+          </div>
+        `;
+
+        const mainImg = document.getElementById('main-product-image');
+
+        document.getElementById('prevBtn').onclick = function() {
+          currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+          mainImg.src = imgs[currentIndex];
+        };
+
+        document.getElementById('nextBtn').onclick = function() {
+          currentIndex = (currentIndex + 1) % imgs.length;
+          mainImg.src = imgs[currentIndex];
+        };
       }
 
-      // 4. Room Grid (2x2 on Desktop)
+      // 4. Rooms
       const roomsList = document.getElementById('rooms-list');
       roomsList.innerHTML = (hotel.rooms || []).map(room => {
         const price = room['Group Price (per night)'] ? `₹${room['Group Price (per night)']}` : 'Contact Us';
