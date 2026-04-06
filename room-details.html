@@ -195,8 +195,8 @@
           </div>
           <div id="contact-info" class="mt-4">
             <h4>Contact Info</h4>
-            <p><i class="bi bi-telephone me-2"></i> <span id="hotel-phone">+1 123 456 7890</span></p>
-            <p><i class="bi bi-envelope me-2"></i> <span id="hotel-email">info@example.com</span></p>
+            <p><i class="bi bi-telephone me-2"></i> <span id="hotel-phone">+91 78071112090</span></p>
+            <p><i class="bi bi-envelope me-2"></i> <span id="hotel-email">info@adorahospitality.com</span></p>
             <p><i class="bi bi-geo-alt me-2"></i> <span id="hotel-address-full">Address goes here</span></p>
           </div>
         </div>
@@ -449,11 +449,28 @@ document.addEventListener('DOMContentLoaded', function() {
       const hotel = hotels.find(h => h['Main hotel ID'] === hotelId);
       if (!hotel) return;
 
-      // Basic Info
-      document.title = hotel['Main Hotel'];
+      // 1. Basic Info & Page Titles
+      document.title = hotel['Main Hotel'] + " | Adora Hospitality";
       document.getElementById('hotel-name-page-title').textContent = hotel['Main Hotel'];
       document.getElementById('hotel-name-sidebar').textContent = hotel['Main Hotel'];
       document.getElementById('hotel-address-full').textContent = hotel['Address Line (Street, Landmark, Village, )'];
+
+      // 2. RESTORE YOUR CONTACT DETAILS (Fixes the "123 456" issue)
+      // We use the data from hotels.json, or your primary business line if the hotel data is missing
+      const phoneElement = document.getElementById('hotel-phone');
+      const emailElement = document.getElementById('hotel-email');
+
+      if (phoneElement) {
+        phoneElement.textContent = hotel['Phone'] || "+91 7807111209";
+      }
+      if (emailElement) {
+        emailElement.textContent = hotel['Email'] || "info@adorahospitality.com";
+      }
+
+      // 3. Update the Page Title Background Image
+      if (hotel.images && hotel.images.length > 0) {
+        document.querySelector('.page-title').style.backgroundImage = `url(${hotel.images[0]})`;
+      }
 
       // Gallery Logic - Simple & Fast
       const mainImg = document.getElementById('main-product-image');
