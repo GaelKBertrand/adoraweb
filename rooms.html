@@ -621,12 +621,12 @@
       })
       .then(data => {
         allRoomsData = data; // Store the fetched data
-        loadingIndicator.style.display = 'none'; // Hide loading indicator
+        if (loadingIndicator) loadingIndicator.style.display = 'block';
         applyFiltersAndSort(); // Apply initial filters and render all rooms
       })
       .catch(error => {
         console.error('There was a problem fetching the room data:', error);
-        loadingIndicator.style.display = 'none'; // Hide loading indicator
+        if (loadingIndicator) loadingIndicator.style.display = 'none';
         roomContainer.innerHTML = '<p class="text-center w-100 mt-5 text-danger">Failed to load room data. Please ensure rooms.json is in the same directory and a local server is running.</p>';
         roomCountSpan.textContent = '0';
       });
