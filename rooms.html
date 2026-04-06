@@ -621,25 +621,37 @@
     loadingIndicator.style.display = 'block';
     roomContainer.innerHTML = ''; // Clear any static content
 
-    fetch('rooms.json')
+    fetch('hotels.json') // Pointing to your updated json file
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        return response.json(); // Parse the JSON data
+        return response.json();
       })
       .then(data => {
-        allRoomsData = data; // Store the fetched data
-        loadingIndicator.style.display = 'none'; // Hide loading indicator
-        applyFiltersAndSort(); // Apply initial filters and render all rooms
+        // Flatten the data: Turn the list of hotels into a list of rooms
+        allRoomsData = data.flatMap(hotel => {
+          return hotel.rooms.map(room => ({
+            id: hotel["Main hotel ID"],
+            name: room["Hotel rooms options"],
+            category: hotel["Main Hotel"],
+            price: room["Group Price (per night)"],
+            description: room["Short Description"] || hotel["Main Hotel description"],
+            image: hotel.images[0], // Use the first image from the hotel array
+            features: hotel.features || ["wifi", "balcony", "parking"], // Fallback if features missing
+            badge: "Luxury Stay",
+            view: "mountain"
+          }));
+        });
+
+        loadingIndicator.style.display = 'none';
+        applyFiltersAndSort();
       })
       .catch(error => {
-        console.error('There was a problem fetching the room data:', error);
-        loadingIndicator.style.display = 'none'; // Hide loading indicator
-        roomContainer.innerHTML = '<p class="text-center w-100 mt-5 text-danger">Failed to load room data. Please ensure rooms.json is in the same directory and a local server is running.</p>';
-        roomCountSpan.textContent = '0';
+        console.error('Error loading data:', error);
+        loadingIndicator.style.display = 'none';
+        roomContainer.innerHTML = '<p class="text-danger">Failed to load room data.</p>';
       });
-  });
 </script>
 
   <!-- Main JS File -->
