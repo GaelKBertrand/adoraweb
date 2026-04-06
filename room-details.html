@@ -390,140 +390,114 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <style>
-  /* Force 2 columns on desktop for room boxes */
+  <<style>
+  /* Room Grid: 2 columns on PC, 1 on mobile */
+  #rooms-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
   @media (min-width: 992px) {
-    #rooms-list .col-lg-4 {
-      flex: 0 0 50% !important;
-      max-width: 50% !important;
-    }
+    #rooms-list { grid-template-columns: 1fr 1fr; }
   }
-  /* Tighten space between gallery and lower menu */
-  .portfolio-details .portfolio-info {
-    margin-bottom: 10px !important;
-    padding-bottom: 0 !important;
-  }
-  .portfolio-description {
-    padding-top: 10px !important;
-  }
-  /* Fix Thumbnail appearance */
-  .thumbnail-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
-  }
-  .thumbnail-item {
-    width: 80px;
-    height: 60px;
-    cursor: pointer;
-    border: 2px solid transparent;
+
+  /* Gallery Fix */
+  .main-img-container {
+    width: 100%;
+    height: 400px;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 8px;
   }
-  .thumbnail-item.active {
-    border-color: #0d6efd;
-  }
-  .thumbnail-item img {
+  #main-product-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+  .thumbnail-gallery {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+  .thumb-item {
+    width: 80px;
+    height: 60px;
+    flex-shrink: 0;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    overflow: hidden;
+  }
+  .thumb-item.active { border-color: #0d6efd; }
+  .thumb-item img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Reduce space below gallery */
+  .portfolio-info { margin-bottom: 5px !important; padding-bottom: 0 !important; }
 </style>
 
 
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const hotelId = urlParams.get('id');
+document.addEventListener('DOMContentLoaded', function() {
+  const hotelId = new URLSearchParams(window.location.search).get('id');
+  if (!hotelId) return;
 
-    if (hotelId) {
-      fetch('hotels.json')
-        .then(response => response.json())
-        .then(hotels => {
-          const hotel = hotels.find(h => h['Main hotel ID'] === hotelId);
+  fetch('hotels.json')
+    .then(res => res.json())
+    .then(hotels => {
+      const hotel = hotels.find(h => h['Main hotel ID'] === hotelId);
+      if (!hotel) return;
 
-          if (hotel) {
-            // Update Text Data
-            document.title = hotel['Main Hotel'] + " - Details";
-            document.getElementById('hotel-name-page-title').textContent = hotel['Main Hotel'];
-            document.getElementById('hotel-description-short').textContent = hotel['Main Hotel description'];
-            document.getElementById('hotel-name-sidebar').textContent = hotel['Main Hotel'];
-            document.getElementById('hotel-phone').textContent = hotel['Phone'];
-            document.getElementById('hotel-email').textContent = hotel['Email'];
-            document.getElementById('hotel-address-full').textContent = hotel['Address Line (Street, Landmark, Village, )'];
-            document.getElementById('hotel-description-heading').textContent = hotel['Main Hotel'];
-            document.getElementById('hotel-description-long').textContent = hotel['Main Hotel description'];
+      // Basic Info
+      document.title = hotel['Main Hotel'];
+      document.getElementById('hotel-name-page-title').textContent = hotel['Main Hotel'];
+      document.getElementById('hotel-name-sidebar').textContent = hotel['Main Hotel'];
+      document.getElementById('hotel-address-full').textContent = hotel['Address Line (Street, Landmark, Village, )'];
 
-            // Header Background
-            if (hotel.images && hotel.images.length > 0) {
-              document.querySelector('.page-title').style.backgroundImage = `url(${hotel.images[0]})`;
-            }
+      // Gallery Logic - Simple & Fast
+      const mainImg = document.getElementById('main-product-image');
+      const thumbBox = document.querySelector('.thumbnail-gallery');
+      const imgs = hotel.images || [];
 
-            // GALLERY LOGIC
-            const mainImage = document.getElementById('main-product-image');
-            const thumbContainer = document.querySelector('.thumbnail-gallery');
-            const images = hotel.images || [];
+      if (imgs.length > 0) {
+        mainImg.src = imgs[0];
+        thumbBox.innerHTML = imgs.map((src, i) => `
+          <div class="thumb-item ${i === 0 ? 'active' : ''}" onclick="changeImg(this, '${src}')">
+            <img src="${src}">
+          </div>
+        `).join('');
+      }
 
-            if (images.length > 0) {
-              mainImage.src = images[0];
-              thumbContainer.innerHTML = ''; // Reset
-              images.forEach((src, idx) => {
-                const thumb = document.createElement('div');
-                thumb.className = `thumbnail-item ${idx === 0 ? 'active' : ''}`;
-                thumb.innerHTML = `<img src="${src}" alt="View ${idx + 1}">`;
-                thumb.onclick = function() {
-                  mainImage.src = src;
-                  document.querySelectorAll('.thumbnail-item').forEach(t => t.classList.remove('active'));
-                  thumb.classList.add('active');
-                };
-                thumbContainer.appendChild(thumb);
-              });
-            }
+      // Rooms Logic - Compact 2x2
+      const roomsList = document.getElementById('rooms-list');
+      roomsList.innerHTML = (hotel.rooms || []).map(room => {
+        const price = room['Group Price (per night)'] ? `₹${room['Group Price (per night)']}` : 'Contact Us';
+        const status = (room['Availability'] || 'Available').toLowerCase() === 'available' ? 'text-success' : 'text-danger';
 
-            // ROOMS GRID (2-Column Desktop, 1-Column Mobile)
-            const roomsList = document.getElementById('rooms-list');
-            roomsList.innerHTML = '';
+        return `
+          <div class="p-3 border rounded bg-white shadow-sm d-flex flex-column justify-content-between">
+            <div class="text-center">
+              <h6 class="fw-bold mb-1">${room['Hotel rooms options']}</h6>
+              <span class="${status}" style="font-size:0.75rem;">● ${room['Availability'] || 'Available'}</span>
+            </div>
+            <div class="text-center mt-2">
+              <div class="h5 fw-bold text-primary mb-2">${price}</div>
+              <button onclick="window.open('https://pages.razorpay.com/adoratrek', '_blank')"
+                      class="btn btn-primary btn-sm w-100 fw-bold">Book Now</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    });
+});
 
-            if (hotel.rooms) {
-              hotel.rooms.forEach(room => {
-                const available = room['Availability'] || 'Available';
-                const color = available.toLowerCase() === 'available' ? 'text-success' : 'text-danger';
-                const price = room['Group Price (per night)'] ? `₹${room['Group Price (per night)']}` : 'Contact for Price';
-
-                const card = document.createElement('div');
-                card.className = 'col-lg-4 col-md-6 mb-3'; // CSS above forces this to 2-columns on desktop
-                card.innerHTML = `
-                  <div class="p-3 border rounded bg-white h-100 d-flex flex-column justify-content-between shadow-sm">
-                    <div class="text-center">
-                      <h6 class="fw-bold mb-1">${room['Hotel rooms options']}</h6>
-                      <span class="badge bg-light ${color} mb-2" style="font-size:0.7rem;">● ${available}</span>
-                    </div>
-                    <div class="text-center mt-auto">
-                      <div class="h5 fw-bold text-primary mb-2">${price}</div>
-                      <button onclick="window.open('https://pages.razorpay.com/adoratrek', '_blank')"
-                              class="btn btn-primary btn-sm w-100 fw-bold">Book Now</button>
-                    </div>
-                  </div>
-                `;
-                roomsList.appendChild(card);
-              });
-            }
-
-            // AMENITIES
-            const amenList = document.getElementById('amenities-list');
-            amenList.innerHTML = '';
-            const rawAmen = hotel['Amenities (same for all hotels)'] || "";
-            rawAmen.split('\n').filter(t => t.trim()).forEach(a => {
-              const p = document.createElement('p');
-              p.className = "mb-1 small";
-              p.textContent = a.trim();
-              amenList.appendChild(p);
-            });
-          }
-        });
-    }
-  });
+// Separate function to keep the main thread fast
+function changeImg(el, src) {
+  document.getElementById('main-product-image').src = src;
+  document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
 </script>
 </body>
 
