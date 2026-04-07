@@ -642,7 +642,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const price = room['Group Price (per night)'] ? `₹${room['Group Price (per night)']}` : 'Contact Us';
         const status = (room['Availability'] || 'Available').toLowerCase() === 'available' ? 'text-success' : 'text-danger';
 
-        return
+        return `
           <div class="p-3 border rounded bg-white shadow-sm d-flex flex-column justify-content-between">
             <div class="text-center">
               <h6 class="fw-bold mb-1">${room['Hotel rooms options']}</h6>
@@ -651,9 +651,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="text-center mt-2">
               <div class="h5 fw-bold text-primary mb-2">${price}</div>
               <button onclick="window.open('https://pages.razorpay.com/adoratrek', '_blank')"
-
-                      <!--class="btn btn-primary btn-sm w-100 fw-bold">Book Now</button> -->
-                      <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_SaPVNKuLqObksX" async> </script> </form>
+                      class="btn btn-primary btn-sm w-100 fw-bold">Book Now</button>
             </div>
           </div>
         `;
