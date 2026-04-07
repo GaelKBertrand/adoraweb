@@ -232,37 +232,154 @@
             </div>
             <!-- Amenities Tab Content -->
             <div class="tab-pane fade" id="room-details-amenities" role="tabpanel">
-              <div id="amenities-list">
-                 <p>🛏️ Room Amenities</p>
-                 <p>King/Queen size beds with premium linens</p>
-                 <p>Private balconies (with valley or mountain views)</p>
-                 <p>Room heater or centralized heating</p>
-                 <p>Ensuite bathrooms with hot & cold running water</p>
-                 <p>Complimentary toiletries (soap, shampoo, towels)</p>
-                 <p>24/7 hot water via geyser or boiler system</p>
-                 <p>LED Smart TV with cable/DTH</p>
-                 <p>Free high-speed Wi-Fi</p>
-                 <p>Work desk and chair</p>
-                 <p>Wardrobe and luggage rack</p>
-                 <p>Tea/coffee maker or electric kettle</p>
-                 <p>In-room dining service or kitchenette (in suites/apartments)</p>
-                 <p>Intercom or direct dial phone</p>
-                 <p>Daily housekeeping</p>
-                 <p>Attached Kitchen</p>
+              <style>
+  .amenities-wrapper {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
 
-                 <p>🏕️ Property Amenities</p>
-                 <p>Bonfire setup (seasonal)</p>
-                 <p>Garden or outdoor seating area</p>
-                 <p>Parking facility (onsite or nearby)</p>
-                 <p>24-hour front desk and concierge</p>
-                 <p>Travel desk for local sightseeing or trek bookings</p>
-                 <p>Laundry service</p>
-                 <p>Pickup & drop services (on request)</p>
-              </div>
+  .amenities-section {
+    margin-bottom: 20px;
+  }
+
+  .amenities-section h5 {
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .amenities-section ul {
+    padding-left: 18px;
+    margin: 0;
+    list-style: none;
+  }
+
+  .amenities-section li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  /* Custom bullet */
+  .amenities-section li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-size: 12px;
+  }
+</style>
+              <div id="amenities-list" class="amenities-wrapper">
+
+  <!-- Room Amenities -->
+  <div class="amenities-section">
+    <h5>🛏️ Room Amenities</h5>
+    <ul>
+      <li>King/Queen size beds with premium linens</li>
+      <li>Private balconies (valley/mountain views)</li>
+      <li>Room heater or centralized heating</li>
+      <li>Ensuite bathrooms with hot & cold water</li>
+      <li>Complimentary toiletries (soap, shampoo, towels)</li>
+      <li>24/7 hot water (geyser/boiler)</li>
+      <li>LED Smart TV with cable/DTH</li>
+      <li>Free high-speed Wi-Fi</li>
+      <li>Work desk and chair</li>
+      <li>Wardrobe and luggage rack</li>
+      <li>Tea/coffee maker or electric kettle</li>
+      <li>In-room dining / kitchenette (selected units)</li>
+      <li>Intercom or direct dial phone</li>
+      <li>Daily housekeeping</li>
+      <li>Attached kitchen</li>
+    </ul>
+  </div>
+
+  <!-- Property Amenities -->
+  <div class="amenities-section mt-4">
+    <h5>🏕️ Property Amenities</h5>
+    <ul>
+      <li>Bonfire setup (seasonal)</li>
+      <li>Garden / outdoor seating</li>
+      <li>Parking facility (onsite/nearby)</li>
+      <li>24-hour front desk & concierge</li>
+      <li>Travel desk (sightseeing & treks)</li>
+      <li>Laundry service</li>
+      <li>Pickup & drop (on request)</li>
+    </ul>
+  </div>
+
+</div>
             </div>
             <!-- Policies Tab Content -->
             <div class="tab-pane fade" id="room-details-policies" role="tabpanel">
-              <div id="refund-policies">Refund Policies will be displayed here</div>
+              <style>
+                .policy-wrapper {
+                  background: #ffffff;
+                  padding: 20px;
+                  border-radius: 12px;
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                }
+
+                .policy-section {
+                  margin-bottom: 18px;
+                }
+
+                .policy-section h5 {
+                  font-size: 16px;
+                  font-weight: 600;
+                  margin-bottom: 6px;
+                  color: #222;
+                }
+
+                .policy-section p {
+                  font-size: 14px;
+                  color: #555;
+                  margin: 0;
+                  line-height: 1.6;
+                }
+              </style>
+              <div id="refund-policies" class="policy-wrapper">
+
+                <div class="policy-section">
+                  <h5>📄 Reservation Policy</h5>
+                  <p>
+                    All reservations are subject to availability and confirmation. A valid payment method is required to secure your booking. Cancellation and modification policies may vary depending on the property and reservation type. Please refer to your booking confirmation for complete details.
+                  </p>
+                </div>
+
+                <div class="policy-section">
+                  <h5>❌ Cancellation Policy</h5>
+                  <p>
+                    Cancellations made within the specified number of days before arrival may incur a cancellation fee. The exact charges and cancellation window vary by property and booking type. Kindly review your booking confirmation for accurate terms.
+                  </p>
+                </div>
+
+                <div class="policy-section">
+                  <h5>🕒 Check-In & Check-Out</h5>
+                  <p>
+                    Check-in time is 01:00 PM and check-out time is 11:00 AM. Early check-in and late check-out are subject to availability and may involve additional charges.
+                  </p>
+                </div>
+
+                <div class="policy-section">
+                  <h5>🔒 Privacy Policy</h5>
+                  <p>
+                    We are committed to safeguarding your personal information. Our privacy practices ensure your data is collected, used, and protected responsibly. By using our services, you agree to our privacy standards.
+                  </p>
+                </div>
+
+                <div class="policy-section">
+                  <h5>🛡️ Security Policy</h5>
+                  <p>
+                    Your security is our priority. We implement industry-standard encryption and secure systems to protect your payment details and ensure a safe booking experience.
+                  </p>
+                </div>
+
+              </div>
             </div>
             <!-- Reviews Tab Content -->
             <div class="tab-pane fade" id="room-details-reviews" role="tabpanel">
