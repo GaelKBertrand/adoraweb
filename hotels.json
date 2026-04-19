@@ -1,1 +1,148 @@
-[]
+[
+  {
+    "Main Hotel": "Swiss Cottage",
+    "Main hotel ID": "swiss-cottage-main",
+    "Main Hotel description": "Discover alpine charm and cozy comforts at Swiss Cottage, offering spacious chalets for a memorable stay.",
+    "Phone": 7807111209,
+    "Email": "swissmanalicottage@gmail.com",
+    "Address Line (Street, Landmark, Village, )": "Kanyal Rd, opposite Kartikey Swami Temple, Simsa Village, Manali, Nasogi, Himachal Pradesh 175131",
+    "images": [
+      "assets/img/hotel/swiss-cottagecover.jpg"
+    ],
+    "Amenities (same for all hotels)": ">🛏️ Room Amenities\nKing/Queen size beds with premium linens, Private balconies (with valley or mountain views), Room heater or centralized heating, Ensuite bathrooms with hot & cold running water, Complimentary toiletries (soap, shampoo, towels), 24/7 hot water via geyser or boiler system, LED Smart TV with cable/DTH, Free high-speed Wi-Fi, Work desk and chair, Wardrobe and luggage rack, Tea/coffee maker or electric kettle, In-room dining service or kitchenette (in suites/apartments), Intercom or direct dial phone, Daily housekeeping, Attached Kitchen.\n\n>🏕️ Property Amenities\nBonfire setup (seasonal), Garden or outdoor seating area, Parking facility (onsite or nearby), 24-hour front desk and concierge, Travel desk for local sightseeing or trek bookings, Laundry service, Pickup & drop services (on request)",
+    "rooms": [
+      {
+        "Hotel rooms options": "Swiss Cottage 5 BHK",
+        "Availability": "Dealing",
+        "Group Price (per night)": 12000,
+        "Short Description": "Luxurious 5-bedroom chalet for large groups seeking nature's embrace."
+      },
+      {
+        "Hotel rooms options": "Swiss Cottage 4 BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 9000,
+        "Short Description": "Elegant 4-bedroom retreat amidst scenic beauty and tranquility."
+      },
+      {
+        "Hotel rooms options": "Swiss Cottage 9 BHK",
+        "Availability": "Reserved",
+        "Group Price (per night)": 18000,
+        "Short Description": "Opulent 9-bedroom haven with breathtaking views and top-tier amenities."
+      }
+    ]
+  },
+  {
+    "Main Hotel": "Juniper House",
+    "Main hotel ID": "juniper-house-main",
+    "Main Hotel description": "Discover a world of luxury and sophistication at Juniper New House. Situated in a prime location, this elegant hotel offers a range of meticulously designed accommodations to suit every traveler's needs.",
+    "Phone": 7807111209,
+    "Email": "terrahomes0@gmail.com",
+    "Address Line (Street, Landmark, Village, )": "Terra- A Mountain Home, Naggar Rd, Prini, Manali, Himachal Pradesh 175131",
+    "images": [
+      "assets/img/hotel/juniper-housecover.jpg"
+    ],
+    "Amenities (same for all hotels)": ">🛏️ Room Amenities\nKing/Queen size beds with premium linens, Private balconies (with valley or mountain views), Room heater or centralized heating, Ensuite bathrooms with hot & cold running water, Complimentary toiletries (soap, shampoo, towels), 24/7 hot water via geyser or boiler system, LED Smart TV with cable/DTH, Free high-speed Wi-Fi, Work desk and chair, Wardrobe and luggage rack, Tea/coffee maker or electric kettle, In-room dining service or kitchenette (in suites/apartments), Intercom or direct dial phone, Daily housekeeping, Attached Kitchen.\n\n>🏕️ Property Amenities\nBonfire setup (seasonal), Garden or outdoor seating area, Parking facility (onsite or nearby), 24-hour front desk and concierge, Travel desk for local sightseeing or trek bookings, Laundry service, Pickup & drop services (on request)",
+    "rooms": [
+      {
+        "Hotel rooms options": "Glen Haus 2 BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 4000,
+        "Short Description": "Serene 2-bedroom retreat blending modern convenience with peace."
+      },
+      {
+        "Hotel rooms options": "Terra 4 BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 8000,
+        "Short Description": "Luxurious 4-bedroom accommodation with stunning vistas and exquisite interiors. "
+      },
+      {
+        "Hotel rooms options": "Terra n Glen 6BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 12000,
+        "Short Description": "Spacious 6-bedroom retreat offering comfort and natural beauty."
+      }
+    ]
+  },
+  {
+    "Main Hotel": "Starway Homes (Orchard Art House)",
+    "Main hotel ID": "starway-homes-main",
+    "Main Hotel description": "Immerse yourself in artistic elegance at Orchard Arthouse, where creativity and comfort harmonize in every detail.",
+    "Phone": 7807111209,
+    "Email": "homesstarway@gmail.com",
+    "Address Line (Street, Landmark, Village, )": "Manu temple road, old manali , Manali , Himachal Pradesh,175131",
+    "images": [
+      "assets/img/hotel/starway-homescover.jpg"
+    ],
+    "Amenities (same for all hotels)": ">🛏️ Room Amenities\nKing/Queen size beds with premium linens, Private balconies (with valley or mountain views), Room heater or centralized heating, Ensuite bathrooms with hot & cold running water, Complimentary toiletries (soap, shampoo, towels), 24/7 hot water via geyser or boiler system, LED Smart TV with cable/DTH, Free high-speed Wi-Fi, Work desk and chair, Wardrobe and luggage rack, Tea/coffee maker or electric kettle, In-room dining service or kitchenette (in suites/apartments), Intercom or direct dial phone, Daily housekeeping, Attached Kitchen.\n\n>🏕️ Property Amenities\nBonfire setup (seasonal), Garden or outdoor seating area, Parking facility (onsite or nearby), 24-hour front desk and concierge, Travel desk for local sightseeing or trek bookings, Laundry service, Pickup & drop services (on request)",
+    "rooms": [
+      {
+        "Hotel rooms options": "Mercury 1 BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 1400,
+        "Short Description": "Cozy 1-bedroom suite surrounded by artistic elements for a relaxing stay."
+      },
+      {
+        "Hotel rooms options": "Venus 1 BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 1200,
+        "Short Description": "Artistic 1-bedroom suite combining creativity and comfort for a delightful experience."
+      },
+      {
+        "Hotel rooms options": "Mars 1 BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 1200,
+        "Short Description": "Unique 1-bedroom suite with artistic touches and modern amenities."
+      },
+      {
+        "Hotel rooms options": "Jupiter 1 BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 1200,
+        "Short Description": "Comfortable 1-bedroom suite designed for a relaxing stay with artistic flair."
+      },
+      {
+        "Hotel rooms options": "Saturn 1 BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 1200,
+        "Short Description": "Luxurious 1-bedroom suite where modern amenities meet artistic touches."
+      },
+      {
+        "Hotel rooms options": "Uranus 1 BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 1200,
+        "Short Description": "Creative 1-bedroom suite featuring artistic décor and a cozy ambiance."
+      },
+      {
+        "Hotel rooms options": "Neptune 1 BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 1200,
+        "Short Description": "Peaceful 1-bedroom suite designed for relaxation and artistic inspiration."
+      },
+      {
+        "Hotel rooms options": "Moon 1 BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 1200,
+        "Short Description": "Tranquil 1-bedroom suite offering a cozy and welcoming ambiance."
+      }
+    ]
+  },
+  {
+    "Main Hotel": "Amaira Hotel",
+    "Main hotel ID": "amaira-hotel-main",
+    "Main Hotel description": "Experience the serenity of the Himalayas with your loved ones at Amaira Hotel — a private 5 BHK retreat designed for comfort, togetherness, and scenic beauty.\n",
+    "Phone": 7807111209,
+    "Email": "info@adorahospitality.com",
+    "Address Line (Street, Landmark, Village, )": "Kanyal Rd, opposite Kartikey Swami Temple, Simsa Village, Manali, Nasogi, Himachal Pradesh 175131",
+    "images": [
+      "assets/img/hotel/amaira-hotelcover.jpg"
+    ],
+    "Amenities (same for all hotels)": ">🛏️ Room Amenities\nKing/Queen size beds with premium linens, Private balconies (with valley or mountain views), Room heater or centralized heating, Ensuite bathrooms with hot & cold running water, Complimentary toiletries (soap, shampoo, towels), 24/7 hot water via geyser or boiler system, LED Smart TV with cable/DTH, Free high-speed Wi-Fi, Work desk and chair, Wardrobe and luggage rack, Tea/coffee maker or electric kettle, In-room dining service or kitchenette (in suites/apartments), Intercom or direct dial phone, Daily housekeeping, Attached Kitchen.\n\n>🏕️ Property Amenities\nBonfire setup (seasonal), Garden or outdoor seating area, Parking facility (onsite or nearby), 24-hour front desk and concierge, Travel desk for local sightseeing or trek bookings, Laundry service, Pickup & drop services (on request)",
+    "rooms": [
+      {
+        "Hotel rooms options": "Amaira 5 BHK",
+        "Availability": "Available",
+        "Group Price (per night)": 11000,
+        "Short Description": "A spacious private 5 BHK villa with balconies offering stunning panoramic mountain views."
+      }
+    ]
+  }
+]
