@@ -411,38 +411,57 @@
           </div>
         </section>
 
-        <script>
-  // Capture Hotel ID from URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const hotelId = urlParams.get('id');
-  if (hotelId) {
-    document.getElementById('hotel_id_input').value = hotelId;
-  }
+    <script>
+        (function() {
+          // 1. Capture the Hotel ID from the URL (e.g., ?id=swiss-cottage-main)
+          const urlParams = new URLSearchParams(window.location.search);
+          const hotelId = urlParams.get('id');
+          const hotelInput = document.getElementById('hotel_id_input');
 
-  // Submission logic
-  const form = document.getElementById('reservation-form');
-  const btn = document.getElementById('submit-btn');
+          if (hotelId && hotelInput) {
+            hotelInput.value = hotelId;
+          }
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    btn.disabled = true;
-    const originalText = btn.innerHTML;
-    btn.innerHTML = "Processing...";
+          // 2. Form Submission Logic
+          const form = document.getElementById('reservation-form');
+          const btn = document.getElementById('submit-btn');
 
-    fetch(form.action, { method: 'POST', body: new FormData(form)})
-      .then(response => {
-        alert('Reservation request received!');
-        btn.disabled = false;
-        btn.innerHTML = originalText;
-        form.reset();
-      })
-      .catch(error => {
-        console.error('Error!', error.message);
-        btn.disabled = false;
-        btn.innerHTML = 'Try Again';
-      });
-  });
-</script>
+          if (form) {
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+
+              // Disable button to prevent double-submissions
+              btn.disabled = true;
+              const originalContent = btn.innerHTML;
+              btn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
+
+              // Use the fetch API with 'no-cors' to bypass browser security blocks
+              fetch(form.action, {
+                method: 'POST',
+                mode: 'no-cors', // CRITICAL: This prevents the "Try Again" / CORS error
+                body: new FormData(form)
+              })
+              .then(function() {
+                // Success Path
+                alert('Success! Your reservation request for ' + (hotelId || 'the property') + ' has been sent.');
+                form.reset();
+                // Keep the ID in the hidden field even after reset
+                if (hotelId) hotelInput.value = hotelId;
+              })
+              .catch(function(error) {
+                // Error Path
+                console.error('Submission Error:', error);
+                alert('Network error. Please call +91 7807111209 to confirm.');
+              })
+              .finally(function() {
+                // Restore button state
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+              });
+            });
+          }
+        })();
+      </script>
 
 
     <!-- /Booking Section -->
