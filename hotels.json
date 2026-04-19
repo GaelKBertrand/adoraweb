@@ -45,13 +45,13 @@
     "rooms": [
       {
         "Hotel rooms options": "Glen Haus 2 BHK",
-        "Availability": "Booked",
+        "Availability": "Occupied",
         "Group Price (per night)": 4000,
         "Short Description": "Serene 2-bedroom retreat blending modern convenience with peace."
       },
       {
         "Hotel rooms options": "Terra 4 BHK",
-        "Availability": "Booked",
+        "Availability": "Occupied",
         "Group Price (per night)": 8000,
         "Short Description": "Luxurious 4-bedroom accommodation with stunning vistas and exquisite interiors. "
       },
@@ -139,7 +139,7 @@
     "rooms": [
       {
         "Hotel rooms options": "Amaira 5 BHK",
-        "Availability": "Available",
+        "Availability": "Occupied",
         "Group Price (per night)": 11000,
         "Short Description": "A spacious private 5 BHK villa with balconies offering stunning panoramic mountain views."
       }
