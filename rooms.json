@@ -5,7 +5,7 @@
     "category": "Swiss Cottage",
     "price": 12000,
     "description": "Luxurious 5-bedroom chalet for large groups seeking nature's embrace.",
-    "image": "assets/img/hotel/swiss-cottagecover.jpg",
+    "image": "assets/img/hotel/swiss1.jpg",
     "maxOccupancy": 20,
     "features": [
       "wifi",
@@ -19,7 +19,7 @@
     "category": "Juniper House",
     "price": 4000,
     "description": "Serene 2-bedroom retreat blending modern convenience with peace.",
-    "image": "assets/img/hotel/juniper-housecover.jpg",
+    "image": "assets/img/hotel/glen1.jpg",
     "maxOccupancy": 8,
     "features": [
       "wifi",
@@ -33,7 +33,7 @@
     "category": "Starway Homes (Orchard Art House)",
     "price": 1400,
     "description": "Cozy 1-bedroom suite surrounded by artistic elements for a relaxing stay.",
-    "image": "assets/img/hotel/starway-homescover.jpg",
+    "image": "assets/img/hotel/orchard1.jpg",
     "maxOccupancy": 4,
     "features": [
       "wifi",
@@ -47,7 +47,7 @@
     "category": "Amaira Hotel",
     "price": 11000,
     "description": "A spacious private 5 BHK villa with balconies offering stunning panoramic mountain views.",
-    "image": "assets/img/hotel/amaira-hotelcover.jpg",
+    "image": "assets/img/hotel/terra1.jpg",
     "maxOccupancy": 15,
     "features": [
       "wifi",
