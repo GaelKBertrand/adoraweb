@@ -28,13 +28,6 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: LuxuryHotel
-  * Template URL: https://bootstrapmade.com/luxury-hotel-bootstrap-template/
-  * Updated: Jun 30 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="booking-page">
@@ -63,7 +56,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="rooms.html">View Properties & Stays</a></li>
+          <li><a href="rooms.html">Hotels & Villas</a></li>
           <!--<li><a href="gallery.html">Look Inside</a></li>-->
           <li><a href="https://trek.adorahospitality.com" target="_blank" rel="noopener noreferrer">Treks & Road Trips</a></li>
           <li><a href="https://insider.adorahospitality.com" target="_blank" rel="noopener noreferrer">Updates & Blog</a></li>
@@ -107,7 +100,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted d-none d-sm-block" href="../booking-app/index.html" target="_blank" rel="noopener noreferrer">Book On App</a>
+      <!--<a class="btn-getstarted d-none d-sm-block" href="../booking-app/index.html" target="_blank" rel="noopener noreferrer">Book On App</a>-->
 
 
     </div>
@@ -119,7 +112,7 @@
     <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/hotel/showcase-7.webp);">
       <div class="container position-relative">
         <h1>Booking</h1>
-        <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
+        <p> Reserve Your Room Using The Form Below. A hotel staff will contact you to confirm your reservation.</p>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
@@ -130,7 +123,7 @@
     </div><!-- End Page Title -->
 
     <!-- Booking Section -->
-    <section id="booking" class="booking section">
+    <!--<section id="booking" class="booking section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -281,7 +274,31 @@
 
       </div>
 
-    </section><!-- /Booking Section -->
+    </section> -->
+
+    <form class="booking-form" action="PASTE_YOUR_WEB_APP_URL_HERE" method="POST" id="reservation-form">
+
+          <div class="booking-actions text-center">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <i class="bi bi-search"></i>
+              Check Availability &amp; Rates
+            </button>
+          </div>
+        </form>
+
+        <script>
+          // Optional: This prevents the page from redirecting to a white screen after submission
+          const form = document.getElementById('reservation-form');
+          form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(form.action, { method: 'POST', body: new FormData(form)})
+              .then(response => alert('Thank you! Your request has been received.'))
+              .catch(error => console.error('Error!', error.message))
+          });
+        </script>
+
+
+    <!-- /Booking Section -->
 
   </main>
 
