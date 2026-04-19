@@ -13,7 +13,7 @@
     "rooms": [
       {
         "Hotel rooms options": "Swiss Cottage 5 BHK",
-        "Availability": "Dealing",
+        "Availability": "Occupied",
         "Group Price (per night)": 12000,
         "Short Description": "Luxurious 5-bedroom chalet for large groups seeking nature's embrace."
       },
@@ -25,7 +25,7 @@
       },
       {
         "Hotel rooms options": "Swiss Cottage 9 BHK",
-        "Availability": "Reserved",
+        "Availability": "Occupied",
         "Group Price (per night)": 18000,
         "Short Description": "Opulent 9-bedroom haven with breathtaking views and top-tier amenities."
       }
