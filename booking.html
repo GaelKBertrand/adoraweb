@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Booking - LuxuryHotel Bootstrap Template</title>
+  <title>Booking - Adora Hospitality</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -266,108 +266,183 @@
 
     </section> -->
 
-      <form class="booking-form" action="https://script.google.com/macros/s/AKfycbxbf2TVFEDNPwSilgQHtO4pqZStvQBgtg1wVoVxL2nWx9mFbn7CpJEAQKSx4gowHWch/exec" method="POST" id="reservation-form">
+         <section id="booking" class="booking section">
+          <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="booking-widget">
+                  <div class="booking-header text-center">
+                    <h3>Find Your Perfect Stay</h3>
+                    <p>Choose your dates and discover our available rooms with the best rates</p>
+                  </div>
 
-        <input type="hidden" name="hotel_id" id="hotel_id_input" value="">
+                  <form class="booking-form" id="reservation-form" action="https://script.google.com/macros/s/AKfycbwfrswWRIymgazsVOCntUkKpH0ID81cl6GgA3bx-lEsAWLLmEzoL9jh8iwKRJC5VDI7/exec" method="POST">
 
-        <div class="row g-3">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="check-in-date">Check-in Date</label>
-              <input type="date" class="form-control" id="check-in-date" name="check_in" required>
+                    <input type="hidden" name="hotel_id" id="hotel_id_input" value="">
+
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="check-in-date">Check-in Date</label>
+                          <input type="date" class="form-control" id="check-in-date" name="check_in" required="">
+                          <small class="text-muted">Select your arrival date</small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="check-out-date">Check-out Date</label>
+                          <input type="date" class="form-control" id="check-out-date" name="check_out" required="">
+                          <small class="text-muted">Select your departure date</small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="adults">Adults</label>
+                          <select class="form-select" id="adults" name="adults" required="">
+                            <option value="">Adults</option>
+                            <option value="1">1 Adult</option>
+                            <option value="2" selected="">2 Adults</option>
+                            <option value="3">3 Adults</option>
+                            <option value="4">4 Adults</option>
+                            <option value="5">5 Adults</option>
+                            <option value="6">6+ Adults</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="children">Children</label>
+                          <select class="form-select" id="children" name="children">
+                            <option value="0" selected="">No Children</option>
+                            <option value="1">1 Child</option>
+                            <option value="2">2 Children</option>
+                            <option value="3">3 Children</option>
+                            <option value="4">4+ Children</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="rooms">Rooms</label>
+                          <select class="form-select" id="rooms" name="rooms" required="">
+                            <option value="">Rooms</option>
+                            <option value="1" selected="">1 Room</option>
+                            <option value="2">2 Rooms</option>
+                            <option value="3">3 Rooms</option>
+                            <option value="4">4+ Rooms</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row mt-4">
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label for="special-requests">Special Requests (Optional)</label>
+                          <textarea class="form-control" id="special-requests" name="special_requests" rows="3" placeholder="Any special needs, dietary requirements, or preferences..."></textarea>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="booking-actions text-center">
+                      <button type="submit" id="submit-btn" class="btn btn-primary btn-lg">
+                        <i class="bi bi-search"></i>
+                        Make a Booking Reservation &amp; Rates
+                      </button>
+
+                      <div class="booking-features">
+                        <div class="feature-item">
+                          <i class="bi bi-shield-check"></i>
+                          <span>Free cancellation</span>
+                        </div>
+                        <div class="feature-item">
+                          <i class="bi bi-credit-card"></i>
+                          <span>No booking fees</span>
+                        </div>
+                        <div class="feature-item">
+                          <i class="bi bi-clock"></i>
+                          <span>Instant confirmation</span>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-5" data-aos="fade-up" data-aos-delay="200">
+              <div class="col-lg-4 col-md-6">
+                <div class="info-card">
+                  <div class="icon"><i class="bi bi-telephone"></i></div>
+                  <div class="content">
+                    <h5>Need Help?</h5>
+                    <p>Call our reservation team</p>
+                    <strong>+91 7807111209</strong><br>
+                    <strong>+91 7807111208</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6">
+                <div class="info-card">
+                  <div class="icon"><i class="bi bi-clock-history"></i></div>
+                  <div class="content">
+                    <h5>Check-in Time: 01:00 PM</h5>
+                    <h5>Check-out: 11:00 AM</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6">
+                <div class="info-card">
+                  <div class="icon"><i class="bi bi-geo-alt"></i></div>
+                  <div class="content">
+                    <h5>Prime Location</h5>
+                    <p>Downtown Manali, Kullu district</p>
+                    <strong>Walking distance to attractions</strong>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="check-out-date">Check-out Date</label>
-              <input type="date" class="form-control" id="check-out-date" name="check_out" required>
-            </div>
-          </div>
+        <script>
+  // Capture Hotel ID from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const hotelId = urlParams.get('id');
+  if (hotelId) {
+    document.getElementById('hotel_id_input').value = hotelId;
+  }
 
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="adults">Adults</label>
-              <select class="form-select" id="adults" name="adults" required>
-                <option value="1">1 Adult</option>
-                <option value="2" selected>2 Adults</option>
-                <option value="3">3 Adults</option>
-                <option value="4">4 Adults</option>
-              </select>
-            </div>
-          </div>
+  // Submission logic
+  const form = document.getElementById('reservation-form');
+  const btn = document.getElementById('submit-btn');
 
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="children">Children</label>
-              <select class="form-select" id="children" name="children">
-                <option value="0" selected>No Children</option>
-                <option value="1">1 Child</option>
-                <option value="2">2 Children</option>
-              </select>
-            </div>
-          </div>
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    btn.disabled = true;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = "Processing...";
 
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="rooms">Rooms</label>
-              <select class="form-select" id="rooms" name="rooms" required>
-                <option value="1" selected>1 Room</option>
-                <option value="2">2 Rooms</option>
-                <option value="3">3 Rooms</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="row mt-4">
-          <div class="col-12">
-            <div class="form-group">
-              <label for="special-requests">Special Requests (Optional)</label>
-              <textarea class="form-control" name="special_requests" rows="3" placeholder="Any preferences..."></textarea>
-            </div>
-          </div>
-        </div>
-
-        <div class="booking-actions text-center mt-4">
-          <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">
-            <i class="bi bi-search"></i>
-            Check Availability &amp; Rates
-          </button>
-        </div>
-      </form>
-
-      <script>
-        // 1. Grab the Hotel ID from the URL (?id=swiss-cottage-main)
-        const urlParams = new URLSearchParams(window.location.search);
-        const hotelId = urlParams.get('id');
-        if (hotelId) {
-          document.getElementById('hotel_id_input').value = hotelId;
-        }
-
-        // 2. Handle Form Submission
-        const form = document.getElementById('reservation-form');
-        const btn = document.getElementById('submit-btn');
-
-        form.addEventListener('submit', e => {
-          e.preventDefault();
-          btn.disabled = true;
-          btn.innerHTML = "Sending...";
-
-          fetch(form.action, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-              alert('Request sent for ' + (hotelId || 'selected hotel') + '! We will contact you.');
-              btn.disabled = false;
-              btn.innerHTML = '<i class="bi bi-search"></i> Check Availability & Rates';
-              form.reset();
-            })
-            .catch(error => {
-              alert('Error! Please call +91 7807111209');
-              btn.disabled = false;
-              btn.innerHTML = 'Try Again';
-            });
-        });
-      </script>
+    fetch(form.action, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        alert('Reservation request received!');
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        form.reset();
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        btn.disabled = false;
+        btn.innerHTML = 'Try Again';
+      });
+  });
+</script>
 
 
     <!-- /Booking Section -->
